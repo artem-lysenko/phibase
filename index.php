@@ -22,12 +22,19 @@
 				
 	   <label>
 	    <span>SPARQL Query</span>
-	    <textarea id="feedback" name="sparql">  </textarea>
+	    <textarea id="sparql" name="sparql_area" text="hala">  </textarea>
 	   </label>
 		
-	   <input type="submit" value="Execute!" />
-		
+	   <input type="submit" value="Execute!" />		
 	</div>
+	
+	<div>
+	    <h1>Display interaction with organisms and theirs role in that</h1>
+	    
+	 </div>
+	 
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="fill_sparql.js"></script>
 
       </form> 
    </body> 
