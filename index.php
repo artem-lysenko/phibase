@@ -22,7 +22,7 @@
 				
 	   <label>
 	    <span>SPARQL Query</span>
-	    <textarea id="sparql" name="sparql">  </textarea>
+	    <textarea id="sparql" name="sparql_area">  </textarea>
 	   </label>
 		
 	   <input type="submit" value="Execute!" />		
