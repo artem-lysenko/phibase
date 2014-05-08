@@ -1,6 +1,6 @@
 <?php
     $endpoint = $_POST['endpoint'];
-    $sparql = $_POST['sparql'];
+    $sparql = $_POST['sparql_area'];
        			
     if ($endpoint != '' && $sparql != '') {        
 	        require_once( "sparqllib.php" );
