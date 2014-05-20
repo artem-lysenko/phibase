@@ -299,19 +299,14 @@
 			  function xaa() {
 			  
 			  var area = document.getElementById("sparql");
-			area.value = "PREFIX owl:
-			<http://www.w3.org/2002/07/owl#>\nPREFIX rdf:
-			<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX
-			rdfs:
-			<http://www.w3.org/2000/01/rdf-schema#>\nPREFIX
-			pho:
-			<http://rdf.phibase.org/ontology/phibase-rdf-ontology.owl#>\nPREFIX
-			pcore: <http://purl.uniprot.org/core/>\nPREFIX
-			xsd:
-			<http://www.w3.org/2001/XMLSchema#>\n\nSELECT
-			?protein WHERE { ?protein a pho:protein }";
-			
-			   }
+			area.value = "PREFIX owl: <http://www.w3.org/2002/07/owl#> \n \
+			PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n \
+			PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n \
+			PREFIX pho: <http://rdf.phibase.org/ontology/phibase-rdf-ontology.owl#>\n \
+			PREFIX pcore: <http://purl.uniprot.org/core/>\n \
+			PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\n \
+			SELECT ?protein WHERE { ?protein a pho:protein }" ; \
+			} \";
 			</script>
 			<a onClick="xaa();" style="cursor: pointer; cursor: hand;">Display proteins in the pathogen Fusarium graminearum that have lethal phenotype when the host is wheat. What Gene Ontology Biological Processes do they have, what KEGG pathways do they map to, and what Pfam domains do they have in common?</a>
 			</li>
