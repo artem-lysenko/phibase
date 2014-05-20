@@ -299,7 +299,17 @@
 			  function xaa() {
 			  
 			  var area = document.getElementById("sparql");
-			area.value = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pho: <http://rdf.phibase.org/ontology/phibase-rdf-ontology.owl#>\nPREFIX pcore: <http://purl.uniprot.org/core/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?protein WHERE { ?protein pho:protein }";
+			area.value = "PREFIX owl:
+			<http://www.w3.org/2002/07/owl#>\nPREFIX rdf:
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX
+			rdfs:
+			<http://www.w3.org/2000/01/rdf-schema#>\nPREFIX
+			pho:
+			<http://rdf.phibase.org/ontology/phibase-rdf-ontology.owl#>\nPREFIX
+			pcore: <http://purl.uniprot.org/core/>\nPREFIX
+			xsd:
+			<http://www.w3.org/2001/XMLSchema#>\n\nSELECT
+			?protein WHERE { ?protein a pho:protein }";
 			
 			   }
 			</script>
