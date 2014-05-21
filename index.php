@@ -86,9 +86,8 @@
 			    $output = $_POST['output'];
 			    			    
 			    if ($endpoint != '' && $sparql != '') {        
-					require_once( "includes/sparqllib.php" );
-					include_once 'includes/HTMLTable2JSON.php';
-					//include_once 'includes/html2xml-09b.php';
+					require_once( "includes/sparqllib.php" );					
+					include_once 'includes/xml2array.php';
 	
 				$data = sparql_get($endpoint,$sparql);
 				if( !isset($data) )
@@ -122,7 +121,7 @@
 					}
 					print "</table>";
 				} else if($output == 'JSON'){ // output JSON
-				
+					/*
 					$html = ""; 
 					$html .= "<table>";
 					$html .= "<tr>";
@@ -151,7 +150,39 @@
 					$helper = new HTMLTable2JSON();
 					$json = $helper->tableToJSON('', false, null, null, null, null, null, true, null, null, $html);
 
-					echo $json;  
+					echo $json;
+					*/
+					$xml = "";
+								$xml .= "<?xml version='1.0' ?>"; 
+								$xml .= "<sparql>";
+								$xml .= "<head>";
+								foreach( $data->fields() as $field )
+								{
+									$xml .= "<variable name=\"$field\"/>";
+								}
+								$xml .= "</head>";
+								$xml .= "<results>";
+								foreach( $data as $row )
+								{
+					
+									$xml .= "<result>";
+									//bgcolor="' . $rowColor
+									foreach( $data->fields() as $field )
+									{
+										$xml .= "<binding name=\"$field\">";
+										$xml .= "<".$row["$field.type"].">"."$row[$field]"."</".$row["$field.type"].">";
+										$xml .= "</binding>";
+									}
+									$xml .= "</result>";
+								}
+								$xml .= "</results>";
+								$xml .= "</sparql>";
+					$arrayData = xmlToArray(simplexml_load_string($xml));
+					
+					$json_string = json_encode($arrayData, JSON_PRETTY_PRINT);
+					$_SESSION['json_string'] = $json_string ;
+					header( 'Location: json.php' );
+					echo $json_string;					
 				  
 				  } else if($output == 'CSV'){ // output JSON
 				
