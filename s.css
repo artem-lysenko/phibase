@@ -1,0 +1,234 @@
+        body{
+	  /*background-image: url("bg.png");*/
+	  color: #7b7f00;
+	  background-color: #fdffcb;
+	  font-size: 98.5%; /* base size is 14px*/
+	  font-family: Arial, "Lucida Sans Unicode";
+	  line-height: 1.5;
+	  text-align: left;
+	  
+	}
+	
+	 img{
+	 width: 100%;
+	 height: auto;
+	 
+	}
+	
+	
+	form    {
+	 /* background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE)); */
+	/* background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px); */
+	margin:auto;
+	position:relative;
+	width:100%;
+	height:50%;
+
+	/*
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	font-style: italic;
+	line-height: 24px;
+	font-weight: bold;
+	color: #09C;
+	text-decoration: none;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding:10px;
+	border: 1px solid #999;
+	border: inset 1px solid #333;
+
+	-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	*/
+	}
+
+
+
+	.resizedTextbox {width:90%; float:none; }
+
+	input    {
+	color: #7b7f00;
+	background-color: #fdffcb; 
+	width:60%;
+	display:block;
+	border: solid 1px #7b7f00;
+	height: 25px;
+	-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	}
+
+	textarea#sparql {
+
+	height:250px;
+	color: #7b7f00;
+	background-color: #fdffcb; 
+	 width:80%;
+	 height: 300px;
+	 font: normal 14px verdana;
+	 line-height: 25px;
+	 padding: 2px 10px;
+	 border: solid 1px #7b7f00;
+
+	}
+
+
+
+	/*
+	textarea.message {
+	display:block;
+	}
+	*/
+
+	textarea:focus, input:focus {
+	border: 1px solid #09C;
+	}
+
+
+	input.submit {
+	width:100px;
+	position:absolute;
+	right:20px;
+	bottom:20px;
+	background:#09C;
+	color:#fff;
+	font-family: Tahoma, Geneva, sans-serif;
+	height:30px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border: 1p solid #7b7f00;
+	}
+	input.submit:hover {
+	background:#fff;
+	color:#09C;
+	}
+	
+	
+	.mainFooter{
+	width: 100%;
+	/* height: 40px; */
+	background-color: #a0a61b; 
+	float: left;
+	border-radius: 5px;
+	 -moz-border-radius: 5px;
+	 -webkit-border-radius: 5px;
+	margin-top: 1%;
+
+
+	}
+
+	.mainFooter p{
+	width: 92%;
+	  text-align: center;
+	margin: 10px auto;
+	color: #FFF;
+	}
+
+
+	
+	#fieldset1 {
+	   background-color:#fff;
+	   padding:5px;
+	   margin: 0px auto;
+	}
+	
+	
+	#table1 {
+	border:1px solid #000;
+	}
+	
+	#table1 td {
+	background-color:#ccc;
+	border:1px solid #000;
+	}
+	
+	
+
+	#td1
+	{
+	  border-radius:5px;
+	  text-align:center;
+	  background-color:#a0a61b;
+	  color:#FFF;
+	  width:10%;
+	}
+
+	
+	ul.a {
+	  list-style-type:circle;  
+	  
+	}
+
+	/* a {text-decoration: none;} */
+
+	
+
+	a#link:hover, a#link:active {
+	  background-color: #7b7f00;
+	  color: #FFF;
+	}
+
+	a#link:active { font-style:italic; }
+
+
+	a#link {
+	
+	display:block;
+	width:100%;
+	height:100%; 
+	font-family:verdana,arial,helvetica,sans-serif;
+	font-size:14px;
+	color:#FFF; 
+	text-decoration:none;
+	}
+	
+	a#link #span2 {
+	display:block;
+	padding:10px;
+	}
+	
+	
+	ul.radio-group li {
+            position: relative;
+	    list-style: none;
+	    padding: 0px;
+	}
+
+	input[type="radio"] {
+	  opacity: 0;
+	  position: absolute;
+	}
+
+
+	/* Matches the direct descendant of a label preceded by a 
+	   radio button */
+	input[type="radio"] + label > span {
+	  position: relative;
+	  border-radius: 4px;
+	  margin:0;
+	  padding:0;
+	  width: 10px;
+	  height: 10px;
+	  background-color: #f0f0f0;
+	  border: 1px solid #bcbcbc;
+	  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+	  /* margin: 0 1em 0 0; */
+	      
+	  
+
+	  display: inline-block;
+	  vertical-align: left;
+	}
+
+	/* Matches the direct descendant of a label preceded by a 
+	   checked radio button */
+	input[type="radio"]:checked + label > span {
+	  background: linear-gradient(#a0e5f8, #75c7dc);
+	  background: -webkit-linear-gradient(#a0e5f8, #75c7dc);
+	  border-color: #41a6bf;
+	  box-shadow: 0px 1px 2px rgba(65, 166, 191, 0.9) inset;
+	}
