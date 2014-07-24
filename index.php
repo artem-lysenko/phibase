@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>The Meta-QSAR Project - How to Design Drugs</title>
+	<title>Welcome to PHI-base</title>
 	<meta http-equiv="charset=utf-8">
 	
 	<link rel="STYLESHEET" href="s.css" type="text/css">
@@ -24,8 +24,8 @@
     
   </tr>
   <tr>
-    <td id="td1"> <a id="link" href="index.php"> <span id="span2"> Search </span></a> </td>
-    <td id="td1"> <a id="link" href="composer.php"> <span id="span2"> SPARQL  </span></a> </td>
+    <td id="td1"> <a id="link" href="nindex.php"> <span id="span2"> Search </span></a> </td>
+    <td id="td1"> <a id="link" href="ncomposer.php"> <span id="span2"> SPARQL  </span></a> </td>
 
     <td id="td1"> Page Name </td>
     <td id="td1"> Page Name </td>
@@ -41,7 +41,7 @@
   
   <tr>
     <td colspan="7" align="top">
-        <form action="index.php" method="post"> 
+        <form action="nindex.php" method="post"> 
 		<fieldset id="fieldset1">
                   <legend>
                     <b>SPARQL Search</b>
@@ -157,6 +157,8 @@
 				$data = sparql_get($endpoint,$sparql);
 				if( isset($data) )
 				{
+				echo $endpoint."\n";
+			        echo $sparql."\n";
 					//print "<p>Error: ".sparql_errno().": ".sparql_error()."</p>";
 				//}
 				
@@ -345,6 +347,7 @@
 	  	   		} // if( isset($data) )
 	  	   		else {
 				  echo '<p><font color="red">Please make sure you provide correct SPARQL Endpoint and Query!</font></p>';
+				  echo $endpoint." ".$sparql;
 			        }
 			    } // end if ($endpoint != '' && $sparql != '')
 			    

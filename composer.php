@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>The Meta-QSAR Project - How to Design Drugs</title>
+	<title>Welcome to PHI-base</title>
 	<meta http-equiv="charset=utf-8">
 	
 	<link rel="STYLESHEET" href="s.css" type="text/css">
@@ -98,8 +98,8 @@
     
   </tr>
   <tr>
-    <td id="td1"> <a id="link" href="index.php"> <span id="span2"> Search </span></a> </td>
-    <td id="td1"> <a id="link" href="composer.php"> <span id="span2"> SPARQL </span></a> </td>
+    <td id="td1"> <a id="link" href="nindex.php"> <span id="span2"> Search </span></a> </td>
+    <td id="td1"> <a id="link" href="ncomposer.php"> <span id="span2"> SPARQL </span></a> </td>
 
     <td id="td1"> Page Name </td>
     <td id="td1"> Page Name </td>
