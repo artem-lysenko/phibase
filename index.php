@@ -41,7 +41,7 @@
   
   <tr>
     <td colspan="7" align="top">
-        <form action="nindex.php" method="post"> 
+        <form action="index.php" method="post"> 
 		<fieldset id="fieldset1">
                   <legend>
                     <b>SPARQL Search</b>
