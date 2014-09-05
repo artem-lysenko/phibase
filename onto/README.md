@@ -11,3 +11,7 @@ The updated ontology is also in the git repository. But it requires more work. I
 By JG on 01/09/2014:
 - add has_host, has_pathogen to properties and name class
 
+By JG on 05/09/2014:
+- add uniprot core namespace
+- changed ontology URI
+- updated version number to 0.0.2
