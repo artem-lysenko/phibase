@@ -15,3 +15,7 @@ By JG on 05/09/2014:
 - add uniprot core namespace
 - changed ontology URI
 - updated version number to 0.0.2
+
+By JG on 12/09/2014:
+- fixed problems with entities IRIs
+- remove hash charecter from beginning of entities name
