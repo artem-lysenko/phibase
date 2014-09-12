@@ -142,9 +142,6 @@
         <Class IRI="species_expert"/>
     </Declaration>
     <Declaration>
-        <Class IRI="taxID_strain"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="curated_by"/>
     </Declaration>
     <Declaration>
@@ -205,7 +202,7 @@
         <ObjectProperty IRI="participant_of"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="phi-base-property"/>
+        <ObjectProperty IRI="phi_base_property"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="preceded_by"/>
@@ -504,13 +501,6 @@
     <SubClassOf>
         <Class IRI="organism"/>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="has_representation"/>
-            <Class IRI="taxID_strain"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="organism"/>
-        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="is_part_of"/>
             <Class IRI="gene"/>
         </ObjectSomeValuesFrom>
@@ -604,21 +594,17 @@
             <Class IRI="human"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
-    <SubClassOf>
-        <Class IRI="taxID_strain"/>
-        <Class IRI="annotation"/>
-    </SubClassOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="curated_by"/>
-        <ObjectProperty IRI="phi-base-property"/>
+        <ObjectProperty IRI="phi_base_property"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="encodes"/>
-        <ObjectProperty IRI="phi-base-property"/>
+        <ObjectProperty IRI="phi_base_property"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="has_experiment_factor"/>
-        <ObjectProperty IRI="phi-base-property"/>
+        <ObjectProperty IRI="phi_base_property"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="has_host"/>
@@ -630,7 +616,7 @@
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="has_location"/>
-        <ObjectProperty IRI="phi-base-property"/>
+        <ObjectProperty IRI="phi_base_property"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="has_output"/>
@@ -646,15 +632,15 @@
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="has_quality"/>
-        <ObjectProperty IRI="phi-base-property"/>
+        <ObjectProperty IRI="phi_base_property"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="has_representation"/>
-        <ObjectProperty IRI="phi-base-property"/>
+        <ObjectProperty IRI="phi_base_property"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="has_role"/>
-        <ObjectProperty IRI="phi-base-property"/>
+        <ObjectProperty IRI="phi_base_property"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="input_of"/>
@@ -662,19 +648,19 @@
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="is_about"/>
-        <ObjectProperty IRI="phi-base-property"/>
+        <ObjectProperty IRI="phi_base_property"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="is_experiment_factor"/>
-        <ObjectProperty IRI="phi-base-property"/>
+        <ObjectProperty IRI="phi_base_property"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="is_part_of"/>
-        <ObjectProperty IRI="phi-base-property"/>
+        <ObjectProperty IRI="phi_base_property"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="located_in"/>
-        <ObjectProperty IRI="phi-base-property"/>
+        <ObjectProperty IRI="phi_base_property"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="output_of"/>
@@ -682,7 +668,7 @@
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="part_of"/>
-        <ObjectProperty IRI="phi-base-property"/>
+        <ObjectProperty IRI="phi_base_property"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="participant_of"/>
@@ -690,43 +676,43 @@
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="preceded_by"/>
-        <ObjectProperty IRI="phi-base-property"/>
+        <ObjectProperty IRI="phi_base_property"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="precedes"/>
-        <ObjectProperty IRI="phi-base-property"/>
+        <ObjectProperty IRI="phi_base_property"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="representation_of"/>
-        <ObjectProperty IRI="phi-base-property"/>
+        <ObjectProperty IRI="phi_base_property"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="role_of"/>
-        <ObjectProperty IRI="phi-base-property"/>
+        <ObjectProperty IRI="phi_base_property"/>
     </SubObjectPropertyOf>
     <InverseObjectProperties>
-        <ObjectProperty IRI="is_experiment_factor"/>
         <ObjectProperty IRI="has_experiment_factor"/>
+        <ObjectProperty IRI="is_experiment_factor"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="input_of"/>
         <ObjectProperty IRI="has_input"/>
+        <ObjectProperty IRI="input_of"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="has_location"/>
         <ObjectProperty IRI="located_in"/>
+        <ObjectProperty IRI="has_location"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="output_of"/>
         <ObjectProperty IRI="has_output"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="participant_of"/>
         <ObjectProperty IRI="has_participant"/>
+        <ObjectProperty IRI="participant_of"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="has_representation"/>
         <ObjectProperty IRI="representation_of"/>
+        <ObjectProperty IRI="has_representation"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="role_of"/>
@@ -756,9 +742,19 @@
         <Literal datatypeIRI="&rdf;PlainLiteral">http://edamontology.org/data_0842</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>ID</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">ID</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>accession_ID</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">an identifier of an accession</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>accession_ID</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">accession ID</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
@@ -776,6 +772,11 @@
         <Literal datatypeIRI="&rdf;PlainLiteral">http://semanticscience.org/resource/SIO_001166</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>annotation</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">annotation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>chemical_entity</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">A chemical entity is a physical entity of interest in chemistry including molecular entities, parts thereof, and chemical substances.</Literal>
@@ -784,6 +785,11 @@
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>chemical_entity</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">http://purl.obolibrary.org/obo/CHEBI_24431</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>chemical_entity</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">chemical entity</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
@@ -802,6 +808,11 @@
 http://www.ebi.ac.uk/efo/EFO_0000001</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>condition</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">condition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>continuant</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">An entity [bfo:Entity] that exists in full at any time in which it exists at all, persists through time while maintaining its identity and has no temporal parts. Examples: a heart, a person, the color of a tomato, the mass of a cloud, a symphony orchestra, the disposition of blood to coagulate, the lawn and atmosphere in front of our building</Literal>
@@ -812,6 +823,16 @@ http://www.ebi.ac.uk/efo/EFO_0000001</Literal>
         <Literal datatypeIRI="&rdf;PlainLiteral">http://www.ifomis.org/bfo/1.1/snap#Continuant</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>continuant</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">continuant</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>curated_by</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">curated by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>curator</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">a person who checks the consistency of the data</Literal>
@@ -820,6 +841,11 @@ http://www.ebi.ac.uk/efo/EFO_0000001</Literal>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>curator</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">http://www.ebi.ac.uk/efo/EFO_0001733</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>curator</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">curator</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -838,6 +864,11 @@ http://www.ebi.ac.uk/efo/EFO_0000001</Literal>
 http://purl.bioontology.org/ontology/MSH/D017353</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>deletion</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">deletion</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>dependent_continuant</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">A continuant [snap:Continuant] that is either dependent on one or other independent continuant [snap:IndependentContinuant] bearers or inheres in or is borne by other entities.</Literal>
@@ -846,6 +877,11 @@ http://purl.bioontology.org/ontology/MSH/D017353</Literal>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>dependent_continuant</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">http://www.ifomis.org/bfo/1.1/snap#DependentContinuant</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>dependent_continuant</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">dependent continuant</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
@@ -859,11 +895,26 @@ http://purl.bioontology.org/ontology/MSH/D017353</Literal>
 http://purl.bioontology.org/ontology/MSH/D004194</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>disease</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">disease</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
         <IRI>disease</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">http://www.ebi.ac.uk/efo/EFO_0000408
 
 A disease is a disposition that describes states of disease associated with a particular sample and/or organism.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>disruption</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">disruption</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>encodes</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">encodes</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
@@ -874,6 +925,11 @@ A disease is a disposition that describes states of disease associated with a pa
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>experiment</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">http://semanticscience.org/resource/SIO_000994</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>experiment</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">experiment</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
@@ -891,6 +947,11 @@ A disease is a disposition that describes states of disease associated with a pa
         <Literal datatypeIRI="&rdf;PlainLiteral">GO:0003674</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>function</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">function</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>gene</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene may include regulatory regions, transcribed regions and/or other functional sequence regions.</Literal>
@@ -901,6 +962,61 @@ A disease is a disposition that describes states of disease associated with a pa
         <Literal datatypeIRI="&rdf;PlainLiteral">http://purl.obolibrary.org/obo/SO_0000704</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>gene</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">gene</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>has_experiment_factor</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has experiment factor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>has_host</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has host</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>has_input</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has input</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>has_location</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has location</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>has_output</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has output</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>has_participant</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has participant</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>has_pathogen</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has pathogen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>has_quality</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has quality</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>has_representation</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has representation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>has_role</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>host</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">An animal or plant or part thereof that nourishes and supports a parasite either in a lab or natural environment.</Literal>
@@ -909,6 +1025,11 @@ A disease is a disposition that describes states of disease associated with a pa
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>host</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">http://www.ebi.ac.uk/efo/EFO_0000532</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>host</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">host</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
@@ -959,6 +1080,11 @@ Multicellular anatomical structure that consists of many cells of one or a few t
         <Literal datatypeIRI="&rdf;PlainLiteral">Homo sapiens</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>human</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">human</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>independent_continuant</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">A continuant [snap:Continuant] that is a bearer of quality [snap:Quality] and realizable entity [snap:RealizableEntity] entities, in which other entities inhere and which itself cannot inhere in anything.
@@ -986,9 +1112,19 @@ Examples: an organism, a heart, a leg, a person, a symphony orchestra, a chair, 
         <Literal datatypeIRI="&rdf;PlainLiteral">http://purl.obolibrary.org/obo/IAO_0000030</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>information_entity</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">information entity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
         <IRI>information_entity</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">information content entity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>input_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">input of</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
@@ -1003,14 +1139,29 @@ Examples: an organism, a heart, a leg, a person, a symphony orchestra, a chair, 
 interspecies interaction between organisms - Gene Ontology Extension</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>interaction</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">interaction</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>interaction_ID</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">an identifier of an interaction</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>interaction_ID</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">interaction ID</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>is_about</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">IAO</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>is_about</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">is about of</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1023,6 +1174,11 @@ interspecies interaction between organisms - Gene Ontology Extension</Literal>
         <Literal datatypeIRI="&rdf;PlainLiteral">has part</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>located_in</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">located in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>material_entity</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">An independent continuant [snap:IndependentContinuant] that is spatially extended whose identity is independent of that of other entities and can be maintained through time. Note: Material entity [snap:MaterialEntity] subsumes object [snap:Object], fiat object part [snap:FiatObjectPart], and object aggregate [snap:ObjectAggregate], which assume a three level theory of granularity, which is inadequate for some domains, such as biology. Examples: collection of random bacteria, a chair, dorsal surface of the body</Literal>
@@ -1031,6 +1187,11 @@ interspecies interaction between organisms - Gene Ontology Extension</Literal>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>material_entity</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">http://www.ifomis.org/bfo/1.1/snap#MaterialEntity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>material_entity</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">material entity</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
@@ -1044,9 +1205,19 @@ interspecies interaction between organisms - Gene Ontology Extension</Literal>
 (source : NCI)</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>method</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">method</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>method_of_retrieval</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">A means, manner of procedure, or systematic course of actions that have to be performed in order to retrieve information. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>method_of_retrieval</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">method of retrieval</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
@@ -1061,6 +1232,11 @@ interspecies interaction between organisms - Gene Ontology Extension</Literal>
 induced mutation - Ontology for Biomedical Investigations</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>mutation</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">mutation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>name</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A name is a label used to identify an entity.</Literal>
@@ -1069,6 +1245,11 @@ induced mutation - Ontology for Biomedical Investigations</Literal>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>name</IRI>
         <IRI>http://semanticscience.org/resource/SIO_000116</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>name</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">name</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
@@ -1081,6 +1262,11 @@ induced mutation - Ontology for Biomedical Investigations</Literal>
         <Literal datatypeIRI="&rdf;PlainLiteral">http://purl.obolibrary.org/obo/OBI_0100026</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>organism</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">organism</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>organism_part</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">The part of organism&apos;s anatomy or substance arising from an organism from which the biomaterial was derived, excludes cells. E.g. tissue, organ, system, sperm, blood or body location (arm).</Literal>
@@ -1089,6 +1275,26 @@ induced mutation - Ontology for Biomedical Investigations</Literal>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>organism_part</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">http://www.ebi.ac.uk/efo/EFO_0000635</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>organism_part</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">organism part</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>output_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">output of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>part_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">part of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>participant_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">participant of</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
@@ -1101,6 +1307,11 @@ induced mutation - Ontology for Biomedical Investigations</Literal>
         <Literal datatypeIRI="&rdf;PlainLiteral">http://www.ebi.ac.uk/efo/EFO_0000643</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>pathogen</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">pathogen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>phenotype</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">A (combination of) quality(ies) of an organism determined by the interaction of its genetic make-up and environment that differentiates specific instances of a species from other instances of the same species.</Literal>
@@ -1109,6 +1320,26 @@ induced mutation - Ontology for Biomedical Investigations</Literal>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>phenotype</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">http://purl.obolibrary.org/obo/OGMS_0000023</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>phenotype</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">phenotype</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>phi_base_property</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">phi-base property</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>preceded_by</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">preceded by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>precedes</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">precedes</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
@@ -1126,6 +1357,11 @@ induced mutation - Ontology for Biomedical Investigations</Literal>
         <Literal datatypeIRI="&rdf;PlainLiteral">http://www.ifomis.org/bfo/1.1/span#Occurrent</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>process</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">process</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>protein</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">An amino acid chain that is produced de novo by ribosome-mediated translation of a genetically-encoded mRNA.</Literal>
@@ -1134,6 +1370,11 @@ induced mutation - Ontology for Biomedical Investigations</Literal>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>protein</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">http://purl.obolibrary.org/obo/PR_000000001</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>protein</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">protein</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
@@ -1147,6 +1388,11 @@ induced mutation - Ontology for Biomedical Investigations</Literal>
 http://purl.obolibrary.org/obo/IAO_0000311</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>publication</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">publication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>quality</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">A specifically dependent continuant [snap:SpecificallyDependentContinuant] that is exhibited if it inheres in an entity or entities at all (a categorical property). Examples: the color of a tomato, the ambient temperature of air, the circumference of a waist, the shape of a nose, the mass of a piece of gold, the weight of a chimpanzee</Literal>
@@ -1157,6 +1403,16 @@ http://purl.obolibrary.org/obo/IAO_0000311</Literal>
         <Literal datatypeIRI="&rdf;PlainLiteral">http://www.ifomis.org/bfo/1.1/snap#Quality</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>quality</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">quality</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>representation_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">is representation of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>role</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">A realizable entity [snap:RealizableEntity] the manifestation of which brings about some result or end that is not essential to a continuant [snap:Continuant] in virtue of the kind of thing that it is but that can be served or participated in by that kind of continuant [snap:Continuant] in some kinds of natural, social or institutional contexts. Examples: the role of a person as a surgeon, the role of a chemical compound in an experiment, the role of a patient relative as defined by a hospital administrative form, the role of a woman as a legal mother in the context of system of laws, the role of a biological grandfather as legal guardian in the context of a system of laws, the role of ingested matter in digestion, the role of a student in a university</Literal>
@@ -1165,6 +1421,16 @@ http://purl.obolibrary.org/obo/IAO_0000311</Literal>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>role</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">http://www.ifomis.org/bfo/1.1/snap#Role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>role</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>role_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">is role of</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
@@ -1200,19 +1466,24 @@ The sequence concept represents something that could be a organized succession o
 http://purl.obolibrary.org/obo/GO_0016458</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>silencing</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">silencing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>species_expert</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">a person with a high degree of skill in or knowledge about a particular organism</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>synonym</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">synonym</Literal>
+        <IRI>species_expert</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">species expert</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>taxID_strain</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">? a pointer to an external controlled vocabulary of strains IDs</Literal>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>synonym</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">synonym</Literal>
     </AnnotationAssertion>
 </Ontology>
 
