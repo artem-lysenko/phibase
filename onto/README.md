@@ -20,3 +20,6 @@ By JG on 12/09/2014:
 - fixed problems with entities IRIs
 - remove hash charecter from beginning of entities name
 - add rdfs:label to entities
+
+By JG on 16/09/2014:
+- add has_identifier property
