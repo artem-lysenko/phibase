@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Root xmlns="http://test.com/">
+ <Branch>
+   <sub1>This is message</sub1>
+   <sub2 type="aa" zu="5493"/>
+ </Branch>
+ <Branch>
+   <sub1>Some another message</sub1>
+   <sub2 type="bb" zu="fklrek" />
+ </Branch>
+ <Branch>
+   <sub1>And another</sub1>
+   <sub2 type="cc" zu="056954"/>
+ </Branch>
+</Root>

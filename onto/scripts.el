@@ -1,5 +1,6 @@
 ; This file contains method for modification ontology file
 
+(require nxml)
 
 (defun copy-buffer () 
 "Copy content current buffer to the new one.

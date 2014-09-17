@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Root>
+ <Branch>
+   <sub1>This is message</sub1>
+   <sub2 type="aa"/>
+ </Branch>
+ <Branch>
+   <sub1>Some another message</sub1>
+   <sub2 type="bb"/>
+ </Branch>
+ <Branch>
+   <sub1>And another</sub1>
+   <sub2 type="cc"/>
+ </Branch>
+</Root>
