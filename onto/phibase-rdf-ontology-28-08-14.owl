@@ -414,7 +414,7 @@
         <Class IRI="interaction"/>
         <ObjectSomeValuesFrom>
             <ObjectProperty IRI="has_participant"/>
-            <Class IRI="organism"/>
+            <Class IRI="material_entity"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
