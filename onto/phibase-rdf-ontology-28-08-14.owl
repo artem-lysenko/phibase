@@ -20,10 +20,32 @@
     <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="sio" IRI="http://semanticscience.org/resource/"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Prefix name="uniprot" IRI="http://purl.uniprot.org/core/"/>
+    <Annotation>
+        <AnnotationProperty IRI="contributor"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Contributors are those that engaged in discussions (in alphabetical order)
+Dr. Artem Lysenko
+Dr. Jacek Grzebyta
+Dr. Larisa Soldatova
+Prof. Mansoor Saqi
+Dr Noureddin Sadawi</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="title"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Ontology for Investigations on Pathogenicity (OIP)</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="identifier"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">oip.owl</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">0.0.1</Literal>
+    </Annotation>
     <Declaration>
         <Class IRI="ID"/>
     </Declaration>
@@ -220,10 +242,25 @@
         <ObjectProperty IRI="role_of"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="has_value"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="contributor"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="creator"/>
+    </Declaration>
+    <Declaration>
         <AnnotationProperty IRI="definition"/>
     </Declaration>
     <Declaration>
+        <AnnotationProperty IRI="identifier"/>
+    </Declaration>
+    <Declaration>
         <AnnotationProperty IRI="synonym"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="title"/>
     </Declaration>
     <SubClassOf>
         <Class IRI="ID"/>
@@ -733,6 +770,10 @@
         <ObjectProperty IRI="precedes"/>
         <ObjectProperty IRI="preceded_by"/>
     </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="has_identifier"/>
+        <Class IRI="ID"/>
+    </ObjectPropertyDomain>
     <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
         <IRI>ID</IRI>
@@ -833,6 +874,16 @@ http://www.ebi.ac.uk/efo/EFO_0000001</Literal>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>continuant</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">continuant</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>contributor</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">contributor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>creator</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">creator</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -986,7 +1037,7 @@ A disease is a disposition that describes states of disease associated with a pa
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>has_identifier</IRI>
-        <IRI>http://semanticscience.org/resource/SIO_000671</IRI>
+        <AbbreviatedIRI>sio:SIO_000671</AbbreviatedIRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1032,6 +1083,16 @@ A disease is a disposition that describes states of disease associated with a pa
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>has_role</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>has_value</IRI>
+        <AbbreviatedIRI>sio:SIO_000300</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>has_value</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has value</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="definition"/>
@@ -1261,7 +1322,7 @@ induced mutation - Ontology for Biomedical Investigations</Literal>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>name</IRI>
-        <IRI>http://semanticscience.org/resource/SIO_000116</IRI>
+        <AbbreviatedIRI>sio:SIO_000116</AbbreviatedIRI>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -1502,6 +1563,15 @@ http://purl.obolibrary.org/obo/GO_0016458</Literal>
         <IRI>synonym</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">synonym</Literal>
     </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>title</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">title</Literal>
+    </AnnotationAssertion>
+    <AnnotationPropertyRange>
+        <AnnotationProperty IRI="title"/>
+        <AbbreviatedIRI>xsd:string</AbbreviatedIRI>
+    </AnnotationPropertyRange>
 </Ontology>
 
 

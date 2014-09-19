@@ -27,3 +27,6 @@ By JG on 16/09/2014:
 By JG on 18/09/2014:
 - changed interaction description:
   `interaction has_participant material_entity`
+  
+By JG on 19/09/2014:
+- add ontology description
