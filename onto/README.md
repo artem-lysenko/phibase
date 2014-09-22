@@ -30,3 +30,9 @@ By JG on 18/09/2014:
   
 By JG on 19/09/2014:
 - add ontology description
+
+By JG on 22/09/2014:
+- add more properties
+- add FOAF namespace
+    needed by 'has_name' property
+- add 'has_gene' and 'has_protein' properties
