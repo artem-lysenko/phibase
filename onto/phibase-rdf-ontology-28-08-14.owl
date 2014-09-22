@@ -812,7 +812,7 @@ Dr Noureddin Sadawi</Literal>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>annotation</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">accosiated descriptive information in a form of a tag or external e.g. ontology terms.</Literal>
+        <Literal datatypeIRI="&rdf;PlainLiteral">associated descriptive information in a form of a tag or external e.g. ontology terms.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
