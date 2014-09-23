@@ -30,3 +30,14 @@ By JG on 18/09/2014:
   
 By JG on 19/09/2014:
 - add ontology description
+
+By JG on 22/09/2014:
+- add more properties
+- add FOAF namespace
+    needed by 'has_name' property
+- add 'has_gene' and 'has_protein' properties
+
+By JG on 23/09/2014:
+- add owl:EquivalentClasses to host and pathogen classes
+- remove ontologyIRI
+- update value of owl.versionInfo
