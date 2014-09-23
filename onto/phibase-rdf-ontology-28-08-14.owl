@@ -15,8 +15,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     ontologyIRI="http://oip.rothamsted.ac.uk/ontology/"
-     versionIRI="http://oip.rothamsted.ac.uk/ontology/version#0.0.2">
+     ontologyIRI="http://oip.rothamsted.ac.uk/ontology/">
     <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
@@ -45,7 +44,7 @@ Dr Noureddin Sadawi</Literal>
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">0.0.1</Literal>
+        <Literal datatypeIRI="&rdf;PlainLiteral">0.0.2</Literal>
     </Annotation>
     <Declaration>
         <Class IRI="ID"/>
@@ -272,6 +271,20 @@ Dr Noureddin Sadawi</Literal>
     <Declaration>
         <AnnotationProperty IRI="title"/>
     </Declaration>
+    <EquivalentClasses>
+        <Class IRI="host"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="has_host"/>
+            <Class IRI="organism"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="pathogen"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="has_pathogen"/>
+            <Class IRI="organism"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
     <SubClassOf>
         <Class IRI="ID"/>
         <Class IRI="information_entity"/>
