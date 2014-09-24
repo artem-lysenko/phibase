@@ -41,3 +41,7 @@ By JG on 23/09/2014:
 - add owl:EquivalentClasses to host and pathogen classes
 - remove ontologyIRI
 - update value of owl.versionInfo
+
+By JG on 24/09/2014:
+- add gene_disruption class
+

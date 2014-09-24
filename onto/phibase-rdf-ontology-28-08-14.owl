@@ -89,6 +89,9 @@ Dr Noureddin Sadawi</Literal>
         <Class IRI="gene"/>
     </Declaration>
     <Declaration>
+        <Class IRI="gene_disruption"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="host"/>
     </Declaration>
     <Declaration>
@@ -332,7 +335,7 @@ Dr Noureddin Sadawi</Literal>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="deletion"/>
-        <Class IRI="disruption"/>
+        <Class IRI="gene_disruption"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="dependent_continuant"/>
@@ -406,6 +409,10 @@ Dr Noureddin Sadawi</Literal>
             <ObjectProperty IRI="participant_of"/>
             <Class IRI="disruption"/>
         </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="gene_disruption"/>
+        <Class IRI="disruption"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="host"/>
@@ -537,7 +544,7 @@ Dr Noureddin Sadawi</Literal>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="mutation"/>
-        <Class IRI="disruption"/>
+        <Class IRI="gene_disruption"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="name"/>
@@ -651,7 +658,7 @@ Dr Noureddin Sadawi</Literal>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="silencing"/>
-        <Class IRI="disruption"/>
+        <Class IRI="gene_disruption"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="species_expert"/>
@@ -1081,6 +1088,11 @@ A disease is a disposition that describes states of disease associated with a pa
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>gene</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">gene</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>gene_disruption</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">gene disruption</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
