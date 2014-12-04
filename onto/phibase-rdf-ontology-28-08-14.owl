@@ -167,6 +167,9 @@ Dr Noureddin Sadawi</Literal>
         <Class IRI="species_expert"/>
     </Declaration>
     <Declaration>
+        <Class IRI="strain"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="curated_by"/>
     </Declaration>
     <Declaration>
@@ -252,6 +255,9 @@ Dr Noureddin Sadawi</Literal>
     </Declaration>
     <Declaration>
         <DataProperty IRI="has_name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="has_strain_name"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="has_value"/>
@@ -671,6 +677,10 @@ Dr Noureddin Sadawi</Literal>
             <Class IRI="human"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
+    <SubClassOf>
+        <Class IRI="strain"/>
+        <Class IRI="organism"/>
+    </SubClassOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="curated_by"/>
         <ObjectProperty IRI="phi_base_property"/>
@@ -835,6 +845,14 @@ Dr Noureddin Sadawi</Literal>
         <ObjectProperty IRI="hast_protein"/>
         <Class IRI="protein"/>
     </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="has_strain_name"/>
+        <DataProperty IRI="has_name"/>
+    </SubDataPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="has_strain_name"/>
+        <Class IRI="organism"/>
+    </DataPropertyDomain>
     <DataPropertyRange>
         <DataProperty IRI="has_name"/>
         <Datatype abbreviatedIRI="xsd:string"/>
@@ -1173,6 +1191,11 @@ A disease is a disposition that describes states of disease associated with a pa
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>has_role</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>has_strain_name</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has strain name</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
@@ -1652,6 +1675,31 @@ http://purl.obolibrary.org/obo/GO_0016458</Literal>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>species_expert</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">species expert</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="definition"/>
+        <IRI>strain</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Low level taxonomic rank.Informal for organisms other than microorganisms.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="synonym"/>
+        <IRI>strain</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">cultivar</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="synonym"/>
+        <IRI>strain</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">isolate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="synonym"/>
+        <IRI>strain</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">race</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>strain</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">strain</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
