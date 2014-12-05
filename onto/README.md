@@ -11,3 +11,37 @@ The updated ontology is also in the git repository. But it requires more work. I
 By JG on 01/09/2014:
 - add has_host, has_pathogen to properties and name class
 
+By JG on 05/09/2014:
+- add uniprot core namespace
+- changed ontology URI
+- updated version number to 0.0.2
+
+By JG on 12/09/2014:
+- fixed problems with entities IRIs
+- remove hash charecter from beginning of entities name
+- add rdfs:label to entities
+
+By JG on 16/09/2014:
+- add has_identifier property
+
+By JG on 18/09/2014:
+- changed interaction description:
+  `interaction has_participant material_entity`
+  
+By JG on 19/09/2014:
+- add ontology description
+
+By JG on 22/09/2014:
+- add more properties
+- add FOAF namespace
+    needed by 'has_name' property
+- add 'has_gene' and 'has_protein' properties
+
+By JG on 23/09/2014:
+- add owl:EquivalentClasses to host and pathogen classes
+- remove ontologyIRI
+- update value of owl.versionInfo
+
+By JG on 24/09/2014:
+- add gene_disruption class
+
