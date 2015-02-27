@@ -5,16 +5,16 @@
 	<title>Welcome to PHI-base</title>
 	<meta http-equiv="charset=utf-8">
 	
-	<link rel="STYLESHEET" href="s.css" type="text/css">
+	<link rel="STYLESHEET" href="style.css" type="text/css">
 	
 	<!--<link rel="STYLESHEET" href="s.css" type="text/css">-->
 	<!-- next line is for mobile device optimisation -->
-	<!-- <meta name="viewport" content="width-device-width, initial-scale=1.0"> -->	
+	<meta name="viewport" content="width=550, initial-scale=1, maximum-scale=1">
 		
 </head>
 
-<body>
-	<script type="text/javascript">
+<body class="body">
+<script type="text/javascript">
 
 
 	    function clearMultiple(list)
@@ -86,36 +86,27 @@
 	}
 	
 	</script>
+	
+<header class="mainHeader">
+	<img src="imgs/topimage3.png">
+	<nav><ul>
+	<li><a href="index.php">Search</a></li>	
+	<li class="active"><a href="composer.php">SPARQL Composer</a></li>
+	<li><a href="#">SPARQL Composer 2</a></li>
+	<li><a href="#">Project Overview</a></li>
+	<li><a href="#">Meet the Team</a></li>
+	<li><a href="#">Contact us</a></li>
 
+	</ul></nav>
+</header>
 
+<div class="mainContent">
+	<div class="content">
+		<article class="topContent">
 
-<table  width='70%' align='center'  border='1'>
-  	
-  <tr>
-    <td colspan="1"><img src="imgs/logo.svg"/> </td>
-  </tr>
-  <tr height=10px>
-    
-  </tr>
-  <tr>
-    <td id="td1"> <a id="link" href="index.php"> <span id="span2"> Search </span></a> </td>
-    <td id="td1"> <a id="link" href="composer.php"> <span id="span2"> SPARQL </span></a> </td>
+		   <content>			   
 
-    <td id="td1"> Page Name </td>
-    <td id="td1"> Page Name </td>
-    <td id="td1"> Page Name </td>
-    <td id="td1"> Page Name </td>
-    <td id="td1"> Page Name </td>
-    <td id="td1"> Page Name </td>
-    <td id="td1"> Page Name </td>
-  </tr>
-  <tr height=10px>
-    
-  </tr>
-  
-  <tr>
-    <td colspan="7">
-    <form action="composer.php" method="post" target="_self" id="search"> 
+           <form action="composer.php" method="post" target="_self" id="search"> 
 		   <input type="hidden" name="check_submit" value="1" />
 			
 		   <small>
@@ -126,20 +117,15 @@
                   </legend>
                   <table  width="100%" border="0"  cellspacing="0" cellpadding="0">
                     <tr>
-                      <td width="25%">
-                        &nbsp;Search
-                        
-                        
-                          <select name="chdb"> 
-<option selected value='all'>all</option><option value='name'>Gene name</option><option value='host'>Host</option><option value='pubmed'>PubMed ID</option><option value='phibase'>PHI-base Acc</option>                          </select> for 
-                         
-                         
-                        
+                      <td width="30%">
+                        &nbsp;Search                                                
+                          <select name="chdb" class="resizedSelect"> 
+<option selected value='all'>all</option><option value='gene_name'>Gene name</option><option value='host'>Host</option><option value='pubmed'>PubMed ID</option><option value='phibase'>PHI-base Acc</option>                          </select> for                                                                          
                          </td>
-                         <td width="50%">
-                         <input type="text" id="ft" name='ft' class="resizedTextbox"  value=''  onKeyPress='this.form.quick.value="yes";' />
+                         <td width="35%">
+                         <input type="text" placeholder="e.g. ACE*, Candida a* or PHI:441" id="ft" name='ft' class="resizedTextbox"  value=''  onKeyPress='this.form.quick.value="yes";' />
                         </td>
-                         <td width="25%">
+                         <td width="35%">
                         &nbsp;order by                      <select name="chor">            <option value='phi_base_acc'>PHI-base accession</option><option selected value='gene_name'>Gene name</option><option value='embl_value_disp'>embl_value_disp</option><option value='ph_value_disp'>Phenotype of mutant</option><option value='patho_name'>Pathogen species</option><option value='dis_name'>Disease name</option><option value='host_name'>Experimental host</option>                        </select>
                         
                         <!-- internal use only! -->
@@ -147,10 +133,25 @@
                         
                         </td>
                       </tr>
+                      
                       <tr> 
-                        <td><i>&nbsp;e.g. 'ACE*', 'Candida a*' or 'PHI:441'</i></td>
+                         <td>
+                            <label>			   					
+				<div>
+				Output:
+				<SELECT name="output">
+				<option value="HTML">HTML</option>
+				<option value="JSON">JSON</option>
+				<option value="CSV">CSV</option>
+				<option value="TSV">TSV</option>
+				<option value="XML">XML</option>				
+				</SELECT>
+				</div>  
+			    </label>
+			 </td>
                         <td></td>
                         <td></td>
+                        
                       </tr>
                       <tr>
                      <td>
@@ -165,430 +166,265 @@
                 </fieldset>
                 
                 
-                <fieldset id="fieldset1">
-                  <legend>
-                    <b class='search'>
-                      Advanced Search</b>
-                  </legend>
-                  <table width="100%" border=0  cellspacing="0" cellpadding="0">
-                    <tr>
-                      <td width="10%">
-                        Search
-                      </td>
-                      
-                      <td width="10%">
-                        Gene
-                      </td>
-                      
-                      <td width="3%">
-                        for
-                      </td>
-                       
-                       <td width="72%">
-                        <select name="cge"> 
-<option selected value='all'>all</option><option value='1-phosphatidylinositol-4,5-bisphosphate phosphodiesterase delta 1'>1-phosphatidylinositol-4,5-bisphosphate phosphodiesterase delta 1</option><option value='3hnr'>3hnr</option><option value='7,8-LDS'>7,8-LDS</option><option value='AaFUS3'>AaFUS3</option><option value='AaGa1'>AaGa1</option><option value='AaNoxA'>AaNoxA</option><option value='AaNoxB'>AaNoxB</option><option value='AaNoxR'>AaNoxR</option><option value='AaNPS6'>AaNPS6</option><option value='Aapg1'>Aapg1</option><option value='aapk1'>aapk1</option><option value='AAR1'>AAR1</option><option value='AaSLT2'>AaSLT2</option><option value='ABC1'>ABC1</option><option value='ABC2'>ABC2</option><option value='ABC3'>ABC3</option><option value='ABC4'>ABC4</option><option value='Abd1'>Abd1</option><option value='abnik1'>abnik1</option><option value='AbNIK1'>AbNIK1</option><option value='AbPacC'>AbPacC</option><option value='abpks7'>abpks7</option><option value='AbPro1'>AbPro1</option><option value='AbSte12'>AbSte12</option><option value='AbVf8'>AbVf8</option><option value='ACA1'>ACA1</option><option value='ACE1'>ACE1</option><option value='ACE2'>ACE2</option><option value='ACL1'>ACL1</option><option value='ACL2'>ACL2</option><option value='ACP'>ACP</option><option value='acpA'>acpA</option><option value='acpB'>acpB</option><option value='acpC'>acpC</option><option value='Acpg1'>Acpg1</option><option value='ACR1'>ACR1</option><option value='AcrB'>AcrB</option><option value='ACRTS2'>ACRTS2</option><option value='ActA'>ActA</option><option value='ACTT2'>ACTT2</option><option value='ADE2'>ADE2</option><option value='ADE4'>ADE4</option><option value='ADE5'>ADE5</option><option value='ADR1'>ADR1</option><option value='ADR1-L1'>ADR1-L1</option><option value='ADR1-L2'>ADR1-L2</option><option value='ADR1-L3'>ADR1-L3</option><option value='AFT1'>AFT1</option><option value='AFT3'>AFT3</option><option value='Aga1'>Aga1</option><option value='AGS1'>AGS1</option><option value='AGS2'>AGS2</option><option value='aiiA'>aiiA</option><option value='AKT1'>AKT1</option><option value='AKT2'>AKT2</option><option value='AKT3-1'>AKT3-1</option><option value='AKTR-1'>AKTR-1</option><option value='ALB1'>ALB1</option><option value='ALG7'>ALG7</option><option value='algT'>algT</option><option value='AlHK1'>AlHK1</option><option value='ALO1'>ALO1</option><option value='Als1'>Als1</option><option value='ALS1'>ALS1</option><option value='ALS3'>ALS3</option><option value='AMET'>AMET</option><option value='AMK1'>AMK1</option><option value='ampG'>ampG</option><option value='Amr1'>Amr1</option><option value='Ams'>Ams</option><option value='AMT'>AMT</option><option value='AMT1'>AMT1</option><option value='AMT2'>AMT2</option><option value='AMT4'>AMT4</option><option value='AOX1'>AOX1</option><option value='aoxA'>aoxA</option><option value='AphA'>AphA</option><option value='APP1'>APP1</option><option value='areA'>areA</option><option value='AreA'>AreA</option><option value='ARG1'>ARG1</option><option value='ARG2'>ARG2</option><option value='argA'>argA</option><option value='argB'>argB</option><option value='argEF'>argEF</option><option value='argF'>argF</option><option value='argH'>argH</option><option value='ARN1 (related: SIT1)'>ARN1 (related: SIT1)</option><option value='aroA'>aroA</option><option value='AroQγ'>AroQγ</option><option value='arsB'>arsB</option><option value='ASD4'>ASD4</option><option value='ASH1'>ASH1</option><option value='AsnB'>AsnB</option><option value='AspA'>AspA</option><option value='atg1'>atg1</option><option value='ATG1'>ATG1</option><option value='ATG15'>ATG15</option><option value='atg8'>atg8</option><option value='ATG8'>ATG8</option><option value='ATR 1'>ATR 1</option><option value='ATR13'>ATR13</option><option value='ATR1 (related: ATR1NdWsB)'>ATR1 (related: ATR1NdWsB)</option><option value='AUR1'>AUR1</option><option value='AurR1'>AurR1</option><option value='Ave1'>Ave1</option><option value='Avenacinase gene'>Avenacinase gene</option><option value='Avh241'>Avh241</option><option value='Avh5'>Avh5</option><option value='Avr1b-1'>Avr1b-1</option><option value='AVR1B-1'>AVR1B-1</option><option value='Avr1-CO39'>Avr1-CO39</option><option value='AVR1-CO39'>AVR1-CO39</option><option value='Avr1d'>Avr1d</option><option value='Avr1k'>Avr1k</option><option value='Avr2'>Avr2</option><option value='AVR2'>AVR2</option><option value='AVR3a'>AVR3a</option><option value='AVR4'>AVR4</option><option value='AVR4E'>AVR4E</option><option value='avr9'>avr9</option><option value='AVR9'>AVR9</option><option value='avrA'>avrA</option><option value='Avra10'>Avra10</option><option value='avrB1'>avrB1</option><option value='avrB2'>avrB2</option><option value='avrB3'>avrB3</option><option value='avrB4-1'>avrB4-1</option><option value='avrD1'>avrD1</option><option value='avrE1'>avrE1</option><option value='Avrk1'>Avrk1</option><option value='AVRL567-A'>AVRL567-A</option><option value='AVRL567-b'>AVRL567-b</option><option value='avrLm1'>avrLm1</option><option value='AVRLM1'>AVRLM1</option><option value='AvrLm11'>AvrLm11</option><option value='avrLm4'>avrLm4</option><option value='AvrLm4-7'>AvrLm4-7</option><option value='AvrLm6'>AvrLm6</option><option value='AVRM'>AVRM</option><option value='AvrP123'>AvrP123</option><option value='AVRP4'>AVRP4</option><option value='AVR-Pia'>AVR-Pia</option><option value='AVR-Pii'>AVR-Pii</option><option value='AVR-Pik'>AVR-Pik</option><option value='AVR-Pita1'>AVR-Pita1</option><option value='AVR-Pita1JA'>AVR-Pita1JA</option><option value='AVR-Pita1JB'>AVR-Pita1JB</option><option value='AVR-Pita/AVR2-YAMO'>AVR-Pita/AVR2-YAMO</option><option value='AvrPiz-t'>AvrPiz-t</option><option value='avrPto'>avrPto</option><option value='avrPto1'>avrPto1</option><option value='avrPtoB'>avrPtoB</option><option value='avrRpm1'>avrRpm1</option><option value='avrRps4'>avrRps4</option><option value='avrRpt2'>avrRpt2</option><option value='AvrRpt2'>AvrRpt2</option><option value='avrXa7'>avrXa7</option><option value='avrXacE1'>avrXacE1</option><option value='avrXacE2'>avrXacE2</option><option value='AvrXccC'>AvrXccC</option><option value='Ax21/AvrXa21'>Ax21/AvrXa21</option><option value='bac'>bac</option><option value='BAC'>BAC</option><option value='BAD1 (related: WI-1)'>BAD1 (related: WI-1)</option><option value='BamB'>BamB</option><option value='Bap1'>Bap1</option><option value='BbCHIT1'>BbCHIT1</option><option value='Bbmpk1'>Bbmpk1</option><option value='Bbslt2'>Bbslt2</option><option value='BcAtf1'>BcAtf1</option><option value='bcatrA'>bcatrA</option><option value='BcatrB'>BcatrB</option><option value='BCATRD'>BCATRD</option><option value='BcBOA2'>BcBOA2</option><option value='BcBOA6'>BcBOA6</option><option value='BcBOT1 (related: CND5)'>BcBOT1 (related: CND5)</option><option value='BCCAT2'>BCCAT2</option><option value='BcCCC2'>BcCCC2</option><option value='BcCdc42'>BcCdc42</option><option value='Bcchs1'>Bcchs1</option><option value='Bcchs3a'>Bcchs3a</option><option value='BCCHS3a'>BCCHS3a</option><option value='BcCRZ1'>BcCRZ1</option><option value='BCFHG1'>BCFHG1</option><option value='BcFKBP12'>BcFKBP12</option><option value='BcFRP1'>BcFRP1</option><option value='BCG1'>BCG1</option><option value='BCG3'>BCG3</option><option value='Bcgar1'>Bcgar1</option><option value='Bcgar2'>Bcgar2</option><option value='BcLCC2'>BcLCC2</option><option value='Bclga1'>Bclga1</option><option value='Bclgd1'>Bclgd1</option><option value='BCMFS1'>BCMFS1</option><option value='BcNma'>BcNma</option><option value='bcnoxA'>bcnoxA</option><option value='bcnoxB'>bcnoxB</option><option value='bcnoxR'>bcnoxR</option><option value='BCP1'>BCP1</option><option value='bcpg1'>bcpg1</option><option value='BcPG1'>BcPG1</option><option value='BcPG2'>BcPG2</option><option value='BCPGA1'>BCPGA1</option><option value='BcPIC5'>BcPIC5</option><option value='BcPIE3'>BcPIE3</option><option value='bcpka1'>bcpka1</option><option value='bcpka2'>bcpka2</option><option value='bcpkaR'>bcpkaR</option><option value='bcplc1'>bcplc1</option><option value='BcPLS1'>BcPLS1</option><option value='bcpme1'>bcpme1</option><option value='BCPME1'>BCPME1</option><option value='bcpme2'>bcpme2</option><option value='BCPME2'>BCPME2</option><option value='bcras2'>bcras2</option><option value='bcSAK1'>bcSAK1</option><option value='BcSOD1'>BcSOD1</option><option value='BcSpl1'>BcSpl1</option><option value='bcvel1'>bcvel1</option><option value='BDM1'>BDM1</option><option value='BE'>BE</option><option value='BEC1005'>BEC1005</option><option value='BEC1011'>BEC1011</option><option value='BEC1016'>BEC1016</option><option value='BEC1018'>BEC1018</option><option value='BEC1019'>BEC1019</option><option value='BEC1038'>BEC1038</option><option value='BEC1040'>BEC1040</option><option value='BEC1054'>BEC1054</option><option value='BeNEP1'>BeNEP1</option><option value='BeNEP2'>BeNEP2</option><option value='beta-tubulin'>beta-tubulin</option><option value='BGL2'>BGL2</option><option value='BIM1'>BIM1</option><option value='bioB'>bioB</option><option value='bioD'>bioD</option><option value='BMH1'>BMH1</option><option value='BMP1'>BMP1</option><option value='Bmp3'>Bmp3</option><option value='BOS1'>BOS1</option><option value='bos5'>bos5</option><option value='Brg11'>Brg11</option><option value='BRM2'>BRM2</option><option value='BRX1'>BRX1</option><option value='BTP1'>BTP1</option><option value='Bud32 homolog'>Bud32 homolog</option><option value='BUF'>BUF</option><option value='BUF1'>BUF1</option><option value='BW'>BW</option><option value='BWC1'>BWC1</option><option value='BWC2'>BWC2</option><option value='CaACE2'>CaACE2</option><option value='CaAFT2'>CaAFT2</option><option value='Cabig1'>Cabig1</option><option value='CAC1'>CAC1</option><option value='CaCDC35'>CaCDC35</option><option value='CaCHS1'>CaCHS1</option><option value='CaEAP1'>CaEAP1</option><option value='CaEcm33'>CaEcm33</option><option value='CaEss1'>CaEss1</option><option value='CaFTR1'>CaFTR1</option><option value='CaHK1/CHK1'>CaHK1/CHK1</option><option value='Calnexin'>Calnexin</option><option value='CAM'>CAM</option><option value='CaMDR1'>CaMDR1</option><option value='CaMNT1'>CaMNT1</option><option value='CaMNT2'>CaMNT2</option><option value='Can1'>Can1</option><option value='Can2'>Can2</option><option value='CaNAG1'>CaNAG1</option><option value='CaNAG2'>CaNAG2</option><option value='CaNAG3'>CaNAG3</option><option value='CaNAG4'>CaNAG4</option><option value='CaNAG5'>CaNAG5</option><option value='CaNAG6'>CaNAG6</option><option value='CaNdt80p'>CaNdt80p</option><option value='CaNIK1'>CaNIK1</option><option value='CaNRG1'>CaNRG1</option><option value='Cap1'>Cap1</option><option value='CAP1'>CAP1</option><option value='CAP10'>CAP10</option><option value='CAP2'>CAP2</option><option value='CAP20'>CAP20</option><option value='CAP59'>CAP59</option><option value='CAP60'>CAP60</option><option value='CAP64'>CAP64</option><option value='CaRAS1'>CaRAS1</option><option value='CaRING1'>CaRING1</option><option value='caRSR1'>caRSR1</option><option value='CAS1'>CAS1</option><option value='CaSch9p'>CaSch9p</option><option value='CaSLN1'>CaSLN1</option><option value='CaSPA2'>CaSPA2</option><option value='CAT1'>CAT1</option><option value='catJ'>catJ</option><option value='CaTPS2'>CaTPS2</option><option value='CaTUP1'>CaTUP1</option><option value='CBEL/GP34'>CBEL/GP34</option><option value='CBL1'>CBL1</option><option value='CBP1'>CBP1</option><option value='cbp40'>cbp40</option><option value='Cch1'>Cch1</option><option value='CCN1'>CCN1</option><option value='CcpelA'>CcpelA</option><option value='CDC10'>CDC10</option><option value='CDC11'>CDC11</option><option value='CDC15'>CDC15</option><option value='CDC24'>CDC24</option><option value='Cdc42'>Cdc42</option><option value='CDC42'>CDC42</option><option value='CDS1'>CDS1</option><option value='CEK1'>CEK1</option><option value='cel2'>cel2</option><option value='CEL5A'>CEL5A</option><option value='CFAS'>CFAS</option><option value='CFP'>CFP</option><option value='CfTom1'>CfTom1</option><option value='cg-1'>cg-1</option><option value='CGB1'>CGB1</option><option value='CgCHSI'>CgCHSI</option><option value='CgCHSIII'>CgCHSIII</option><option value='CgCHSV'>CgCHSV</option><option value='CgDN24'>CgDN24</option><option value='CgDN3'>CgDN3</option><option value='Cgg1'>Cgg1</option><option value='CgMEK1/EMK1'>CgMEK1/EMK1</option><option value='CgOPT1'>CgOPT1</option><option value='CGRA'>CGRA</option><option value='CHAP1'>CHAP1</option><option value='Chi2'>Chi2</option><option value='CHIP2'>CHIP2</option><option value='CHIP3'>CHIP3</option><option value='CHIP6'>CHIP6</option><option value='Chk1'>Chk1</option><option value='CHK1'>CHK1</option><option value='ChLae1'>ChLae1</option><option value='CHM1'>CHM1</option><option value='chs1'>chs1</option><option value='CHS1'>CHS1</option><option value='chs2'>chs2</option><option value='CHS2'>CHS2</option><option value='chs3'>chs3</option><option value='CHS3'>CHS3</option><option value='chs4'>chs4</option><option value='chs5'>chs5</option><option value='CHS5'>CHS5</option><option value='chs6'>chs6</option><option value='CHS6'>CHS6</option><option value='chs7'>chs7</option><option value='CHS7'>CHS7</option><option value='chsC'>chsC</option><option value='chsG'>chsG</option><option value='ChSte11'>ChSte11</option><option value='CHSV'>CHSV</option><option value='CHT'>CHT</option><option value='CHT42'>CHT42</option><option value='ChVel1'>ChVel1</option><option value='CID1'>CID1</option><option value='cifA'>cifA</option><option value='cifB'>cifB</option><option value='cioA'>cioA</option><option value='Cir1'>Cir1</option><option value='citN'>citN</option><option value='Cla4'>Cla4</option><option value='CLA4'>CLA4</option><option value='CLAP1'>CLAP1</option><option value='ClaSSD1'>ClaSSD1</option><option value='CLB2'>CLB2</option><option value='CLC-A'>CLC-A</option><option value='CLK1'>CLK1</option><option value='CLN1'>CLN1</option><option value='CLNR1'>CLNR1</option><option value='ClPLS1'>ClPLS1</option><option value='ClpP'>ClpP</option><option value='CLPT1'>CLPT1</option><option value='ClpV'>ClpV</option><option value='ClpX'>ClpX</option><option value='cls'>cls</option><option value='CLSTE12'>CLSTE12</option><option value='CLTA1'>CLTA1</option><option value='clxA'>clxA</option><option value='Cmk1'>Cmk1</option><option value='CMK1'>CMK1</option><option value='CMLE'>CMLE</option><option value='CMP1'>CMP1</option><option value='Cmu1'>Cmu1</option><option value='cna1'>cna1</option><option value='CNA1'>CNA1</option><option value='CNB'>CNB</option><option value='CNB1'>CNB1</option><option value='CnLAC1'>CnLAC1</option><option value='CnPlb1'>CnPlb1</option><option value='CnSEC14-1'>CnSEC14-1</option><option value='CnSEC14-2'>CnSEC14-2</option><option value='CnSFH5'>CnSFH5</option><option value='Cn Sp1'>Cn Sp1</option><option value='Cnt'>Cnt</option><option value='cobB'>cobB</option><option value='CodY'>CodY</option><option value='ColR'>ColR</option><option value='ColS'>ColS</option><option value='COM1'>COM1</option><option value='CON7'>CON7</option><option value='Con7p'>Con7p</option><option value='Conserved hypothetical protein'>Conserved hypothetical protein</option><option value='corA'>corA</option><option value='COS1'>COS1</option><option value='COS1/CHIK1'>COS1/CHIK1</option><option value='COX15'>COX15</option><option value='CPA1'>CPA1</option><option value='CPC1'>CPC1</option><option value='CPCA'>CPCA</option><option value='Cpcat1'>Cpcat1</option><option value='CpCOT1'>CpCOT1</option><option value='CPG1'>CPG1</option><option value='CPG2'>CPG2</option><option value='CPGB-1'>CPGB-1</option><option value='CPH1'>CPH1</option><option value='CPK1'>CPK1</option><option value='CpkA'>CpkA</option><option value='CPKA'>CPKA</option><option value='CpkB'>CpkB</option><option value='CpkC'>CpkC</option><option value='CpMK1'>CpMK1</option><option value='CPMK1'>CPMK1</option><option value='CPMK2'>CPMK2</option><option value='Cpnox1'>Cpnox1</option><option value='CPP1'>CPP1</option><option value='CPPG1'>CPPG1</option><option value='CPPG2'>CPPG2</option><option value='CPPH1'>CPPH1</option><option value='CPRa'>CPRa</option><option value='CPRGS-1'>CPRGS-1</option><option value='CPS1'>CPS1</option><option value='CPSOD1'>CPSOD1</option><option value='CPTF1'>CPTF1</option><option value='CPXB'>CPXB</option><option value='CrAT1/PTH2'>CrAT1/PTH2</option><option value='CRE1'>CRE1</option><option value='CRG1'>CRG1</option><option value='CRK1'>CRK1</option><option value='crn1'>crn1</option><option value='crn2'>crn2</option><option value='crp'>crp</option><option value='CRU1'>CRU1</option><option value='Crz1'>Crz1</option><option value='CRZ1'>CRZ1</option><option value='CrzA'>CrzA</option><option value='CSH1'>CSH1</option><option value='CSH3'>CSH3</option><option value='CSN1'>CSN1</option><option value='CSP37'>CSP37</option><option value='CspR'>CspR</option><option value='csrA'>csrA</option><option value='CST1'>CST1</option><option value='CST20'>CST20</option><option value='CTB1'>CTB1</option><option value='CTB2'>CTB2</option><option value='CTB3'>CTB3</option><option value='CTB4'>CTB4</option><option value='CTB5'>CTB5</option><option value='CTB6'>CTB6</option><option value='CTB7'>CTB7</option><option value='CTB8'>CTB8</option><option value='ctf1'>ctf1</option><option value='Ctf1'>Ctf1</option><option value='CTF1'>CTF1</option><option value='ctf2'>ctf2</option><option value='CTG1'>CTG1</option><option value='CTN3'>CTN3</option><option value='CT-PKAC'>CT-PKAC</option><option value='CtxA'>CtxA</option><option value='CtxB'>CtxB</option><option value='CUB'>CUB</option><option value='cutA'>cutA</option><option value='CUTA'>CUTA</option><option value='CvCPS1'>CvCPS1</option><option value='cvfA'>cvfA</option><option value='cvfB'>cvfB</option><option value='cvfC'>cvfC</option><option value='Cwt1'>Cwt1</option><option value='Cxt1p'>Cxt1p</option><option value='cyaA'>cyaA</option><option value='CYB2'>CYB2</option><option value='cycA'>cycA</option><option value='cylE'>cylE</option><option value='CYP1'>CYP1</option><option value='Cyp51A'>Cyp51A</option><option value='Cyp51B'>Cyp51B</option><option value='Cyp51C'>Cyp51C</option><option value='cyp51/erg11'>cyp51/erg11</option><option value='CYP52X1'>CYP52X1</option><option value='cysT'>cysT</option><option value='cytb'>cytb</option><option value='CZK3'>CZK3</option><option value='DAC1'>DAC1</option><option value='DEC1'>DEC1</option><option value='delta-amastin'>delta-amastin</option><option value='DEP1'>DEP1</option><option value='DEP2'>DEP2</option><option value='DEP3'>DEP3</option><option value='DEP4'>DEP4</option><option value='DEP5'>DEP5</option><option value='DEP6'>DEP6</option><option value='DES1'>DES1</option><option value='DHOD'>DHOD</option><option value='DipA'>DipA</option><option value='don1'>don1</option><option value='don3'>don3</option><option value='DPP3'>DPP3</option><option value='drf1'>drf1</option><option value='DspA/E'>DspA/E</option><option value='DUR1,2'>DUR1,2</option><option value='DUR31'>DUR31</option><option value='EAM_2938'>EAM_2938</option><option value='EccC'>EccC</option><option value='EccD'>EccD</option><option value='ecf11'>ecf11</option><option value='ecf18'>ecf18</option><option value='ecf5'>ecf5</option><option value='ecf6'>ecf6</option><option value='ecf7'>ecf7</option><option value='ECP1'>ECP1</option><option value='ECP2'>ECP2</option><option value='ecp6'>ecp6</option><option value='EEP'>EEP</option><option value='EF0026'>EF0026</option><option value='EF0797'>EF0797</option><option value='EF1533'>EF1533</option><option value='EF3245'>EF3245</option><option value='EFG1'>EFG1</option><option value='Efg1p'>Efg1p</option><option value='EMP1'>EMP1</option><option value='endo-1,4-beta-xylanase [GH10 family]'>endo-1,4-beta-xylanase [GH10 family]</option><option value='endo-1,4-beta-xylanase precursor [GH10 family]'>endo-1,4-beta-xylanase precursor [GH10 family]</option><option value='envZ'>envZ</option><option value='EPA1'>EPA1</option><option value='EPI1'>EPI1</option><option value='EPI10'>EPI10</option><option value='erb1'>erb1</option><option value='ERG10'>ERG10</option><option value='ERG11A'>ERG11A</option><option value='ERG11B'>ERG11B</option><option value='erg11/cyp51'>erg11/cyp51</option><option value='ERG12'>ERG12</option><option value='ERG1 (related: ERGA)'>ERG1 (related: ERGA)</option><option value='ERG2'>ERG2</option><option value='ERGA'>ERGA</option><option value='Erl1'>Erl1</option><option value='ESF1'>ESF1</option><option value='ESS1'>ESS1</option><option value='EsxA'>EsxA</option><option value='EsxB'>EsxB</option><option value='EXP5'>EXP5</option><option value='FAEB1'>FAEB1</option><option value='FAED1'>FAED1</option><option value='FAS2'>FAS2</option><option value='F-avi3342'>F-avi3342</option><option value='F-avi4330'>F-avi4330</option><option value='F-avi5730'>F-avi5730</option><option value='F-Avi5813'>F-Avi5813</option><option value='FBP1'>FBP1</option><option value='FcABC1'>FcABC1</option><option value='FET3'>FET3</option><option value='FET3-1'>FET3-1</option><option value='FET3-2'>FET3-2</option><option value='FGA1'>FGA1</option><option value='FGA2'>FGA2</option><option value='Fgb1'>Fgb1</option><option value='FGB1'>FGB1</option><option value='FgERG4'>FgERG4</option><option value='FgFlbA'>FgFlbA</option><option value='FgFlbB'>FgFlbB</option><option value='FgFRP1'>FgFRP1</option><option value='FgFSR1'>FgFSR1</option><option value='FgHOG1'>FgHOG1</option><option value='FGL1'>FGL1</option><option value='FgMT1'>FgMT1</option><option value='FgMT2'>FgMT2</option><option value='Fgp1'>Fgp1</option><option value='Fgp2'>Fgp2</option><option value='FgPTC1'>FgPTC1</option><option value='FgRgsA'>FgRgsA</option><option value='FgRgsB'>FgRgsB</option><option value='FGSG_00132'>FGSG_00132</option><option value='FGSG_00416'>FGSG_00416</option><option value='FGSG_00792'>FGSG_00792</option><option value='FGSG_01058'>FGSG_01058</option><option value='FGSG_01559'>FGSG_01559</option><option value='FGSG_01974'>FGSG_01974</option><option value='FGSG_02077'>FGSG_02077</option><option value='FGSG_02153'>FGSG_02153</option><option value='FGSG_02488'>FGSG_02488</option><option value='FGSG_02549'>FGSG_02549</option><option value='FGSG_02838'>FGSG_02838</option><option value='FGSG_03146'>FGSG_03146</option><option value='FGSG_03499'>FGSG_03499</option><option value='FGSG_04416'>FGSG_04416</option><option value='FGSG_04510'>FGSG_04510</option><option value='FGSG_04610'>FGSG_04610</option><option value='FGSG_04770'>FGSG_04770</option><option value='FGSG_05549'>FGSG_05549</option><option value='FGSG_05586'>FGSG_05586</option><option value='FGSG_06420'>FGSG_06420</option><option value='FGSG_06970'>FGSG_06970</option><option value='FGSG_07062'>FGSG_07062</option><option value='FGSG_07742'>FGSG_07742</option><option value='FGSG_07745'>FGSG_07745</option><option value='FGSG_07812'>FGSG_07812</option><option value='FGSG_07816'>FGSG_07816</option><option value='FGSG_08737'>FGSG_08737</option><option value='FGSG_09150'>FGSG_09150</option><option value='FGSG_09759'>FGSG_09759</option><option value='FGSG_09905'>FGSG_09905</option><option value='FGSG_10057'>FGSG_10057</option><option value='FGSG_10591'>FGSG_10591</option><option value='FGSG_11614'>FGSG_11614</option><option value='FGSG_12019'>FGSG_12019</option><option value='FGSG_12132'>FGSG_12132</option><option value='FGSG_12149'>FGSG_12149</option><option value='FGSG_12753'>FGSG_12753</option><option value='FGSG_12887'>FGSG_12887</option><option value='FGSG_13509'>FGSG_13509</option><option value='FGSG_13944'>FGSG_13944</option><option value='FgStuA'>FgStuA</option><option value='FgTep1p'>FgTep1p</option><option value='FgVELB'>FgVELB</option><option value='FHB1'>FHB1</option><option value='Fhk1'>Fhk1</option><option value='FimH'>FimH</option><option value='FKH2'>FKH2</option><option value='FKS1'>FKS1</option><option value='FliC'>FliC</option><option value='FLO8'>FLO8</option><option value='Fmk1'>Fmk1</option><option value='FMK1'>FMK1</option><option value='FOS1'>FOS1</option><option value='foSNF1'>foSNF1</option><option value='FOW1'>FOW1</option><option value='FOW2'>FOW2</option><option value='FOXG_00016'>FOXG_00016</option><option value='FOXG_00076'>FOXG_00076</option><option value='FOXG_02277'>FOXG_02277</option><option value='FOXG_08661'>FOXG_08661</option><option value='frdA'>frdA</option><option value='FRP1'>FRP1</option><option value='FRT1'>FRT1</option><option value='fruR'>fruR</option><option value='FSR1'>FSR1</option><option value='ftf1'>ftf1</option><option value='FTL1 (related: TBL1)'>FTL1 (related: TBL1)</option><option value='FTR1'>FTR1</option><option value='FUM1 (related: FUM5)'>FUM1 (related: FUM5)</option><option value='fuz7'>fuz7</option><option value='FUZ7'>FUZ7</option><option value='FvVE1'>FvVE1</option><option value='gas1'>gas1</option><option value='Gas1'>Gas1</option><option value='GAS1'>GAS1</option><option value='GAS2'>GAS2</option><option value='GAT1'>GAT1</option><option value='Gat2'>Gat2</option><option value='GcABC-G1'>GcABC-G1</option><option value='GCD6'>GCD6</option><option value='GCS1'>GCS1</option><option value='gcvP'>gcvP</option><option value='GEL2'>GEL2</option><option value='GFA1'>GFA1</option><option value='GGDEF'>GGDEF</option><option value='GIP1'>GIP1</option><option value='GIP2'>GIP2</option><option value='GLKA'>GLKA</option><option value='GLN3'>GLN3</option><option value='GLO1'>GLO1</option><option value='gltP'>gltP</option><option value='glyA'>glyA</option><option value='Gna1'>Gna1</option><option value='GNA1'>GNA1</option><option value='Gna4'>Gna4</option><option value='GNO1'>GNO1</option><option value='Gox1'>Gox1</option><option value='GOX1'>GOX1</option><option value='GP42/PEP13'>GP42/PEP13</option><option value='GPA1'>GPA1</option><option value='GPA2'>GPA2</option><option value='GPA3'>GPA3</option><option value='GPA4'>GPA4</option><option value='GPAB'>GPAB</option><option value='GPABC1'>GPABC1</option><option value='Gp-flp-32'>Gp-flp-32</option><option value='Gph1'>Gph1</option><option value='GPI7'>GPI7</option><option value='Gpmk1 homolog'>Gpmk1 homolog</option><option value='GRS1'>GRS1</option><option value='Gsk3 homolog'>Gsk3 homolog</option><option value='gumD'>gumD</option><option value='gumH'>gumH</option><option value='GUS1'>GUS1</option><option value='GyrA'>GyrA</option><option value='GzAPSES001'>GzAPSES001</option><option value='GzAPSES002'>GzAPSES002</option><option value='GzAPSES004'>GzAPSES004</option><option value='GzAra001'>GzAra001</option><option value='GzAra002'>GzAra002</option><option value='GzAra003'>GzAra003</option><option value='GzAra004'>GzAra004</option><option value='GzAra005'>GzAra005</option><option value='GzAra006'>GzAra006</option><option value='GzAra007'>GzAra007</option><option value='GzAra008'>GzAra008</option><option value='GzAT001'>GzAT001</option><option value='GzAT002'>GzAT002</option><option value='GzAT003'>GzAT003</option><option value='GzbHLH001'>GzbHLH001</option><option value='GzbHLH002'>GzbHLH002</option><option value='GzbHLH003'>GzbHLH003</option><option value='GzbHLH004'>GzbHLH004</option><option value='GzbHLH005'>GzbHLH005</option><option value='GzbHLH006'>GzbHLH006</option><option value='GzbHLH007'>GzbHLH007</option><option value='GzbHLH008'>GzbHLH008</option><option value='GzbHLH009'>GzbHLH009</option><option value='GzbHLH010'>GzbHLH010</option><option value='GzbHLH011'>GzbHLH011</option><option value='GzbHLH012'>GzbHLH012</option><option value='GzbHLH013'>GzbHLH013</option><option value='GzbHLH014'>GzbHLH014</option><option value='GzbHLH015'>GzbHLH015</option><option value='GzbHLH016'>GzbHLH016</option><option value='GzBrlA'>GzBrlA</option><option value='GzBrom001'>GzBrom001</option><option value='GzBrom002'>GzBrom002</option><option value='GzBrom003'>GzBrom003</option><option value='GzbZIP001'>GzbZIP001</option><option value='GzbZIP004'>GzbZIP004</option><option value='GzbZIP005'>GzbZIP005</option><option value='GzbZIP006'>GzbZIP006</option><option value='GzbZIP007'>GzbZIP007</option><option value='GzbZIP008'>GzbZIP008</option><option value='GzbZIP009'>GzbZIP009</option><option value='GzbZIP010'>GzbZIP010</option><option value='GzbZIP011'>GzbZIP011</option><option value='GzbZIP012'>GzbZIP012</option><option value='GzbZIP013'>GzbZIP013</option><option value='GzbZIP014'>GzbZIP014</option><option value='GzbZIP015'>GzbZIP015</option><option value='GzbZIP016'>GzbZIP016</option><option value='GzbZIP017'>GzbZIP017</option><option value='GzbZIP018'>GzbZIP018</option><option value='GzbZIP019'>GzbZIP019</option><option value='GzbZIP020'>GzbZIP020</option><option value='GzbZIP021'>GzbZIP021</option><option value='GzbZIP022'>GzbZIP022</option><option value='GzC2H001'>GzC2H001</option><option value='GzC2H002'>GzC2H002</option><option value='GzC2H003'>GzC2H003</option><option value='GzC2H004'>GzC2H004</option><option value='GzC2H005'>GzC2H005</option><option value='GzC2H006'>GzC2H006</option><option value='GzC2H007'>GzC2H007</option><option value='GzC2H008'>GzC2H008</option><option value='GzC2H009'>GzC2H009</option><option value='GzC2H010'>GzC2H010</option><option value='GzC2H011'>GzC2H011</option><option value='GzC2H012'>GzC2H012</option><option value='GzC2H013'>GzC2H013</option><option value='GzC2H014'>GzC2H014</option><option value='GzC2H015'>GzC2H015</option><option value='GzC2H016'>GzC2H016</option><option value='GzC2H017'>GzC2H017</option><option value='GzC2H018'>GzC2H018</option><option value='GzC2H019'>GzC2H019</option><option value='GzC2H020'>GzC2H020</option><option value='GzC2H021'>GzC2H021</option><option value='GzC2H024'>GzC2H024</option><option value='GzC2H025'>GzC2H025</option><option value='GzC2H028'>GzC2H028</option><option value='GzC2H029'>GzC2H029</option><option value='GzC2H031'>GzC2H031</option><option value='GzC2H032'>GzC2H032</option><option value='GzC2H034'>GzC2H034</option><option value='GzC2H035'>GzC2H035</option><option value='GzC2H036'>GzC2H036</option><option value='GzC2H037'>GzC2H037</option><option value='GzC2H038'>GzC2H038</option><option value='GzC2H039'>GzC2H039</option><option value='GzC2H040'>GzC2H040</option><option value='GzC2H041'>GzC2H041</option><option value='GzC2H042'>GzC2H042</option><option value='GzC2H043'>GzC2H043</option><option value='GzC2H044'>GzC2H044</option><option value='GzC2H045'>GzC2H045</option><option value='GzC2H046'>GzC2H046</option><option value='GzC2H047'>GzC2H047</option><option value='GzC2H048'>GzC2H048</option><option value='GzC2H049'>GzC2H049</option><option value='GzC2H051'>GzC2H051</option><option value='GzC2H052'>GzC2H052</option><option value='GzC2H053'>GzC2H053</option><option value='GzC2H054'>GzC2H054</option><option value='GzC2H055'>GzC2H055</option><option value='GzC2H056'>GzC2H056</option><option value='GzC2H057'>GzC2H057</option><option value='GzC2H058'>GzC2H058</option><option value='GzC2H059'>GzC2H059</option><option value='GzC2H060'>GzC2H060</option><option value='GzC2H061'>GzC2H061</option><option value='GzC2H062'>GzC2H062</option><option value='GzC2H063'>GzC2H063</option><option value='GzC2H064'>GzC2H064</option><option value='GzC2H065'>GzC2H065</option><option value='GzC2H066'>GzC2H066</option><option value='GzC2H067'>GzC2H067</option><option value='GzC2H069'>GzC2H069</option><option value='GzC2H070'>GzC2H070</option><option value='GzC2H071'>GzC2H071</option><option value='GzC2H072'>GzC2H072</option><option value='GzC2H075'>GzC2H075</option><option value='GzC2H076'>GzC2H076</option><option value='GzC2H078'>GzC2H078</option><option value='GzC2H079'>GzC2H079</option><option value='GzC2H080'>GzC2H080</option><option value='GzC2H081'>GzC2H081</option><option value='GzC2H082'>GzC2H082</option><option value='GzC2H083'>GzC2H083</option><option value='GzC2H084'>GzC2H084</option><option value='GzC2H085'>GzC2H085</option><option value='GzC2H086'>GzC2H086</option><option value='GzC2H088'>GzC2H088</option><option value='GzC2H089'>GzC2H089</option><option value='GzC2H090'>GzC2H090</option><option value='GzC2H091'>GzC2H091</option><option value='GzC2H092'>GzC2H092</option><option value='GzC2H093'>GzC2H093</option><option value='GzC2H094'>GzC2H094</option><option value='GzC2H095'>GzC2H095</option><option value='GzC2H096'>GzC2H096</option><option value='GzC2H097'>GzC2H097</option><option value='GzC2H098'>GzC2H098</option><option value='GzC2H100'>GzC2H100</option><option value='GzC2H102'>GzC2H102</option><option value='GzC2H103'>GzC2H103</option><option value='GzC2H104'>GzC2H104</option><option value='GzC2H105'>GzC2H105</option><option value='GzC2H106'>GzC2H106</option><option value='GzC2H107'>GzC2H107</option><option value='GzCCAAT001'>GzCCAAT001</option><option value='GzCCAAT002'>GzCCAAT002</option><option value='GzCCAAT003'>GzCCAAT003</option><option value='GzCCAAT004'>GzCCAAT004</option><option value='GzCCAAT005'>GzCCAAT005</option><option value='GzCCAAT006'>GzCCAAT006</option><option value='GzCCAAT007'>GzCCAAT007</option><option value='GzCCAAT008'>GzCCAAT008</option><option value='GzCCCH001'>GzCCCH001</option><option value='GzCCCH002'>GzCCCH002</option><option value='GzCCCH003'>GzCCCH003</option><option value='GzCCCH004'>GzCCCH004</option><option value='GzCCHC001'>GzCCHC001</option><option value='GzCCHC002'>GzCCHC002</option><option value='GzCCHC003'>GzCCHC003</option><option value='GzCCHC004'>GzCCHC004</option><option value='GzCCHC005'>GzCCHC005</option><option value='GzCCHC006'>GzCCHC006</option><option value='GzCCHC007'>GzCCHC007</option><option value='GzCCHC008'>GzCCHC008</option><option value='GzCCHC009'>GzCCHC009</option><option value='GzCCHC010'>GzCCHC010</option><option value='GzCCHC011'>GzCCHC011</option><option value='GzCCHC012'>GzCCHC012</option><option value='GzCON7'>GzCON7</option><option value='GzCPS1'>GzCPS1</option><option value='GzDDT'>GzDDT</option><option value='GzDHHC001'>GzDHHC001</option><option value='GzDHHC002'>GzDHHC002</option><option value='GzDHHC003'>GzDHHC003</option><option value='GzDHHC004'>GzDHHC004</option><option value='GzDHHC005'>GzDHHC005</option><option value='GzDNL'>GzDNL</option><option value='GzFET5'>GzFET5</option><option value='GzFlbD'>GzFlbD</option><option value='GzFUS1'>GzFUS1</option><option value='GzGATA001'>GzGATA001</option><option value='GzGATA002'>GzGATA002</option><option value='GzGATA003'>GzGATA003</option><option value='GzGATA004'>GzGATA004</option><option value='GzGATA005'>GzGATA005</option><option value='GzGATA006'>GzGATA006</option><option value='GzGATA007'>GzGATA007</option><option value='GzGATA008'>GzGATA008</option><option value='GzGH'>GzGH</option><option value='GzGPA1'>GzGPA1</option><option value='GzGPA2'>GzGPA2</option><option value='GzGPA3'>GzGPA3</option><option value='GzGPB1'>GzGPB1</option><option value='GzGRF'>GzGRF</option><option value='GzHMG001'>GzHMG001</option><option value='GzHMG002'>GzHMG002</option><option value='GzHMG003'>GzHMG003</option><option value='GzHMG004'>GzHMG004</option><option value='GzHMG005'>GzHMG005</option><option value='GzHMG006'>GzHMG006</option><option value='GzHMG007'>GzHMG007</option><option value='GzHMG008'>GzHMG008</option><option value='GzHMG009'>GzHMG009</option><option value='GzHMG010'>GzHMG010</option><option value='GzHMG011'>GzHMG011</option><option value='GzHMG012'>GzHMG012</option><option value='GzHMG013'>GzHMG013</option><option value='GzHMG014'>GzHMG014</option><option value='GzHMG015'>GzHMG015</option><option value='GzHMG016'>GzHMG016</option><option value='GzHMG017'>GzHMG017</option><option value='GzHMG018'>GzHMG018</option><option value='GzHMG019'>GzHMG019</option><option value='GzHMG020'>GzHMG020</option><option value='GzHMG021'>GzHMG021</option><option value='GzHMG022'>GzHMG022</option><option value='GzHMG023'>GzHMG023</option><option value='GzHMG024'>GzHMG024</option><option value='GzHMG025'>GzHMG025</option><option value='GzHMG029'>GzHMG029</option><option value='GzHMG030'>GzHMG030</option><option value='GzHMG031'>GzHMG031</option><option value='GzHMG032'>GzHMG032</option><option value='GzHMG033'>GzHMG033</option><option value='GzHMG034'>GzHMG034</option><option value='GzHMG035'>GzHMG035</option><option value='GzHMG036'>GzHMG036</option><option value='GzHMG037'>GzHMG037</option><option value='GzHOME001'>GzHOME001</option><option value='GzHOME002'>GzHOME002</option><option value='GzHOME003'>GzHOME003</option><option value='GzHOME004'>GzHOME004</option><option value='GzHOME005'>GzHOME005</option><option value='GzHOME009'>GzHOME009</option><option value='GzHOME010'>GzHOME010</option><option value='GzHOME011'>GzHOME011</option><option value='GzHOME012'>GzHOME012</option><option value='GzHOMEL009'>GzHOMEL009</option><option value='GzHOMEL012'>GzHOMEL012</option><option value='GzHOMEL013'>GzHOMEL013</option><option value='GzHOMEL016'>GzHOMEL016</option><option value='GzHOMEL018'>GzHOMEL018</option><option value='GzHOMEL024'>GzHOMEL024</option><option value='GzHOMEL025'>GzHOMEL025</option><option value='GzHOMEL026'>GzHOMEL026</option><option value='GzHOMEL030'>GzHOMEL030</option><option value='GzHOMEL033'>GzHOMEL033</option><option value='GzHOMEL035'>GzHOMEL035</option><option value='GzHOMEL036'>GzHOMEL036</option><option value='GzHOMEL040'>GzHOMEL040</option><option value='GzHOMEL041'>GzHOMEL041</option><option value='GzHSF003'>GzHSF003</option><option value='GzJUM001'>GzJUM001</option><option value='GzJUM002'>GzJUM002</option><option value='GzJUM004'>GzJUM004</option><option value='GzJUM005'>GzJUM005</option><option value='GzJUM006'>GzJUM006</option><option value='GzLam001'>GzLam001</option><option value='GzLam002'>GzLam002</option><option value='GzMADS001'>GzMADS001</option><option value='GzMADS002'>GzMADS002</option><option value='GzMADS003'>GzMADS003</option><option value='GzmetE'>GzmetE</option><option value='GzMIZ001'>GzMIZ001</option><option value='GzMIZ002'>GzMIZ002</option><option value='GzMyb002'>GzMyb002</option><option value='GzMyb003'>GzMyb003</option><option value='GzMyb004'>GzMyb004</option><option value='GzMyb006'>GzMyb006</option><option value='GzMyb007'>GzMyb007</option><option value='GzMyb008'>GzMyb008</option><option value='GzMyb009'>GzMyb009</option><option value='GzMyb010'>GzMyb010</option><option value='GzMyb011'>GzMyb011</option><option value='GzMyb012'>GzMyb012</option><option value='GzMyb014'>GzMyb014</option><option value='GzMyb015'>GzMyb015</option><option value='GzMyb016'>GzMyb016</option><option value='GzMyb017'>GzMyb017</option><option value='GzMyb018'>GzMyb018</option><option value='GzMyb019'>GzMyb019</option><option value='GzNEG001'>GzNEG001</option><option value='GzNEG002'>GzNEG002</option><option value='GzNF001'>GzNF001</option><option value='GzNF002'>GzNF002</option><option value='GzNH001'>GzNH001</option><option value='GzNH002'>GzNH002</option><option value='GzNH003'>GzNH003</option><option value='GzNot001'>GzNot001</option><option value='GzNot002'>GzNot002</option><option value='GzOB001'>GzOB001</option><option value='GzOB002'>GzOB002</option><option value='GzOB003'>GzOB003</option><option value='GzOB004'>GzOB004</option><option value='GzOB005'>GzOB005</option><option value='GzOB006'>GzOB006</option><option value='GzOB007'>GzOB007</option><option value='GzOB008'>GzOB008</option><option value='GzOB009'>GzOB009</option><option value='GzOB010'>GzOB010</option><option value='GzOB011'>GzOB011</option><option value='GzOB012'>GzOB012</option><option value='GzOB013'>GzOB013</option><option value='GzOB014'>GzOB014</option><option value='GzOB015'>GzOB015</option><option value='GzOB016'>GzOB016</option><option value='GzOB017'>GzOB017</option><option value='GzOB018'>GzOB018</option><option value='GzOB019'>GzOB019</option><option value='GzOB020'>GzOB020</option><option value='GzOB021'>GzOB021</option><option value='GzOB022'>GzOB022</option><option value='GzOB023'>GzOB023</option><option value='GzOB024'>GzOB024</option><option value='GzOB025'>GzOB025</option><option value='GzOB026'>GzOB026</option><option value='GzOB027'>GzOB027</option><option value='GzOB028'>GzOB028</option><option value='GzOB029'>GzOB029</option><option value='GzOB030'>GzOB030</option><option value='GzOB031'>GzOB031</option><option value='GzOB032'>GzOB032</option><option value='GzOB033'>GzOB033</option><option value='GzOB034'>GzOB034</option><option value='GzOB035'>GzOB035</option><option value='GzOB036'>GzOB036</option><option value='GzOB037'>GzOB037</option><option value='GzOB038'>GzOB038</option><option value='GzOB039'>GzOB039</option><option value='GzOB041'>GzOB041</option><option value='GzOB042'>GzOB042</option><option value='GzOB043'>GzOB043</option><option value='GzOB044'>GzOB044</option><option value='GzOB045'>GzOB045</option><option value='GzOB046'>GzOB046</option><option value='GzOB047'>GzOB047</option><option value='GzOB048'>GzOB048</option><option value='GzOpi'>GzOpi</option><option value='GzP53L001'>GzP53L001</option><option value='GzP53L002'>GzP53L002</option><option value='GzP53L003'>GzP53L003</option><option value='GzP53L004'>GzP53L004</option><option value='GzP53L005'>GzP53L005</option><option value='GzP53L006'>GzP53L006</option><option value='GzRad001'>GzRad001</option><option value='GzRad002'>GzRad002</option><option value='GzRad003'>GzRad003</option><option value='GzRFX1'>GzRFX1</option><option value='GzRUM1'>GzRUM1</option><option value='GzSART1'>GzSART1</option><option value='Gzscp'>Gzscp</option><option value='GzSGT1'>GzSGT1</option><option value='Gzsnd'>Gzsnd</option><option value='GzssDB001'>GzssDB001</option><option value='GzssDB002'>GzssDB002</option><option value='GzSsu72'>GzSsu72</option><option value='GzSYN1'>GzSYN1</option><option value='GzSYN2'>GzSYN2</option><option value='GzTF2S001'>GzTF2S001</option><option value='GzTF2S002'>GzTF2S002</option><option value='GzWing001'>GzWing001</option><option value='GzWing002'>GzWing002</option><option value='GzWing003'>GzWing003</option><option value='GzWing004'>GzWing004</option><option value='GzWing005'>GzWing005</option><option value='GzWing006'>GzWing006</option><option value='GzWing007'>GzWing007</option><option value='GzWing009'>GzWing009</option><option value='GzWing010'>GzWing010</option><option value='GzWing011'>GzWing011</option><option value='GzWing012'>GzWing012</option><option value='GzWing014'>GzWing014</option><option value='GzWing015'>GzWing015</option><option value='GzWing017'>GzWing017</option><option value='GzWing018'>GzWing018</option><option value='GzWing019'>GzWing019</option><option value='GzWing020'>GzWing020</option><option value='GzWing021'>GzWing021</option><option value='GzWing022'>GzWing022</option><option value='GzWing023'>GzWing023</option><option value='GzWing024'>GzWing024</option><option value='GzWing026'>GzWing026</option><option value='GzWing027'>GzWing027</option><option value='GzWing028'>GzWing028</option><option value='GzYL'>GzYL</option><option value='GzZC001'>GzZC001</option><option value='GzZC002'>GzZC002</option><option value='GzZC003'>GzZC003</option><option value='GzZC004'>GzZC004</option><option value='GzZC005'>GzZC005</option><option value='GzZC006'>GzZC006</option><option value='GzZC007'>GzZC007</option><option value='GzZC008'>GzZC008</option><option value='GzZC009'>GzZC009</option><option value='GzZC010'>GzZC010</option><option value='GzZC011'>GzZC011</option><option value='GzZC012'>GzZC012</option><option value='GzZC013'>GzZC013</option><option value='GzZC014'>GzZC014</option><option value='GzZC015'>GzZC015</option><option value='GzZC016'>GzZC016</option><option value='GzZC017'>GzZC017</option><option value='GzZC018'>GzZC018</option><option value='GzZC019'>GzZC019</option><option value='GzZC020'>GzZC020</option><option value='GzZC021'>GzZC021</option><option value='GzZC022'>GzZC022</option><option value='GzZC023'>GzZC023</option><option value='GzZC024'>GzZC024</option><option value='GzZC025'>GzZC025</option><option value='GzZC026'>GzZC026</option><option value='GzZC027'>GzZC027</option><option value='GzZC028'>GzZC028</option><option value='GzZC029'>GzZC029</option><option value='GzZC030'>GzZC030</option><option value='GzZC031'>GzZC031</option><option value='GzZC032'>GzZC032</option><option value='GzZC033'>GzZC033</option><option value='GzZC034'>GzZC034</option><option value='GzZC035'>GzZC035</option><option value='GzZC036'>GzZC036</option><option value='GzZC037'>GzZC037</option><option value='GzZC038'>GzZC038</option><option value='GzZC039'>GzZC039</option><option value='GzZC040'>GzZC040</option><option value='GzZC041'>GzZC041</option><option value='GzZC042'>GzZC042</option><option value='GzZC043'>GzZC043</option><option value='GzZC044'>GzZC044</option><option value='GzZC045'>GzZC045</option><option value='GzZC046'>GzZC046</option><option value='GzZC047'>GzZC047</option><option value='GzZC048'>GzZC048</option><option value='GzZC049'>GzZC049</option><option value='GzZC050'>GzZC050</option><option value='GzZC051'>GzZC051</option><option value='GzZC052'>GzZC052</option><option value='GzZC053'>GzZC053</option><option value='GzZC054'>GzZC054</option><option value='GzZC055'>GzZC055</option><option value='GzZC056'>GzZC056</option><option value='GzZC057'>GzZC057</option><option value='GzZC058'>GzZC058</option><option value='GzZC059'>GzZC059</option><option value='GzZC060'>GzZC060</option><option value='GzZC061'>GzZC061</option><option value='GzZC062'>GzZC062</option><option value='GzZC063'>GzZC063</option><option value='GzZC064'>GzZC064</option><option value='GzZC065'>GzZC065</option><option value='GzZC066'>GzZC066</option><option value='GzZC067'>GzZC067</option><option value='GzZC068'>GzZC068</option><option value='GzZC069'>GzZC069</option><option value='GzZC070'>GzZC070</option><option value='GzZC071'>GzZC071</option><option value='GzZC072'>GzZC072</option><option value='GzZC073'>GzZC073</option><option value='GzZC074'>GzZC074</option><option value='GzZC075'>GzZC075</option><option value='GzZC076'>GzZC076</option><option value='GzZC077'>GzZC077</option><option value='GzZC078'>GzZC078</option><option value='GzZC079'>GzZC079</option><option value='GzZC080'>GzZC080</option><option value='GzZC081'>GzZC081</option><option value='GzZC082'>GzZC082</option><option value='GzZC083'>GzZC083</option><option value='GzZC084'>GzZC084</option><option value='GzZC085'>GzZC085</option><option value='GzZC086'>GzZC086</option><option value='GzZC087'>GzZC087</option><option value='GzZC088'>GzZC088</option><option value='GzZC089'>GzZC089</option><option value='GzZC090'>GzZC090</option><option value='GzZC091'>GzZC091</option><option value='GzZC092'>GzZC092</option><option value='GzZC093'>GzZC093</option><option value='GzZC094'>GzZC094</option><option value='GzZC095'>GzZC095</option><option value='GzZC096'>GzZC096</option><option value='GzZC097'>GzZC097</option><option value='GzZC098'>GzZC098</option><option value='GzZC099'>GzZC099</option><option value='GzZC100'>GzZC100</option><option value='GzZC101'>GzZC101</option><option value='GzZC102'>GzZC102</option><option value='GzZC103'>GzZC103</option><option value='GzZC104'>GzZC104</option><option value='GzZC105'>GzZC105</option><option value='GzZC106'>GzZC106</option><option value='GzZC107'>GzZC107</option><option value='GzZC108'>GzZC108</option><option value='GzZC109'>GzZC109</option><option value='GzZC110'>GzZC110</option><option value='GzZC111'>GzZC111</option><option value='GzZC112'>GzZC112</option><option value='GzZC113'>GzZC113</option><option value='GzZC114'>GzZC114</option><option value='GzZC115'>GzZC115</option><option value='GzZC116'>GzZC116</option><option value='GzZC117'>GzZC117</option><option value='GzZC118'>GzZC118</option><option value='GzZC119'>GzZC119</option><option value='GzZC120'>GzZC120</option><option value='GzZC121'>GzZC121</option><option value='GzZC122'>GzZC122</option><option value='GzZC123'>GzZC123</option><option value='GzZC124'>GzZC124</option><option value='GzZC125'>GzZC125</option><option value='GzZC126'>GzZC126</option><option value='GzZC127'>GzZC127</option><option value='GzZC128'>GzZC128</option><option value='GzZC129'>GzZC129</option><option value='GzZC130'>GzZC130</option><option value='GzZC131'>GzZC131</option><option value='GzZC133'>GzZC133</option><option value='GzZC134'>GzZC134</option><option value='GzZC135'>GzZC135</option><option value='GzZC136'>GzZC136</option><option value='GzZC137'>GzZC137</option><option value='GzZC138'>GzZC138</option><option value='GzZC139'>GzZC139</option><option value='GzZC140'>GzZC140</option><option value='GzZC141'>GzZC141</option><option value='GzZC142'>GzZC142</option><option value='GzZC143'>GzZC143</option><option value='GzZC144'>GzZC144</option><option value='GzZC145'>GzZC145</option><option value='GzZC146'>GzZC146</option><option value='GzZC147'>GzZC147</option><option value='GzZC148'>GzZC148</option><option value='GzZC149'>GzZC149</option><option value='GzZC150'>GzZC150</option><option value='GzZC151'>GzZC151</option><option value='GzZC152'>GzZC152</option><option value='GzZC153'>GzZC153</option><option value='GzZC154'>GzZC154</option><option value='GzZC155'>GzZC155</option><option value='GzZC156'>GzZC156</option><option value='GzZC157'>GzZC157</option><option value='GzZC158'>GzZC158</option><option value='GzZC159'>GzZC159</option><option value='GzZC160'>GzZC160</option><option value='GzZC161'>GzZC161</option><option value='GzZC162'>GzZC162</option><option value='GzZC163'>GzZC163</option><option value='GzZC164'>GzZC164</option><option value='GzZC165'>GzZC165</option><option value='GzZC166'>GzZC166</option><option value='GzZC167'>GzZC167</option><option value='GzZC168'>GzZC168</option><option value='GzZC169'>GzZC169</option><option value='GzZC170'>GzZC170</option><option value='GzZC171'>GzZC171</option><option value='GzZC172'>GzZC172</option><option value='GzZC173'>GzZC173</option><option value='GzZC174'>GzZC174</option><option value='GzZC175'>GzZC175</option><option value='GzZC176'>GzZC176</option><option value='GzZC177'>GzZC177</option><option value='GzZC178'>GzZC178</option><option value='GzZC179'>GzZC179</option><option value='GzZC180'>GzZC180</option><option value='GzZC181'>GzZC181</option><option value='GzZC182'>GzZC182</option><option value='GzZC183'>GzZC183</option><option value='GzZC184'>GzZC184</option><option value='GzZC185'>GzZC185</option><option value='GzZC186'>GzZC186</option><option value='GzZC187'>GzZC187</option><option value='GzZC188'>GzZC188</option><option value='GzZC189'>GzZC189</option><option value='GzZC190'>GzZC190</option><option value='GzZC191'>GzZC191</option><option value='GzZC192'>GzZC192</option><option value='GzZC193'>GzZC193</option><option value='GzZC194'>GzZC194</option><option value='GzZC195'>GzZC195</option><option value='GzZC196'>GzZC196</option><option value='GzZC197'>GzZC197</option><option value='GzZC198'>GzZC198</option><option value='GzZC199'>GzZC199</option><option value='GzZC200'>GzZC200</option><option value='GzZC201'>GzZC201</option><option value='GzZC202'>GzZC202</option><option value='GzZC203'>GzZC203</option><option value='GzZC204'>GzZC204</option><option value='GzZC205'>GzZC205</option><option value='GzZC206'>GzZC206</option><option value='GzZC207'>GzZC207</option><option value='GzZC208'>GzZC208</option><option value='GzZC209'>GzZC209</option><option value='GzZC210'>GzZC210</option><option value='GzZC211'>GzZC211</option><option value='GzZC212'>GzZC212</option><option value='GzZC213'>GzZC213</option><option value='GzZC214'>GzZC214</option><option value='GzZC215'>GzZC215</option><option value='GzZC216'>GzZC216</option><option value='GzZC217'>GzZC217</option><option value='GzZC218'>GzZC218</option><option value='GzZC219'>GzZC219</option><option value='GzZC220'>GzZC220</option><option value='GzZC221'>GzZC221</option><option value='GzZC222'>GzZC222</option><option value='GzZC223'>GzZC223</option><option value='GzZC224'>GzZC224</option><option value='GzZC225'>GzZC225</option><option value='GzZC226'>GzZC226</option><option value='GzZC227'>GzZC227</option><option value='GzZC228'>GzZC228</option><option value='GzZC229'>GzZC229</option><option value='GzZC230'>GzZC230</option><option value='GzZC231'>GzZC231</option><option value='GzZC232'>GzZC232</option><option value='GzZC233'>GzZC233</option><option value='GzZC234'>GzZC234</option><option value='GzZC235'>GzZC235</option><option value='GzZC236'>GzZC236</option><option value='GzZC237'>GzZC237</option><option value='GzZC238'>GzZC238</option><option value='GzZC239'>GzZC239</option><option value='GzZC240'>GzZC240</option><option value='GzZC241'>GzZC241</option><option value='GzZC242'>GzZC242</option><option value='GzZC243'>GzZC243</option><option value='GzZC244'>GzZC244</option><option value='GzZC245'>GzZC245</option><option value='GzZC246'>GzZC246</option><option value='GzZC247'>GzZC247</option><option value='GzZC248'>GzZC248</option><option value='GzZC249'>GzZC249</option><option value='GzZC250'>GzZC250</option><option value='GzZC251'>GzZC251</option><option value='GzZC252'>GzZC252</option><option value='GzZC253'>GzZC253</option><option value='GzZC254'>GzZC254</option><option value='GzZC255'>GzZC255</option><option value='GzZC256'>GzZC256</option><option value='GzZC257'>GzZC257</option><option value='GzZC258'>GzZC258</option><option value='GzZC259'>GzZC259</option><option value='GzZC260'>GzZC260</option><option value='GzZC261'>GzZC261</option><option value='GzZC262'>GzZC262</option><option value='GzZC263'>GzZC263</option><option value='GzZC264'>GzZC264</option><option value='GzZC265'>GzZC265</option><option value='GzZC266'>GzZC266</option><option value='GzZC267'>GzZC267</option><option value='GzZC268'>GzZC268</option><option value='GzZC269'>GzZC269</option><option value='GzZC270'>GzZC270</option><option value='GzZC271'>GzZC271</option><option value='GzZC272'>GzZC272</option><option value='GzZC273'>GzZC273</option><option value='GzZC274'>GzZC274</option><option value='GzZC275'>GzZC275</option><option value='GzZC276'>GzZC276</option><option value='GzZC277'>GzZC277</option><option value='GzZC278'>GzZC278</option><option value='GzZC279'>GzZC279</option><option value='GzZC280'>GzZC280</option><option value='GzZC281'>GzZC281</option><option value='GzZC282'>GzZC282</option><option value='GzZC283'>GzZC283</option><option value='GzZC284'>GzZC284</option><option value='GzZC285'>GzZC285</option><option value='GzZC286'>GzZC286</option><option value='GzZC287'>GzZC287</option><option value='GzZC289'>GzZC289</option><option value='GzZC290'>GzZC290</option><option value='GzZC291'>GzZC291</option><option value='GzZC292'>GzZC292</option><option value='GzZC293'>GzZC293</option><option value='GzZC294'>GzZC294</option><option value='GzZC295'>GzZC295</option><option value='GzZC296'>GzZC296</option><option value='GzZC297'>GzZC297</option><option value='GzZC298'>GzZC298</option><option value='GzZC299'>GzZC299</option><option value='GzZC300'>GzZC300</option><option value='GzZC301'>GzZC301</option><option value='GzZC302'>GzZC302</option><option value='GzZC303'>GzZC303</option><option value='GzZC304'>GzZC304</option><option value='GzZC305'>GzZC305</option><option value='GzZC306'>GzZC306</option><option value='GzZC307'>GzZC307</option><option value='GzZC308'>GzZC308</option><option value='GzZC309'>GzZC309</option><option value='GzZC310'>GzZC310</option><option value='GzZC311'>GzZC311</option><option value='GzZC312'>GzZC312</option><option value='GzZC313'>GzZC313</option><option value='GzZC314'>GzZC314</option><option value='GzZC315'>GzZC315</option><option value='GzZC316'>GzZC316</option><option value='hapA'>hapA</option><option value='HapX'>HapX</option><option value='HaRxL22'>HaRxL22</option><option value='HaRxL75'>HaRxL75</option><option value='HaRxL89'>HaRxL89</option><option value='HaRxLL441'>HaRxLL441</option><option value='HaRxLL464'>HaRxLL464</option><option value='HDA1'>HDA1</option><option value='HDC1'>HDC1</option><option value='HDF1'>HDF1</option><option value='HDF2'>HDF2</option><option value='HDF3'>HDF3</option><option value='HDL1'>HDL1</option><option value='HEM15'>HEM15</option><option value='HEX1'>HEX1</option><option value='hfq'>hfq</option><option value='Hfq'>Hfq</option><option value='HGC1'>HGC1</option><option value='HGL1'>HGL1</option><option value='HIK1'>HIK1</option><option value='hilA'>hilA</option><option value='hilC'>hilC</option><option value='hilD'>hilD</option><option value='himD'>himD</option><option value='HIS3'>HIS3</option><option value='hisD'>hisD</option><option value='hisF'>hisF</option><option value='hldD'>hldD</option><option value='HMR1'>HMR1</option><option value='Hms1'>Hms1/option><option value='hnr'>hnr</option><option value='Hog1'>Hog1</option><option value='HOG1'>HOG1</option><option value='hopA1'>hopA1</option><option value='hopAA1'>hopAA1</option><option value='hopAA1-1'>hopAA1-1</option><option value='hopAA1-2'>hopAA1-2</option><option value='HopAB1'>HopAB1</option><option value='HopAB2'>HopAB2</option><option value='hopAE1'>hopAE1</option><option value='hopAG'>hopAG</option><option value='hopAH1'>hopAH1</option><option value='hopAI1'>hopAI1</option><option value='hopAM1'>hopAM1</option><option value='hopAO1'>hopAO1</option><option value='hopAR1'>hopAR1</option><option value='HopAU1'>HopAU1</option><option value='hopAX1'>hopAX1</option><option value='hopF1'>hopF1</option><option value='hopI1'>hopI1</option><option value='hopM1'>hopM1</option><option value='hopN1'>hopN1</option><option value='hopO1-1'>hopO1-1</option><option value='hopO1-3'>hopO1-3</option><option value='HopQ1'>HopQ1</option><option value='hopQ1-1'>hopQ1-1</option><option value='hopS1'>hopS1</option><option value='hopT1-2'>hopT1-2</option><option value='hopX1'>hopX1</option><option value='hopZ3'>hopZ3</option><option value='HOS2'>HOS2</option><option value='HOS3'>HOS3</option><option value='HOS4'>HOS4</option><option value='HP0197'>HP0197</option><option value='HP0598'>HP0598</option><option value='hpa1'>hpa1</option><option value='hrcR'>hrcR</option><option value='hrpE'>hrpE</option><option value='HrpE3'>HrpE3</option><option value='hrpG'>hrpG</option><option value='hrpJ'>hrpJ</option><option value='HrpL'>HrpL</option><option value='HrpM'>HrpM</option><option value='hrpN'>hrpN</option><option value='hrpR'>hrpR</option><option value='hrpx'>hrpx</option><option value='HSP90'>HSP90</option><option value='hspAT1'>hspAT1</option><option value='hspAT2'>hspAT2</option><option value='hspC'>hspC</option><option value='HspL'>HspL</option><option value='HST1'>HST1</option><option value='HST7'>HST7</option><option value='HsvA'>HsvA</option><option value='HsvB'>HsvB</option><option value='HsvC'>HsvC</option><option value='HTF1'>HTF1</option><option value='HTS1'>HTS1</option><option value='hutG'>hutG</option><option value='HWP1'>HWP1</option><option value='HXK1'>HXK1</option><option value='Hxs1'>Hxs1</option><option value='Hypothetical protein'>Hypothetical protein</option><option value='iaaH'>iaaH</option><option value='iagB'>iagB</option><option value='ICL1'>ICL1</option><option value='IDTR'>IDTR</option><option value='ILV2'>ILV2</option><option value='Ilv3A'>Ilv3A</option><option value='Ilv3B'>Ilv3B</option><option value='ilvB'>ilvB</option><option value='ilvC'>ilvC</option><option value='ilvD'>ilvD</option><option value='imd1'>imd1</option><option value='INF1'>INF1</option><option value='INF2A'>INF2A</option><option value='INF2B'>INF2B</option><option value='InlA'>InlA</option><option value='INT1'>INT1</option><option value='invA'>invA</option><option value='invB'>invB</option><option value='invC'>invC</option><option value='invE'>invE</option><option value='invG'>invG</option><option value='invI'>invI</option><option value='Ip'>Ip</option><option value='ipa'>ipa</option><option value='IPC1'>IPC1</option><option value='IPMDH'>IPMDH</option><option value='IPP1'>IPP1</option><option value='ipx10'>ipx10</option><option value='ipx41'>ipx41</option><option value='ipx46'>ipx46</option><option value='IRE1'>IRE1</option><option value='IRO1'>IRO1</option><option value='IRS4'>IRS4</option><option value='ivy'>ivy</option><option value='JmjC domain-containing protein 5 [GH10 family]'>JmjC domain-containing protein 5 [GH10 family]</option><option value='KER1'>KER1</option><option value='KEX2'>KEX2</option><option value='KIN1'>KIN1</option><option value='KIN2'>KIN2</option><option value='Kin4'>Kin4</option><option value='KLAP1'>KLAP1</option><option value='kpp2'>kpp2</option><option value='KPP2'>KPP2</option><option value='KPP4'>KPP4</option><option value='kpp6'>kpp6</option><option value='KPP6'>KPP6</option><option value='KRE5'>KRE5</option><option value='KRR1'>KRR1</option><option value='KSA1'>KSA1</option><option value='ku70'>ku70</option><option value='Ku70'>Ku70</option><option value='lac2'>lac2</option><option value='LAC2'>LAC2</option><option value='lae1'>lae1</option><option value='LAEA'>LAEA</option><option value='LAM1'>LAM1</option><option value='LEU2'>LEU2</option><option value='leuD'>leuD</option><option value='Lf pmk1'>Lf pmk1</option><option value='LHS1'>LHS1</option><option value='LIG4'>LIG4</option><option value='lip1'>lip1</option><option value='LIP1'>LIP1</option><option value='lip2'>lip2</option><option value='lip22'>lip22</option><option value='lip3'>lip3</option><option value='lip5'>lip5</option><option value='lipA'>lipA</option><option value='Llm1'>Llm1</option><option value='Lmepi'>Lmepi</option><option value='Lmgpi15'>Lmgpi15</option><option value='LmIFRD'>LmIFRD</option><option value='Lmpma1'>Lmpma1</option><option value='lon'>lon</option><option value='LOPB'>LOPB</option><option value='lpxO'>lpxO</option><option value='lsc'>lsc</option><option value='LUC7'>LUC7</option><option value='LuxO'>LuxO</option><option value='Lys14'>Lys14</option><option value='Lys144'>Lys144</option><option value='LYS4'>LYS4</option><option value='LYS9'>LYS9</option><option value='LYSF'>LYSF</option><option value='LYT1'>LYT1</option><option value='M1'>M1</option><option value='MAC1'>MAC1</option><option value='MAD2'>MAD2</option><option value='MAF1'>MAF1</option><option value='magA'>magA</option><option value='MAGA'>MAGA</option><option value='MAGB'>MAGB</option><option value='MAGC'>MAGC</option><option value='MAK1'>MAK1</option><option value='Mak2'>Mak2</option><option value='MAK2'>MAK2</option><option value='MAK5'>MAK5</option><option value='Man1'>Man1</option><option value='MAN1'>MAN1</option><option value='MAP1/GPMK1'>MAP1/GPMK1</option><option value='MAT1-1-1'>MAT1-1-1</option><option value='MAT1-1-3'>MAT1-1-3</option><option value='MAT1-2-1'>MAT1-2-1</option><option value='MCA'>MCA</option><option value='MCNA'>MCNA</option><option value='MCP'>MCP</option><option value='mcs1'>mcs1</option><option value='Mcs1'>Mcs1</option><option value='MCSA'>MCSA</option><option value='mdh'>mdh</option><option value='Mdh1'>Mdh1</option><option value='MDS3'>MDS3</option><option value='Me10'>Me10</option><option value='Me23'>Me23</option><option value='MeaB'>MeaB</option><option value='MedA'>MedA</option><option value='MEP1'>MEP1</option><option value='mepB'>mepB</option><option value='Mes1'>Mes1</option><option value='MET16'>MET16</option><option value='MET2'>MET2</option><option value='MET3'>MET3</option><option value='metE'>metE</option><option value='metF'>metF</option><option value='metG'>metG</option><option value='metJ'>metJ</option><option value='metQ'>metQ</option><option value='metW'>metW</option><option value='metZ'>metZ</option><option value='MFalpha1'>MFalpha1</option><option value='MFalpha2'>MFalpha2</option><option value='MFalpha3'>MFalpha3</option><option value='MfCUT1'>MfCUT1</option><option value='MFP1'>MFP1</option><option value='MgAlg2'>MgAlg2</option><option value='MgATG5'>MgATG5</option><option value='MgAtg9'>MgAtg9</option><option value='MgAtr4'>MgAtr4</option><option value='MgAtr7'>MgAtr7</option><option value='MGB1'>MGB1</option><option value='MgBcy1'>MgBcy1</option><option value='MgCRZ1'>MgCRZ1</option><option value='MgFus3'>MgFus3</option><option value='MGG_00056'>MGG_00056</option><option value='MGG_00124'>MGG_00124</option><option value='MGG_00131'>MGG_00131</option><option value='MGG_00383'>MGG_00383</option><option value='MGG_00435'>MGG_00435</option><option value='MGG_00692'>MGG_00692</option><option value='MGG_00883'>MGG_00883</option><option value='MGG_01193.5'>MGG_01193.5</option><option value='MGG_01381.5'>MGG_01381.5</option><option value='MGG_01426.6'>MGG_01426.6</option><option value='MGG_01481'>MGG_01481</option><option value='MGG_01707'>MGG_01707</option><option value='MGG_01748'>MGG_01748</option><option value='MGG_02074.5'>MGG_02074.5</option><option value='MGG_02240'>MGG_02240</option><option value='MGG_02423'>MGG_02423</option><option value='MGG_02436'>MGG_02436</option><option value='MGG_02443'>MGG_02443</option><option value='MGG_02474.6'>MGG_02474.6</option><option value='MGG_02731'>MGG_02731</option><option value='MGG_02755.6'>MGG_02755.6</option><option value='MGG_02986'>MGG_02986</option><option value='MGG_03284'>MGG_03284</option><option value='MGG_03451'>MGG_03451</option><option value='MGG_03530'>MGG_03530</option><option value='MGG_04116'>MGG_04116</option><option value='MGG_04128'>MGG_04128</option><option value='MGG_04137'>MGG_04137</option><option value='MGG_04138'>MGG_04138</option><option value='MGG_04159.5'>MGG_04159.5</option><option value='MGG_04163'>MGG_04163</option><option value='MGG_04521.6'>MGG_04521.6</option><option value='MGG_04538'>MGG_04538</option><option value='MGG_04556'>MGG_04556</option><option value='MGG_04582'>MGG_04582</option><option value='MGG_04587'>MGG_04587</option><option value='MGG_04621'>MGG_04621</option><option value='MGG_04629'>MGG_04629</option><option value='MGG_04685'>MGG_04685</option><option value='MGG_04951.6'>MGG_04951.6</option><option value='MGG_04985'>MGG_04985</option><option value='MGG_05078.5'>MGG_05078.5</option><option value='MGG_05174'>MGG_05174</option><option value='MGG_05905'>MGG_05905</option><option value='MGG_06243.6'>MGG_06243.6</option><option value='MGG_06279.6'>MGG_06279.6</option><option value='MGG_06355.6'>MGG_06355.6</option><option value='MGG_06434.6'>MGG_06434.6</option><option value='MGG_06507.6'>MGG_06507.6</option><option value='MGG_06847.5'>MGG_06847.5</option><option value='MGG_06951'>MGG_06951</option><option value='MGG_07015'>MGG_07015</option><option value='MGG_07061'>MGG_07061</option><option value='MGG_07259'>MGG_07259</option><option value='MGG_07456.5'>MGG_07456.5</option><option value='MGG_08560'>MGG_08560</option><option value='MGG_08628'>MGG_08628</option><option value='MGG_08710.5'>MGG_08710.5</option><option value='MGG_09250'>MGG_09250</option><option value='MGG_09263'>MGG_09263</option><option value='MGG_09263.6'>MGG_09263.6</option><option value='MGG_09471'>MGG_09471</option><option value='MGG_10510'>MGG_10510</option><option value='MGG_10702'>MGG_10702</option><option value='MGG_10730.5'>MGG_10730.5</option><option value='MGG_11107'>MGG_11107</option><option value='MGG_11388'>MGG_11388</option><option value='MGG_11454.5'>MGG_11454.5</option><option value='MGG_11504'>MGG_11504</option><option value='MGG_11671'>MGG_11671</option><option value='MGG_11742'>MGG_11742</option><option value='MGG_11899'>MGG_11899</option><option value='MGG_12026'>MGG_12026</option><option value='MGG_12142'>MGG_12142</option><option value='MGG_12252'>MGG_12252</option><option value='MGG_12365'>MGG_12365</option><option value='MGG_12373'>MGG_12373</option><option value='MGG_12556'>MGG_12556</option><option value='MGG_12656'>MGG_12656</option><option value='MGG_13024'>MGG_13024</option><option value='MGG_13052'>MGG_13052</option><option value='MGG_13072'>MGG_13072</option><option value='MGG_13324'>MGG_13324</option><option value='MGG_13696'>MGG_13696</option><option value='MGG_14174'>MGG_14174</option><option value='MgHog1'>MgHog1</option><option value='MgLig4'>MgLig4</option><option value='MgMfs1'>MgMfs1</option><option value='MgPex6'>MgPex6</option><option value='MgRho3'>MgRho3</option><option value='MgSlt2'>MgSlt2</option><option value='MgSM1'>MgSM1</option><option value='MGSTE11p'>MGSTE11p</option><option value='MGSTE12p'>MGSTE12p</option><option value='MGSTE20p'>MGSTE20p</option><option value='MGSTE50p'>MGSTE50p</option><option value='MGSTE7p'>MGSTE7p</option><option value='MgTpk2'>MgTpk2</option><option value='MGV1'>MGV1</option><option value='Mgv1homolog'>Mgv1homolog</option><option value='mhk1'>mhk1</option><option value='MHP1'>MHP1</option><option value='Mid1'>Mid1</option><option value='MID1'>MID1</option><option value='Mig1'>Mig1</option><option value='MIG1'>MIG1</option><option value='mig2-1'>mig2-1</option><option value='mig2-2'>mig2-2</option><option value='Mig2-4'>Mig2-4</option><option value='mig2-5'>mig2-5</option><option value='Mig2-6'>Mig2-6</option><option value='MIP1'>MIP1</option><option value='Mir1'>Mir1</option><option value='MIT1'>MIT1</option><option value='MKC1'>MKC1</option><option value='MliC'>MliC</option><option value='Mls1'>Mls1</option><option value='MLS1'>MLS1</option><option value='MLT1'>MLT1</option><option value='mltB'>mltB</option><option value='MmpL4'>MmpL4</option><option value='MmpL5'>MmpL5</option><option value='MMT1'>MMT1</option><option value='MNH6'>MNH6</option><option value='MNN2'>MNN2</option><option value='MNN21'>MNN21</option><option value='MNN22'>MNN22</option><option value='MNN23'>MNN23</option><option value='MNN24'>MNN24</option><option value='MNN26'>MNN26</option><option value='MoAP1'>MoAP1</option><option value='MoAPS1'>MoAPS1</option><option value='MoAPS2'>MoAPS2</option><option value='MoARK1'>MoARK1</option><option value='Moatf1'>Moatf1</option><option value='Moatg1'>Moatg1</option><option value='Moatg10'>Moatg10</option><option value='Moatg11'>Moatg11</option><option value='Moatg12'>Moatg12</option><option value='Moatg13'>Moatg13</option><option value='Moatg15'>Moatg15</option><option value='Moatg16'>Moatg16</option><option value='Moatg17'>Moatg17</option><option value='Moatg18'>Moatg18</option><option value='Moatg2'>Moatg2</option><option value='Moatg24'>Moatg24</option><option value='Moatg26'>Moatg26</option><option value='Moatg27'>Moatg27</option><option value='Moatg28'>Moatg28</option><option value='Moatg29'>Moatg29</option><option value='Moatg3'>Moatg3</option><option value='Moatg4'>Moatg4</option><option value='MoAtg4'>MoAtg4</option><option value='Moatg5'>Moatg5</option><option value='Moatg6'>Moatg6</option><option value='Moatg7'>Moatg7</option><option value='Moatg8'>Moatg8</option><option value='Moatg9'>Moatg9</option><option value='MoCDTF1'>MoCDTF1</option><option value='MoCel12A'>MoCel12A</option><option value='MoCMK1'>MoCMK1</option><option value='MoCRZ1'>MoCRZ1</option><option value='MoCYP51A'>MoCYP51A</option><option value='MoCYP51B'>MoCYP51B</option><option value='MoDUO1'>MoDUO1</option><option value='MoGIS2'>MoGIS2</option><option value='MoHox1'>MoHox1</option><option value='MoHOX2'>MoHOX2</option><option value='MoHox3'>MoHox3</option><option value='MoHox4'>MoHox4</option><option value='MoHox5'>MoHox5</option><option value='MoHox6'>MoHox6</option><option value='MoHox7'>MoHox7</option><option value='MoHox8'>MoHox8</option><option value='MoHyr1'>MoHyr1</option><option value='MoHYR1'>MoHYR1</option><option value='MoLDB1'>MoLDB1</option><option value='MoMCM1'>MoMCM1</option><option value='MoMSB2'>MoMSB2</option><option value='MoPEX7'>MoPEX7</option><option value='Moplaa'>Moplaa</option><option value='MoPLC1'>MoPLC1</option><option value='MoPLC2'>MoPLC2</option><option value='MoPLC3'>MoPLC3</option><option value='MoRgs1'>MoRgs1</option><option value='MoRgs2'>MoRgs2</option><option value='MoRgs3'>MoRgs3</option><option value='MoRgs4'>MoRgs4</option><option value='MoRgs5'>MoRgs5</option><option value='MoRgs6'>MoRgs6</option><option value='MoRgs7'>MoRgs7</option><option value='MoRgs8'>MoRgs8</option><option value='MoRic8'>MoRic8</option><option value='MoRIM15'>MoRIM15</option><option value='MoSFl1'>MoSFl1</option><option value='MoSHO1'>MoSHO1</option><option value='MoSKN7'>MoSKN7</option><option value='MoSLN1'>MoSLN1</option><option value='MoSNF1'>MoSNF1</option><option value='MoSOM1'>MoSOM1</option><option value='MoSSK1'>MoSSK1</option><option value='MoTea4'>MoTea4</option><option value='MoVam7'>MoVam7</option><option value='Mp10'>Mp10</option><option value='Mp42'>Mp42</option><option value='MpCOO2'>MpCOO2</option><option value='Mpd1'>Mpd1</option><option value='MPD1'>MPD1</option><option value='MPF3'>MPF3</option><option value='MPG1'>MPG1</option><option value='MPK1'>MPK1</option><option value='Mps1'>Mps1</option><option value='MPS1'>MPS1</option><option value='MRB1'>MRB1</option><option value='Mrg1'>Mrg1</option><option value='Msb2'>Msb2</option><option value='msdS/AfmsdC'>msdS/AfmsdC</option><option value='MSP1'>MSP1</option><option value='msrA'>msrA</option><option value='MST11'>MST11</option><option value='MST11p'>MST11p</option><option value='MST12'>MST12</option><option value='MST12p'>MST12p</option><option value='MST20'>MST20</option><option value='MST50'>MST50</option><option value='MST50p'>MST50p</option><option value='MST7'>MST7</option><option value='MST7p'>MST7p</option><option value='Mstu1'>Mstu1</option><option value='MSTU1'>MSTU1</option><option value='MSY1'>MSY1</option><option value='MTP1'>MTP1</option><option value='MYP1'>MYP1</option><option value='MYT1'>MYT1</option><option value='MYT2'>MYT2</option><option value='NAG1'>NAG1</option><option value='Nec1'>Nec1</option><option value='Neo1'>Neo1</option><option value='NIA1'>NIA1</option><option value='NIP1'>NIP1</option><option value='NIP2'>NIP2</option><option value='NIP3'>NIP3</option><option value='Nit2'>Nit2</option><option value='NLP1'>NLP1</option><option value='NLP2'>NLP2</option><option value='nlpI'>nlpI</option><option value='NMR1'>NMR1</option><option value='NMR2'>NMR2</option><option value='NMR3'>NMR3</option><option value='NMT'>NMT</option><option value='NOB1'>NOB1</option><option value='NOC3'>NOC3</option><option value='NOP4'>NOP4</option><option value='NOS1'>NOS1</option><option value='NOT4'>NOT4</option><option value='NOT5'>NOT5</option><option value='NOX1'>NOX1</option><option value='NOX2'>NOX2</option><option value='NoxA'>NoxA</option><option value='NoxB'>NoxB</option><option value='NoxR'>NoxR</option><option value='NPC1'>NPC1</option><option value='NPP1'>NPP1</option><option value='NPS6'>NPS6</option><option value='NRG1'>NRG1</option><option value='NTH1'>NTH1</option><option value='NTR'>NTR</option><option value='nudC'>nudC</option><option value='NUT1'>NUT1</option><option value='odc'>odc</option><option value='ODC'>ODC</option><option value='OLE1'>OLE1</option><option value='Oligopeptidase B'>Oligopeptidase B</option><option value='OMO1'>OMO1</option><option value='ompK36'>ompK36</option><option value='ompR'>ompR</option><option value='OmpU'>OmpU</option><option value='orf19.1363'>orf19.1363</option><option value='ORF19.3625'>ORF19.3625</option><option value='orf242'>orf242</option><option value='orf245'>orf245</option><option value='orf408'>orf408</option><option value='orf48'>orf48</option><option value='orf70'>orf70</option><option value='orgA'>orgA</option><option value='ORP1'>ORP1</option><option value='os-1 / bos1 / barA'>os-1 / bos1 / barA</option><option value='OSM1'>OSM1</option><option value='OXI1'>OXI1</option><option value='PA2206'>PA2206</option><option value='PAB1'>PAB1</option><option value='pabaA'>pabaA</option><option value='Pac1'>Pac1</option><option value='PAC1'>PAC1</option><option value='Pac2'>Pac2</option><option value='PacC'>PacC</option><option value='PAK1'>PAK1</option><option value='PaNie'>PaNie</option><option value='pao'>pao</option><option value='parA1'>parA1</option><option value='PAS1'>PAS1</option><option value='PBC1'>PBC1</option><option value='Pbl1'>Pbl1</option><option value='PBS2'>PBS2</option><option value='PCCUTINAS'>PCCUTINAS</option><option value='PcF'>PcF</option><option value='Pcipg2'>Pcipg2</option><option value='PCK1'>PCK1</option><option value='PDA1'>PDA1</option><option value='PDE1'>PDE1</option><option value='PDE2'>PDE2</option><option value='PdeH'>PdeH</option><option value='PdeK'>PdeK</option><option value='PdeL'>PdeL</option><option value='PdeR'>PdeR</option><option value='pdr1'>pdr1</option><option value='pdr15'>pdr15</option><option value='PECA'>PECA</option><option value='PehA'>PehA</option><option value='PehB'>PehB</option><option value='PELA'>PELA</option><option value='PELB'>PELB</option><option value='PELD'>PELD</option><option value='PemG1'>PemG1</option><option value='pep1'>pep1</option><option value='PEP1'>PEP1</option><option value='PEP2'>PEP2</option><option value='PEP5'>PEP5</option><option value='Peroxisomal copper amine oxidase'>Peroxisomal copper amine oxidase</option><option value='Pes1'>Pes1</option><option value='PES1'>PES1</option><option value='PEX5'>PEX5</option><option value='PEX6'>PEX6</option><option value='PEX7'>PEX7</option><option value='PFS2'>PFS2</option><option value='PG1'>PG1</option><option value='PGIP2'>PGIP2</option><option value='PGL1'>PGL1</option><option value='PGN1'>PGN1</option><option value='PGX1'>PGX1</option><option value='PHL1'>PHL1</option><option value='phoP'>phoP</option><option value='phoQ'>phoQ</option><option value='PHR1'>PHR1</option><option value='PiBZP1'>PiBZP1</option><option value='pic'>pic</option><option value='PIC1'>PIC1</option><option value='PIC5'>PIC5</option><option value='PidR'>PidR</option><option value='PidS'>PidS</option><option value='PiGPA1'>PiGPA1</option><option value='PiGPB1'>PiGPB1</option><option value='PilA'>PilA</option><option value='Pit1'>Pit1</option><option value='Pit2'>Pit2</option><option value='PKA1'>PKA1</option><option value='PKA2'>PKA2</option><option value='PKAC1'>PKAC1</option><option value='PKH2-02'>PKH2-02</option><option value='PKR1'>PKR1</option><option value='PKS'>PKS</option><option value='PKS1'>PKS1</option><option value='PKS11'>PKS11</option><option value='PKS13 (related: ZEA2)'>PKS13 (related: ZEA2)</option><option value='PKS17'>PKS17</option><option value='PKS2'>PKS2</option><option value='PKS4 (related: ZEA1)'>PKS4 (related: ZEA1)</option><option value='PKS5'>PKS5</option><option value='PKS6'>PKS6</option><option value='PKS7'>PKS7</option><option value='PKS9'>PKS9</option><option value='PKSP'>PKSP</option><option value='PLB1'>PLB1</option><option value='PLD'>PLD</option><option value='PLD1'>PLD1</option><option value='pliG'>pliG</option><option value='Pls1'>Pls1</option><option value='PLS1'>PLS1</option><option value='PLSP1'>PLSP1</option><option value='Pmc1'>Pmc1</option><option value='PMK1'>PMK1</option><option value='PMP'>PMP</option><option value='PMR1'>PMR1</option><option value='pmrF'>pmrF</option><option value='PMT1'>PMT1</option><option value='PMT2'>PMT2</option><option value='Pmt4'>Pmt4</option><option value='PMT4'>PMT4</option><option value='PMT5'>PMT5</option><option value='PMT6'>PMT6</option><option value='ponA'>ponA</option><option value='PopW'>PopW</option><option value='PPE18'>PPE18</option><option value='PPGK'>PPGK</option><option value='PPOA'>PPOA</option><option value='PPOB'>PPOB</option><option value='PPOC'>PPOC</option><option value='Ppr1'>Ppr1</option><option value='Ppr2'>Ppr2</option><option value='PprB'>PprB</option><option value='PPT1'>PPT1</option><option value='PptT'>PptT</option><option value='pqiB'>pqiB</option><option value='PRF1'>PRF1</option><option value='prgH'>prgH</option><option value='prgJ'>prgJ</option><option value='prgK'>prgK</option><option value='PRI1'>PRI1</option><option value='proC'>proC</option><option value='PrtT'>PrtT</option><option value='PSE1'>PSE1</option><option value='psm-mec'>psm-mec</option><option value='PsojNIP'>PsojNIP</option><option value='PSPTO0834'>PSPTO0834</option><option value='PSPTO0907'>PSPTO0907</option><option value='PSPTO2105'>PSPTO2105</option><option value='PTC1'>PTC1</option><option value='PTH11'>PTH11</option><option value='PTH2'>PTH2</option><option value='PTH3'>PTH3</option><option value='PTH8'>PTH8</option><option value='PTH9 (related: NTH1)'>PTH9 (related: NTH1)</option><option value='pthXo1'>pthXo1</option><option value='PTK1'>PTK1</option><option value='Ptr2'>Ptr2</option><option value='purA'>purA</option><option value='putA'>putA</option><option value='Putative zinc ﬁnger transcription factor'>Putative zinc ﬁnger transcription factor</option><option value='PWL1'>PWL1</option><option value='PWL2'>PWL2</option><option value='Q5APJ0'>Q5APJ0</option><option value='Rac'>Rac</option><option value='Rac1'>Rac1</option><option value='Rak1'>Rak1</option><option value='RAS1'>RAS1</option><option value='RAS2'>RAS2</option><option value='raxA'>raxA</option><option value='raxB'>raxB</option><option value='raxC'>raxC</option><option value='raxH'>raxH</option><option value='raxH2/phoQ'>raxH2/phoQ</option><option value='raxP'>raxP</option><option value='raxQ'>raxQ</option><option value='raxR'>raxR</option><option value='raxR2/phoP'>raxR2/phoP</option><option value='raxST'>raxST</option><option value='Rbf1'>Rbf1</option><option value='RBP35'>RBP35</option><option value='RBT1'>RBT1</option><option value='RBT4'>RBT4</option><option value='Rck2'>Rck2</option><option value='rcsA'>rcsA</option><option value='rcsB'>rcsB</option><option value='rcsC'>rcsC</option><option value='rcsC11'>rcsC11</option><option value='rcsD'>rcsD</option><option value='RED1'>RED1</option><option value='RED2'>RED2</option><option value='RED3'>RED3</option><option value='RelA'>RelA</option><option value='Related to O-methylsterigmatocystin oxidoreductase'>Related to O-methylsterigmatocystin oxidoreductase</option><option value='REN1'>REN1</option><option value='RfbB'>RfbB</option><option value='rfbC'>rfbC</option><option value='RFG1'>RFG1</option><option value='RGS1'>RGS1</option><option value='RHBA'>RHBA</option><option value='RHO1'>RHO1</option><option value='Rim101'>Rim101</option><option value='RIM101'>RIM101</option><option value='Rim13'>Rim13</option><option value='Rim20'>Rim20</option><option value='Rim23'>Rim23</option><option value='RIM8'>RIM8</option><option value='Rim9'>Rim9</option><option value='RLAP1'>RLAP1</option><option value='rok1'>rok1</option><option value='ROM2'>ROM2</option><option value='ROP1'>ROP1</option><option value='Rop18'>Rop18</option><option value='ROP5'>ROP5</option><option value='RPK1'>RPK1</option><option value='rpoE'>rpoE</option><option value='rpoN'>rpoN</option><option value='rpoS'>rpoS</option><option value='RpoS'>RpoS</option><option value='rr01'>rr01</option><option value='RRG1'>RRG1</option><option value='RRG2'>RRG2</option><option value='rrgA'>rrgA</option><option value='rsa1'>rsa1</option><option value='RsmA'>RsmA</option><option value='rsmAXoo'>rsmAXoo</option><option value='rsmB'>rsmB</option><option value='Rtg1'>Rtg1</option><option value='Rtg3'>Rtg3</option><option value='rubB'>rubB</option><option value='RUM1'>RUM1</option><option value='rvsA'>rvsA</option><option value='SAP1'>SAP1</option><option value='SAP2'>SAP2</option><option value='SAP3'>SAP3</option><option value='SAP4'>SAP4</option><option value='SAP5'>SAP5</option><option value='SAP6'>SAP6</option><option value='SAP7'>SAP7</option><option value='Sc Atg1 homolog'>Sc Atg1 homolog</option><option value='Sc Bck1 homolog'>Sc Bck1 homolog</option><option value='Sc  Cak1 homolog'>Sc  Cak1 homolog</option><option value='Sc Cbk1 homolog'>Sc Cbk1 homolog</option><option value='Sc Cdc15 homolog'>Sc Cdc15 homolog</option><option value='Sc CDC15 homolog'>Sc CDC15 homolog</option><option value='Sc Cdc28 homolog'>Sc Cdc28 homolog</option><option value='Sc Cla4 homolog'>Sc Cla4 homolog</option><option value='Sc Cmk1/Cmk2)'>Sc Cmk1/Cmk2)</option><option value='SCD'>SCD</option><option value='SCD1'>SCD1</option><option value='Sc Dbf2/Dbf20 homolog'>Sc Dbf2/Dbf20 homolog</option><option value='Sc Fpk1 homolog'>Sc Fpk1 homolog</option><option value='Sc Gin4-like homolog'>Sc Gin4-like homolog</option><option value='Sch1'>Sch1</option><option value='SCH9'>SCH9</option><option value='Sc Kic1 homolog'>Sc Kic1 homolog</option><option value='Sc Kin1/Kin2 homolog'>Sc Kin1/Kin2 homolog</option><option value='Sc Mec1 homolog'>Sc Mec1 homolog</option><option value='Sc Mkk1/Mkk2 homolog'>Sc Mkk1/Mkk2 homolog</option><option value='Sc Pbs2 homolog'>Sc Pbs2 homolog</option><option value='Sc Sak1 homolog'>Sc Sak1 homolog</option><option value='Sc Sat4 homolog'>Sc Sat4 homolog</option><option value='Sc Sch9 homolog'>Sc Sch9 homolog</option><option value='Sc Sky1 homolog'>Sc Sky1 homolog</option><option value='Sc Srb10 homolog'>Sc Srb10 homolog</option><option value='Sc Ssk2/Ssk22 homolog'>Sc Ssk2/Ssk22 homolog</option><option value='Sc Ste11 homolog'>Sc Ste11 homolog</option><option value='Sc Ste7 homolog'>Sc Ste7 homolog</option><option value='Sc Swe1 homolog'>Sc Swe1 homolog</option><option value='Sc Tpk2 homolog'>Sc Tpk2 homolog</option><option value='Sc Yck1/2/3 homolog'>Sc Yck1/2/3 homolog</option><option value='sdhC'>sdhC</option><option value='SE'>SE</option><option value='SEC31'>SEC31</option><option value='secG'>secG</option><option value='SEF1'>SEF1</option><option value='SEP1'>SEP1</option><option value='sep3'>sep3</option><option value='Sep3'>Sep3</option><option value='SET1'>SET1</option><option value='SET3'>SET3</option><option value='SFL2'>SFL2</option><option value='SFU1'>SFU1</option><option value='SGA1'>SGA1</option><option value='Shk1'>Shk1</option><option value='Sho1'>Sho1</option><option value='sicA'>sicA</option><option value='SID1'>SID1</option><option value='SIDA'>SIDA</option><option value='SidH'>SidH</option><option value='SidI'>SidI</option><option value='sifA'>sifA</option><option value='sipA'>sipA</option><option value='sipB'>sipB</option><option value='sirA'>sirA</option><option value='SIT4'>SIT4</option><option value='SIX1'>SIX1</option><option value='SKN7'>SKN7</option><option value='Skn7p'>Skn7p</option><option value='SLP 1'>SLP 1</option><option value='Slt2'>Slt2</option><option value='SLY1'>SLY1</option><option value='slyA'>slyA</option><option value='smpB'>smpB</option><option value='Smu1'>Smu1</option><option value='SMU1'>SMU1</option><option value='snf1'>snf1</option><option value='SNF1'>SNF1</option><option value='Snf1 homolog'>Snf1 homolog</option><option value='SNF2'>SNF2</option><option value='SNT1'>SNT1</option><option value='Snt2'>Snt2</option><option value='SnTox3'>SnTox3</option><option value='sod1'>sod1</option><option value='SOD1'>SOD1</option><option value='SOD1 (related: SOD2) Double Mutant'>SOD1 (related: SOD2) Double Mutant</option><option value='SOD2'>SOD2</option><option value='SOD5'>SOD5</option><option value='SOWgp'>SOWgp</option><option value='SP1'>SP1</option><option value='spaO'>spaO</option><option value='spaP'>spaP</option><option value='spaR'>spaR</option><option value='spaS'>spaS</option><option value='SPE2'>SPE2</option><option value='SPE3-LYS9'>SPE3-LYS9</option><option value='Spe-Sdh'>Spe-Sdh</option><option value='Spf1'>Spf1</option><option value='spiB'>spiB</option><option value='spiC'>spiC</option><option value='SPM1'>SPM1</option><option value='spmAB'>spmAB</option><option value='Sp Prp4 homolog'>Sp Prp4 homolog</option><option value='SPT3'>SPT3</option><option value='spvB'>spvB</option><option value='spvR'>spvR</option><option value='SQL2'>SQL2</option><option value='Srt1'>Srt1</option><option value='srtD'>srtD</option><option value='ssaB'>ssaB</option><option value='ssaC'>ssaC</option><option value='ssaD'>ssaD</option><option value='ssaE'>ssaE</option><option value='ssaI'>ssaI</option><option value='ssaJ'>ssaJ</option><option value='ssaK'>ssaK</option><option value='ssaL'>ssaL</option><option value='ssaM'>ssaM</option><option value='ssaN'>ssaN</option><option value='ssaP'>ssaP</option><option value='ssaQ'>ssaQ</option><option value='ssaS'>ssaS</option><option value='ssaT'>ssaT</option><option value='ssaU'>ssaU</option><option value='ssaV'>ssaV</option><option value='ssb'>ssb</option><option value='SSBX'>SSBX</option><option value='sscB'>sscB</option><option value='sseA'>sseA</option><option value='sseB'>sseB</option><option value='sseC'>sseC</option><option value='sseD'>sseD</option><option value='sseE'>sseE</option><option value='sseF'>sseF</option><option value='sseL'>sseL</option><option value='Ss-ggt1'>Ss-ggt1</option><option value='SSK1'>SSK1</option><option value='SSM1'>SSM1</option><option value='SSM2'>SSM2</option><option value='SSN6'>SSN6</option><option value='Ss-pth2'>Ss-pth2</option><option value='ssrA'>ssrA</option><option value='ssrB'>ssrB</option><option value='Ss-Sl2'>Ss-Sl2</option><option value='Sssod1'>Sssod1</option><option value='SsSOD1'>SsSOD1</option><option value='Ste11'>Ste11</option><option value='STE11'>STE11</option><option value='STE11alpha'>STE11alpha</option><option value='ste12'>ste12</option><option value='STE12'>STE12</option><option value='STE12a'>STE12a</option><option value='STE12alpha'>STE12alpha</option><option value='STE12α / NOG2'>STE12α / NOG2</option><option value='STE20'>STE20</option><option value='STE20a'>STE20a</option><option value='STE20alpha'>STE20alpha</option><option value='Ste50'>Ste50</option><option value='STE50'>STE50</option><option value='Ste7'>Ste7</option><option value='STE7'>STE7</option><option value='STM237'>STM237</option><option value='StuA'>StuA</option><option value='STUA'>STUA</option><option value='SUM1'>SUM1</option><option value='SUR7'>SUR7</option><option value='SWI1'>SWI1</option><option value='T3SS'>T3SS</option><option value='tal'>tal</option><option value='tal1c'>tal1c</option><option value='tal2a'>tal2a</option><option value='tal2g'>tal2g</option><option value='talC'>talC</option><option value='TALE1'>TALE1</option><option value='tatA'>tatA</option><option value='tatB'>tatB</option><option value='tatC'>tatC</option><option value='TBL1'>TBL1</option><option value='Tc52'>Tc52</option><option value='tcdB'>tcdB</option><option value='TcGALE'>TcGALE</option><option value='TCO1'>TCO1</option><option value='TcpA'>TcpA</option><option value='TEC1'>TEC1</option><option value='TEP1'>TEP1</option><option value='tfpO'>tfpO</option><option value='tgaA'>tgaA</option><option value='TgCDPK3'>TgCDPK3</option><option value='TGL1-1'>TGL1-1</option><option value='TGL1-2'>TGL1-2</option><option value='TGL2'>TGL2</option><option value='TGL3-1'>TGL3-1</option><option value='TGL3-2'>TGL3-2</option><option value='TgNST1'>TgNST1</option><option value='thiE'>thiE</option><option value='THIOL'>THIOL</option><option value='thioredoxin 1'>thioredoxin 1</option><option value='THR'>THR</option><option value='THR1'>THR1</option><option value='TIF35'>TIF35</option><option value='TIG1'>TIG1</option><option value='tmpL'>tmpL</option><option value='tofI'>tofI</option><option value='tofM'>tofM</option><option value='tofR'>tofR</option><option value='tom1'>tom1</option><option value='TOM1'>TOM1</option><option value='TOM40'>TOM40</option><option value='TOP1'>TOP1</option><option value='Tos3'>Tos3</option><option value='Tox3'>Tox3</option><option value='TOX9'>TOX9</option><option value='ToxA'>ToxA</option><option value='TOXA'>TOXA</option><option value='ToxB'>ToxB</option><option value='TOXC'>TOXC</option><option value='TOXE'>TOXE</option><option value='TOXF'>TOXF</option><option value='TOXG'>TOXG</option><option value='ToxR'>ToxR</option><option value='ToxT'>ToxT</option><option value='TPK1'>TPK1</option><option value='TPK2'>TPK2</option><option value='Tps1'>Tps1</option><option value='TPS1'>TPS1</option><option value='Transcription factor'>Transcription factor</option><option value='traY'>traY</option><option value='TRE1'>TRE1</option><option value='treY'>treY</option><option value='treZ'>treZ</option><option value='TRI10'>TRI10</option><option value='Tri12'>Tri12</option><option value='TRI12'>TRI12</option><option value='TRI14'>TRI14</option><option value='TRI15'>TRI15</option><option value='TRI5'>TRI5</option><option value='TRI6'>TRI6</option><option value='trpE'>trpE</option><option value='TRPS'>TRPS</option><option value='TRR1'>TRR1</option><option value='TRX1'>TRX1</option><option value='TSA1'>TSA1</option><option value='tssM'>tssM</option><option value='ttrB'>ttrB</option><option value='ttrR'>ttrR</option><option value='ttrS'>ttrS</option><option value='TUB1'>TUB1</option><option value='tub2'>tub2</option><option value='Tup1'>Tup1</option><option value='Tye7'>Tye7</option><option value='UAC1'>UAC1</option><option value='UBC1'>UBC1</option><option value='Ubc2'>Ubc2</option><option value='UBC2'>UBC2</option><option value='UBC3'>UBC3</option><option value='UBC5 (related: FUZ7)'>UBC5 (related: FUZ7)</option><option value='Ucn1'>Ucn1</option><option value='UGD1'>UGD1</option><option value='ugt51E1'>ugt51E1</option><option value='UhbE1'>UhbE1</option><option value='UhbW1'>UhbW1</option><option value='UhCna1'>UhCna1</option><option value='UhCnb1'>UhCnb1</option><option value='UKB1'>UKB1</option><option value='UKC1'>UKC1</option><option value='um00445'>um00445</option><option value='um00446'>um00446</option><option value='um01234'>um01234</option><option value='um01235'>um01235</option><option value='um01236'>um01236</option><option value='um01237'>um01237</option><option value='um01238'>um01238</option><option value='um01239'>um01239</option><option value='um01240'>um01240</option><option value='um01241'>um01241</option><option value='um01297'>um01297</option><option value='um01298'>um01298</option><option value='um01299'>um01299</option><option value='um01300'>um01300</option><option value='um01301'>um01301</option><option value='um01302'>um01302</option><option value='um01886'>um01886</option><option value='um01888'>um01888</option><option value='um01947'>um01947</option><option value='um02192'>um02192</option><option value='um02193'>um02193</option><option value='um02194'>um02194</option><option value='um02473'>um02473</option><option value='um02474'>um02474</option><option value='um02475'>um02475</option><option value='um02533'>um02533</option><option value='um02535'>um02535</option><option value='um02537'>um02537</option><option value='um02538'>um02538</option><option value='um02540'>um02540</option><option value='um03201'>um03201</option><option value='um03202'>um03202</option><option value='um03614'>um03614</option><option value='um03615'>um03615</option><option value='um03616'>um03616</option><option value='um03744'>um03744</option><option value='um03745'>um03745</option><option value='um03746'>um03746</option><option value='um03747'>um03747</option><option value='um03748'>um03748</option><option value='um03749'>um03749</option><option value='um03750'>um03750</option><option value='um03751'>um03751</option><option value='um03752'>um03752</option><option value='um03753'>um03753</option><option value='um05294'>um05294</option><option value='um05295'>um05295</option><option value='um05299'>um05299</option><option value='um05300'>um05300</option><option value='um05301'>um05301</option><option value='um05302'>um05302</option><option value='um05303'>um05303</option><option value='um05305'>um05305</option><option value='um05306'>um05306</option><option value='um05308'>um05308</option><option value='um05309'>um05309</option><option value='um05310'>um05310</option><option value='um05311'>um05311</option><option value='um05312'>um05312</option><option value='um05313'>um05313</option><option value='um05314'>um05314</option><option value='um05316'>um05316</option><option value='um05317'>um05317</option><option value='um05318'>um05318</option><option value='um05319'>um05319</option><option value='um06221'>um06221</option><option value='um06222'>um06222</option><option value='um06223'>um06223</option><option value='um10115'>um10115</option><option value='um10403'>um10403</option><option value='um10553'>um10553</option><option value='um10554'>um10554</option><option value='um10555'>um10555</option><option value='um10556'>um10556</option><option value='um10557'>um10557</option><option value='um10672'>um10672</option><option value='um11416'>um11416</option><option value='um11417'>um11417</option><option value='um11451'>um11451</option><option value='um12173'>um12173</option><option value='um12302'>um12302</option><option value='umCHS5'>umCHS5</option><option value='Umchs6'>Umchs6</option><option value='Upa2'>Upa2</option><option value='URA3'>URA3</option><option value='URA5'>URA5</option><option value='URE1'>URE1</option><option value='Ust1'>Ust1</option><option value='USX1'>USX1</option><option value='VAD1'>VAD1</option><option value='VcpD'>VcpD</option><option value='VdSge1'>VdSge1</option><option value='VE1 (related: VEA) '>VE1 (related: VEA) </option><option value='VEA1'>VEA1</option><option value='Velvet protein family'>Velvet protein family</option><option value='VFGLU1'>VFGLU1</option><option value='vfr'>vfr</option><option value='VGB'>VGB</option><option value='virB4'>virB4</option><option value='VirR'>VirR</option><option value='visP'>visP</option><option value='VMA7'>VMA7</option><option value='VMK1'>VMK1</option><option value='VPH1'>VPH1</option><option value='VPS34'>VPS34</option><option value='VPS4'>VPS4</option><option value='VPS41'>VPS41</option><option value='VTL1'>VTL1</option><option value='WdCHS2'>WdCHS2</option><option value='WdCHS3'>WdCHS3</option><option value='WdCHS5'>WdCHS5</option><option value='WdPKS1'>WdPKS1</option><option value='wxacO'>wxacO</option><option value='xac3090'>xac3090</option><option value='XC0965'>XC0965</option><option value='XC2249'>XC2249</option><option value='XC2317'>XC2317</option><option value='XC3221'>XC3221</option><option value='Xdh1'>Xdh1</option><option value='XhpT'>XhpT</option><option value='XlnR'>XlnR</option><option value='XLNR'>XLNR</option><option value='XopJ'>XopJ</option><option value='XopL'>XopL</option><option value='xyl1'>xyl1</option><option value='XYL1'>XYL1</option><option value='XYL1/XYN22'>XYL1/XYN22</option><option value='xyl2'>xyl2</option><option value='XYL2'>XYL2</option><option value='XYL2/XYN33'>XYL2/XYN33</option><option value='XYL3'>XYL3</option><option value='XYL4'>XYL4</option><option value='XYL-6'>XYL-6</option><option value='xylB'>xylB</option><option value='XYN11A'>XYN11A</option><option value='yap1'>yap1</option><option value='YAP1'>YAP1</option><option value='yap2'>yap2</option><option value='ydcN'>ydcN</option><option value='yedX'>yedX</option><option value='YHB1'>YHB1</option><option value='YopK'>YopK</option><option value='ypd1'>ypd1</option><option value='yscR'>yscR</option><option value='Yvc1'>Yvc1</option><option value='YVH1'>YVH1</option><option value='ZafA'>ZafA</option><option value='ZCF13'>ZCF13</option><option value='ZCF18'>ZCF18</option><option value='Zcf21'>Zcf21</option><option value='ZEAR'>ZEAR</option><option value='ZEB1'>ZEB1</option><option value='ZEB2'>ZEB2</option><option value='ZIF1'>ZIF1</option><option value='zmpR'>zmpR</option>                          </select>
-                      </td>
-                      
-                        
-                      </tr>
-                      
-                      <tr>
-                      <td width="10%">
-                        <!--<input type='radio' name='cldi' value='and' checked />and<br><input type='radio' name='cldi' value='or'/>or-->
-                        
-                        <ul class="radio-group">
-			    <li>
-				<input id="choice-a" type="radio" name="cldi" value="and" checked/>
-				<label for='choice-a'>
-				    <span><span></span></span>
-				    and
-				</label>
-			    </li>
-			    <li>
-				<input id="choice-b" type="radio" name="cldi" value="or" />
-				<label for='choice-b'>
-				    <span><span></span></span>
-				    or
-				</label>
-			    </li>    
-			</ul> 
-
-			
-                      </td>
-                      
-                      <td width="10%">
-                        Disease
-                      </td>
-                      
-                      <td width="3%">
-                        for
-                      </td>
-                       
-                       <td width="72%">
-                        <select name="cdi" >
-                            <!--onChange="DbChange(this);"> -->
-                              <option selected value='all'>all</option><option value='Alternaria brown spot'>Alternaria brown spot</option><option value='Alternaria leaf blotch'>Alternaria leaf blotch</option><option value='Anthracnose'>Anthracnose</option><option value='Anthracnose disease'>Anthracnose disease</option><option value='Anthracnose stalk rot and leaf blight of maize'>Anthracnose stalk rot and leaf blight of maize</option><option value='Apple scab'>Apple scab</option><option value='Aspergillosis'>Aspergillosis</option><option value='Bacterial blight'>Bacterial blight</option><option value='Bacterial blight of Rice'>Bacterial blight of Rice</option><option value='Bacterial cold-water disease'>Bacterial cold-water disease</option><option value='Bacterial grain rot'>Bacterial grain rot</option><option value='Bacterial leaf blight'>Bacterial leaf blight</option><option value='Bacterial leaf spot'>Bacterial leaf spot</option><option value='Bacterial leaf streak'>Bacterial leaf streak</option><option value='Bacterial speck'>Bacterial speck</option><option value='Bacterial speck of tomato'>Bacterial speck of tomato</option><option value='Bacterial specks'>Bacterial specks</option><option value='Bacterial spot disease'>Bacterial spot disease</option><option value='Bacterial wilt'>Bacterial wilt</option><option value='Barley leaf scald'>Barley leaf scald</option><option value='Barley powdery mildew'>Barley powdery mildew</option><option value='Barley smut'>Barley smut</option><option value='Barley stem blight'>Barley stem blight</option><option value='Bean brown spot'>Bean brown spot</option><option value='Black rot disease'>Black rot disease</option><option value='Black rot of crucifers'>Black rot of crucifers</option><option value='Black spot'>Black spot</option><option value='Black spot disease'>Black spot disease</option><option value='Black Spot of pear'>Black Spot of pear</option><option value='Bordetellosis'>Bordetellosis</option><option value='Brown rot'>Brown rot</option><option value='Brown rot of stone fruit'>Brown rot of stone fruit</option><option value='Brown spot'>Brown spot</option><option value='Brown Spot'>Brown Spot</option><option value='Brown spot disease'>Brown spot disease</option><option value='Candidemia'>Candidemia</option><option value='Candidiasis'>Candidiasis</option><option value='Cassava bacterial blight'>Cassava bacterial blight</option><option value='Chagas Disease'>Chagas Disease</option><option value='Chesnut blight'>Chesnut blight</option><option value='Chestnut blight fungus'>Chestnut blight fungus</option><option value='Cholera'>Cholera</option><option value='Citrus Black Rot'>Citrus Black Rot</option><option value='Citrus brown spot'>Citrus brown spot</option><option value='Citrus brown spots'>Citrus brown spots</option><option value='Citrus canker'>Citrus canker</option><option value='Coccidioidomycosis'>Coccidioidomycosis</option><option value='Colibacillosis, cellulitis and swollen head syndrome'>Colibacillosis, cellulitis and swollen head syndrome</option><option value='Common scab of potato'>Common scab of potato</option><option value='Community-associated and nosocomial infections'>Community-associated and nosocomial infections</option><option value='Corn smut'>Corn smut</option><option value='Corn Smut'>Corn Smut</option><option value='Covered smut'>Covered smut</option><option value='Crohn’s disease'>Crohn’s disease</option><option value='Crown gall disease'>Crown gall disease</option><option value='Crown gall of grapes'>Crown gall of grapes</option><option value='Cryptococcal meningoencephalitis'>Cryptococcal meningoencephalitis</option><option value='Cryptococcosis'>Cryptococcosis</option><option value='Cucumber anthracnose'>Cucumber anthracnose</option><option value='Dermatophytosis'>Dermatophytosis</option><option value='Diarrhea'>Diarrhea</option><option value='Diarrhea, pseudomembranous colitis, and toxic megacolon'>Diarrhea, pseudomembranous colitis, and toxic megacolon</option><option value='Disseminated candidiasis'>Disseminated candidiasis</option><option value='Downy mildew'>Downy mildew</option><option value='Dry bubble disease'>Dry bubble disease</option><option value='Edwardsiellosis'>Edwardsiellosis</option><option value='Enteric septicemia'>Enteric septicemia</option><option value='Ergot'>Ergot</option><option value='Fire blight'>Fire blight</option><option value='Flax rust'>Flax rust</option><option value='Food poisoning'>Food poisoning</option><option value='Foolish seedling'>Foolish seedling</option><option value='Frog-eye leafspot'>Frog-eye leafspot</option><option value='Fusarium ear blight'>Fusarium ear blight</option><option value='Fusarium head blight'>Fusarium head blight</option><option value='Fusarium wilt'>Fusarium wilt</option><option value='GAS pharyngitis, NF,  STSS'>GAS pharyngitis, NF,  STSS</option><option value='Gastroenteritis'>Gastroenteritis</option><option value='Gastrointestinal diseases and local and systemic infections'>Gastrointestinal diseases and local and systemic infections</option><option value='Gastrointestinal disease yersiniosis'>Gastrointestinal disease yersiniosis</option><option value='Glume blotch'>Glume blotch</option><option value='Gray mold'>Gray mold</option><option value='Green muscardine disease'>Green muscardine disease</option><option value='Grey mold rot'>Grey mold rot</option><option value='Grey mould'>Grey mould</option><option value='Grey mould disease'>Grey mould disease</option><option value='Grey mould fungus'>Grey mould fungus</option><option value='Halo blight'>Halo blight</option><option value='Histoplasmosis'>Histoplasmosis</option><option value='Histoplasmosis (pulmonary disease)'>Histoplasmosis (pulmonary disease)</option><option value='Human African trypanosomiasis'>Human African trypanosomiasis</option><option value='Infections'>Infections</option><option value='Invasive pulmonary aspergillosis'>Invasive pulmonary aspergillosis</option><option value='Late blight'>Late blight</option><option value='Leaf blight'>Leaf blight</option><option value='Leaf blight and purple seed stain'>Leaf blight and purple seed stain</option><option value='Leaf blotch'>Leaf blotch</option><option value='Leaf blotch of barley'>Leaf blotch of barley</option><option value='Leaf mold'>Leaf mold</option><option value='Leaf spot'>Leaf spot</option><option value='Leaf spot/blight'>Leaf spot/blight</option><option value='Leaf spot disease'>Leaf spot disease</option><option value='Leishmaniasis'>Leishmaniasis</option><option value='Lettuce midrib rot'>Lettuce midrib rot</option><option value='Light leaf spot'>Light leaf spot</option><option value='Listeriosis'>Listeriosis</option><option value='Lyme disease'>Lyme disease</option><option value='Maize anthracnose'>Maize anthracnose</option><option value='Maize ear rot'>Maize ear rot</option><option value='Maize grey leaf spot'>Maize grey leaf spot</option><option value='Maize leaf anthracnose / stalk rot'>Maize leaf anthracnose / stalk rot</option><option value='Maize smut disease'>Maize smut disease</option><option value='Maize Smut Disease'>Maize Smut Disease</option><option value='Maize stalk rot'>Maize stalk rot</option><option value='Meningitis'>Meningitis</option><option value='Meningoencephalitis'>Meningoencephalitis</option><option value='Muskmelon wilt disease'>Muskmelon wilt disease</option><option value='Mycopathogen'>Mycopathogen</option><option value='Net blotch'>Net blotch</option><option value='Northern Leaf Blight'>Northern Leaf Blight</option><option value='Nosocomial infections'>Nosocomial infections</option><option value='Opportunistic infections'>Opportunistic infections</option><option value='Oral candidiasis'>Oral candidiasis</option><option value='Panicle blight'>Panicle blight</option><option value='Phaeohyphomycosis'>Phaeohyphomycosis</option><option value='Pharyngitis; Toxic shock syndrome; Sepsis'>Pharyngitis; Toxic shock syndrome; Sepsis</option><option value='Phoma stem canker'>Phoma stem canker</option><option value='Phytophthora blight'>Phytophthora blight</option><option value='Phytophthora blight in cucurbits and solanaceous crops'>Phytophthora blight in cucurbits and solanaceous crops</option><option value='Pierce’s disease'>Pierce’s disease</option><option value='Pneumonia'>Pneumonia</option><option value='Pneumonia, Endocarditis, Meningitis, Arthritis'>Pneumonia, Endocarditis, Meningitis, Arthritis</option><option value='Pneumonia, Meningitis, Sepsis'>Pneumonia, Meningitis, Sepsis</option><option value='Pneumonia, Otitis media, Septicaemia, Meningitis'>Pneumonia, Otitis media, Septicaemia, Meningitis</option><option value='Pneumonic plague'>Pneumonic plague</option><option value='Potato Cyst'>Potato Cyst</option><option value='Potato rot'>Potato rot</option><option value='Potato scab'>Potato scab</option><option value='Powdery mildew'>Powdery mildew</option><option value='Pulmonary cryptococcosis (lung infection), basal meningitis, cerebral cryptococcomas'>Pulmonary cryptococcosis (lung infection), basal meningitis, cerebral cryptococcomas</option><option value='Respiratory disease'>Respiratory disease</option><option value='Rice blast'>Rice blast</option><option value='Rice Blast'>Rice Blast</option><option value='Root rot'>Root rot</option><option value='Root Rot'>Root Rot</option><option value='Rotting of tubers; blackleg disease of the plant stem'>Rotting of tubers; blackleg disease of the plant stem</option><option value='Salmonellosis'>Salmonellosis</option><option value='Scald/leaf blotch'>Scald/leaf blotch</option><option value='Septicemia'>Septicemia</option><option value='Septoria leaf blotch'>Septoria leaf blotch</option><option value='Shigellosis'>Shigellosis</option><option value='Skin infections; Food poisoning; Respiratory diseases'>Skin infections; Food poisoning; Respiratory diseases</option><option value='Smut disease'>Smut disease</option><option value='Soft rot'>Soft rot</option><option value='Soft rot disease'>Soft rot disease</option><option value='Southern corn leaf blight'>Southern corn leaf blight</option><option value='Southern Corn Leaf Blight'>Southern Corn Leaf Blight</option><option value='Soybean stem and root rot'>Soybean stem and root rot</option><option value='Soybean stem and root rot agent'>Soybean stem and root rot agent</option><option value='Spot blotch disease'>Spot blotch disease</option><option value='Stem canker'>Stem canker</option><option value='Stewart’s bacterial wilt and leaf blight'>Stewart’s bacterial wilt and leaf blight</option><option value='Storage rots'>Storage rots</option><option value='Take-all'>Take-all</option><option value='Tan spot'>Tan spot</option><option value='Tomato leaf mould'>Tomato leaf mould</option><option value='Tomato wilt'>Tomato wilt</option><option value='Toxoplasmic encephalitis'>Toxoplasmic encephalitis</option><option value='Tuberculosis'>Tuberculosis</option><option value='Tularemia'>Tularemia</option><option value='Tumors, galls or knots'>Tumors, galls or knots</option><option value='Urinary tract infections, nosocomial pneumonia, intra-abdominal infections'>Urinary tract infections, nosocomial pneumonia, intra-abdominal infections</option><option value='Vascular wilt'>Vascular wilt</option><option value='Vascular wilt fungus'>Vascular wilt fungus</option><option value='Verticillium wilt'>Verticillium wilt</option><option value='Wheat glume blotch disease'>Wheat glume blotch disease</option><option value='Wheat powdery mildew'>Wheat powdery mildew</option><option value='White mold'>White mold</option><option value='White mold/stem rot'>White mold/stem rot</option><option value='White muscardine disease'>White muscardine disease</option><option value='Wildfire disease'>Wildfire disease</option>                            </select>
-                        </td>                      
-                      </tr>
-                      
-                      <tr>
-                      <td width="10%">
-                        <!--<input type='radio' name='cldi' value='and' checked />and<br><input type='radio' name='cldi' value='or'/>or-->
-                        
-                        <ul class="radio-group">
-			    <li>
-				<input id="choice-c" type="radio" name="clho" value="and" checked/>
-				<label for='choice-c'>
-				    <span><span></span></span>
-				    and
-				</label>
-			    </li>
-			    <li>
-				<input id="choice-d" type="radio" name="clho" value="or"/>
-				<label for='choice-d'>
-				    <span><span></span></span>
-				    or
-				</label>
-			    </li>    
-			</ul> 
-
-			
-                      </td>
-                      
-                      <td width="10%">
-                        Host
-                      </td>
-                      
-                      <td width="3%">
-                        for
-                      </td>
-                       
-                       <td width="72%">
-                        <select name="cho"> 
-                            <!--onChange="DbChange(this);"> -->
-                              <option selected value='all'>all</option><option value='Aeschynomene virginica'>Aeschynomene virginica</option><option value='Agaricus bisporus'>Agaricus bisporus</option><option value='Alfalfa'>Alfalfa</option><option value='Almond'>Almond</option><option value='American Chestnut tree'>American Chestnut tree</option><option value='Amoebae'>Amoebae</option><option value='Aphid'>Aphid</option><option value='Apple'>Apple</option><option value='Apricot'>Apricot</option><option value='Arabidopsis thaliana'>Arabidopsis thaliana</option><option value='Artichoke'>Artichoke</option><option value='Avocado'>Avocado</option><option value='Barley'>Barley</option><option value='Bean'>Bean</option><option value='Bovine'>Bovine</option><option value='Brassica carinata'>Brassica carinata</option><option value='Brassica juncea'>Brassica juncea</option><option value='Brassica oleracea'>Brassica oleracea</option><option value='Cabbage'>Cabbage</option><option value='Cabbage butterfly'>Cabbage butterfly</option><option value='Calamondin'>Calamondin</option><option value='Carnation'>Carnation</option><option value='Carrot'>Carrot</option><option value='Cassava'>Cassava</option><option value='Celery'>Celery</option><option value='Channel catfish'>Channel catfish</option><option value='Cherry'>Cherry</option><option value='Chestnut'>Chestnut</option><option value='Chicken'>Chicken</option><option value='Chickpea'>Chickpea</option><option value='Chili Pepper'>Chili Pepper</option><option value='Chinese Radish'>Chinese Radish</option><option value='Citrus iyo'>Citrus iyo</option><option value='Citrus unshiu'>Citrus unshiu</option><option value='Coho Salmon'>Coho Salmon</option><option value='Cotton'>Cotton</option><option value='Cotton stainer bug'>Cotton stainer bug</option><option value='Crookneck pumpkin'>Crookneck pumpkin</option><option value='Cucumber'>Cucumber</option><option value='Diamondback moth'>Diamondback moth</option><option value='Drosophila melanogaster'>Drosophila melanogaster</option><option value='Eggplant'>Eggplant</option><option value='Flax'>Flax</option><option value='Galleria mellonella'>Galleria mellonella</option><option value='Gerbera'>Gerbera</option><option value='Gherkin'>Gherkin</option><option value='Grape'>Grape</option><option value='Grapefruit'>Grapefruit</option><option value='Grapes'>Grapes</option><option value='Guinea pig'>Guinea pig</option><option value='Human'>Human</option><option value='Italian ryegrass'>Italian ryegrass</option><option value='Lemon'>Lemon</option><option value='Lettuce'>Lettuce</option><option value='Lily'>Lily</option><option value='Lime'>Lime</option><option value='Maize'>Maize</option><option value='Melon'>Melon</option><option value='Mouse'>Mouse</option><option value='Muskmelon'>Muskmelon</option><option value='Nectarine'>Nectarine</option><option value='Nematode'>Nematode</option><option value='Nicotiana benthamiana'>Nicotiana benthamiana</option><option value='Oat'>Oat</option><option value='Oil seed rape'>Oil seed rape</option><option value='Olives'>Olives</option><option value='Onion'>Onion</option><option value='Parsley'>Parsley</option><option value='Pea'>Pea</option><option value='Peach'>Peach</option><option value='Peanut'>Peanut</option><option value='Pear'>Pear</option><option value='Pepper (Capsicum annuum)'>Pepper (Capsicum annuum)</option><option value='Pig'>Pig</option><option value='Pinus contorta'>Pinus contorta</option><option value='Potato'>Potato</option><option value='Rabbit'>Rabbit</option><option value='Rainbow trout'>Rainbow trout</option><option value='Raphanus sativus'>Raphanus sativus</option><option value='Rat'>Rat</option><option value='Rhizoctonia solani'>Rhizoctonia solani</option><option value='Rice'>Rice</option><option value='Rose'>Rose</option><option value='Rough lemon'>Rough lemon</option><option value='Rye'>Rye</option><option value='Rye grass'>Rye grass</option><option value='Sclerotium rolfsii'>Sclerotium rolfsii</option><option value='Silkworm'>Silkworm</option><option value='Solanum huancabambense'>Solanum huancabambense</option><option value='Sorghum'>Sorghum</option><option value='Soybean'>Soybean</option><option value='Strawberry'>Strawberry</option><option value='Stylosanthes'>Stylosanthes</option><option value='Tobacco'>Tobacco</option><option value='Tomato'>Tomato</option><option value='Valencia orange'>Valencia orange</option><option value='Watermelon'>Watermelon</option><option value='Weeping lovegrass'>Weeping lovegrass</option><option value='Wheat'>Wheat</option><option value='Winter squash'>Winter squash</option><option value='Yellow mealworm'>Yellow mealworm</option><option value='Zebra Fish'>Zebra Fish</option>                            </select>  
-                              
-                        </td>               
-                      </tr>
-                      
-                      <tr>
-                      <td width="10%">
-                        <!--<input type='radio' name='cldi' value='and' checked />and<br><input type='radio' name='cldi' value='or'/>or-->
-                        
-                        <ul class="radio-group">
-			    <li>
-				<input id="choice-e" type="radio" name="clpa" value="and" checked/>
-				<label for='choice-e'>
-				    <span><span></span></span>
-				    and
-				</label>
-			    </li>
-			    <li>
-				<input id="choice-f" type="radio" name="clpa" value="or" />
-				<label for='choice-f'>
-				    <span><span></span></span>
-				    or
-				</label>
-			    </li>    
-			</ul> 
-
-			
-                      </td>
-                      
-                      <td width="10%">
-                        Pathogen
-                      </td>
-                      
-                      <td width="3%">
-                        for
-                      </td>
-                       
-                       <td width="72%">
-                        <select name="cpa" >
-                            
-                              <option selected value='all'>all</option><option value='Acinetobacter baumannii'>Acinetobacter baumannii</option><option value='Agrobacterium tumefaciens'>Agrobacterium tumefaciens</option><option value='Agrobacterium vitis'>Agrobacterium vitis</option><option value='Alternaria alternata'>Alternaria alternata</option><option value='Alternaria brassicicola'>Alternaria brassicicola</option><option value='Alternaria citri'>Alternaria citri</option><option value='Alternaria longipes'>Alternaria longipes</option><option value='Aspergillus flavus'>Aspergillus flavus</option><option value='Aspergillus fumigatus'>Aspergillus fumigatus</option><option value='Aspergillus nidulans'>Aspergillus nidulans</option><option value='Bacillus cereus'>Bacillus cereus</option><option value='Beauveria bassiana'>Beauveria bassiana</option><option value='Blastomyces dermatitidis'>Blastomyces dermatitidis</option><option value='Blumeria graminis'>Blumeria graminis</option><option value='Bordetella bronchiseptica'>Bordetella bronchiseptica</option><option value='Borrelia burgdorferi'>Borrelia burgdorferi</option><option value='Botrytis cinerea'>Botrytis cinerea</option><option value='Botrytis elliptica'>Botrytis elliptica</option><option value='Burkholderia glumae'>Burkholderia glumae</option><option value='Campylobacter jejuni'>Campylobacter jejuni</option><option value='Candida albicans'>Candida albicans</option><option value='Candida glabrata'>Candida glabrata</option><option value='Candida lusitaniae'>Candida lusitaniae</option><option value='Candida parapsilosis'>Candida parapsilosis</option><option value='Candida tropicalis'>Candida tropicalis</option><option value='Cercospora kikuchii'>Cercospora kikuchii</option><option value='Cercospora nicotianae'>Cercospora nicotianae</option><option value='Cercospora zeae-maydis'>Cercospora zeae-maydis</option><option value='Cladosporium fulvum'>Cladosporium fulvum</option><option value='Claviceps purpurea'>Claviceps purpurea</option><option value='Clostridium difficile'>Clostridium difficile</option><option value='Coccidioides immitis'>Coccidioides immitis</option><option value='Coccidioides posadasii'>Coccidioides posadasii</option><option value='Cochliobolus carbonum'>Cochliobolus carbonum</option><option value='Cochliobolus heterostrophus'>Cochliobolus heterostrophus</option><option value='Cochliobolus miyabeanus'>Cochliobolus miyabeanus</option><option value='Cochliobolus sativus'>Cochliobolus sativus</option><option value='Cochliobolus victoriae'>Cochliobolus victoriae</option><option value='Colletotrichum acutatum'>Colletotrichum acutatum</option><option value='Colletotrichum coccodes'>Colletotrichum coccodes</option><option value='Colletotrichum gloeosporioides'>Colletotrichum gloeosporioides</option><option value='Colletotrichum gloeosporioides f. sp. aeschynomenes'>Colletotrichum gloeosporioides f. sp. aeschynomenes</option><option value='Colletotrichum graminicola'>Colletotrichum graminicola</option><option value='Colletotrichum lagenarium'>Colletotrichum lagenarium</option><option value='Colletotrichum lindemuthianum'>Colletotrichum lindemuthianum</option><option value='Colletotrichum orbiculare'>Colletotrichum orbiculare</option><option value='Colletotrichum trifolii'>Colletotrichum trifolii</option><option value='Cryphonectria parasitica'>Cryphonectria parasitica</option><option value='Cryptococcus bacillisporus'>Cryptococcus bacillisporus</option><option value='Cryptococcus gattii'>Cryptococcus gattii</option><option value='Cryptococcus neoformans'>Cryptococcus neoformans</option><option value='Cryptococcus neoformans var. grubii'>Cryptococcus neoformans var. grubii</option><option value='Edwardsiella ictaluri'>Edwardsiella ictaluri</option><option value='Edwardsiella tarda'>Edwardsiella tarda</option><option value='Enterococcus faecalis'>Enterococcus faecalis</option><option value='Epichloe festucae'>Epichloe festucae</option><option value='Erwinia amylovora'>Erwinia amylovora</option><option value='Escherichia coli'>Escherichia coli</option><option value='Exophiala dermatitidis (related: Wangiella  dermatitidis)'>Exophiala dermatitidis (related: Wangiella  dermatitidis)</option><option value='Flavobacterium psychrophilum'>Flavobacterium psychrophilum</option><option value='Francisella  tularensis ssp. tularensis'>Francisella  tularensis ssp. tularensis</option><option value='Fusarium culmorum'>Fusarium culmorum</option><option value='Fusarium oxysporum'>Fusarium oxysporum</option><option value='Fusarium oxysporum f. sp. Lycopersici'>Fusarium oxysporum f. sp. Lycopersici</option><option value='Fusarium oxysporum f. sp. lycopersici 4287'>Fusarium oxysporum f. sp. lycopersici 4287</option><option value='Fusarium oxysporum f.sp. melonis'>Fusarium oxysporum f.sp. melonis</option><option value='Fusarium pseudograminearum'>Fusarium pseudograminearum</option><option value='Fusarium solani'>Fusarium solani</option><option value='Fusarium solani f. sp. cucurbitae'>Fusarium solani f. sp. cucurbitae</option><option value='Fusarium sporotrichioides'>Fusarium sporotrichioides</option><option value='Gaeumannomyces graminis'>Gaeumannomyces graminis</option><option value='Gibberella fujikuroi'>Gibberella fujikuroi</option><option value='Gibberella moniliformis (related: Fusarium verticillioides)'>Gibberella moniliformis (related: Fusarium verticillioides)</option><option value='Gibberella pulicaris'>Gibberella pulicaris</option><option value='Gibberella zeae (related: Fusarium graminearum)'>Gibberella zeae (related: Fusarium graminearum)</option><option value='Globodera pallida'>Globodera pallida</option><option value='Gloeocercospora sorghi'>Gloeocercospora sorghi</option><option value='Grosmannia clavigera'>Grosmannia clavigera</option><option value='Histoplasma capsulatum'>Histoplasma capsulatum</option><option value='Hyaloperonospora arabidopsidis'>Hyaloperonospora arabidopsidis</option><option value='Hyaloperonospora parasitica'>Hyaloperonospora parasitica</option><option value='Klebsiella pneumoniae'>Klebsiella pneumoniae</option><option value='Leishmania infantum'>Leishmania infantum</option><option value='Leishmania mexicana'>Leishmania mexicana</option><option value='Leptosphaeria maculans'>Leptosphaeria maculans</option><option value='Listeria monocytogenes'>Listeria monocytogenes</option><option value='Macrosiphum euphorbiae'>Macrosiphum euphorbiae</option><option value='Magnaporthe grisea'>Magnaporthe grisea</option><option value='Melampsora lini'>Melampsora lini</option><option value='Meloidogyne javanica'>Meloidogyne javanica</option><option value='Metarhizium anisopliae'>Metarhizium anisopliae</option><option value='Metarhizium robertsii'>Metarhizium robertsii</option><option value='Monilinia fructicola'>Monilinia fructicola</option><option value='Mycobacterium tuberculosis'>Mycobacterium tuberculosis</option><option value='Mycosphaerella graminicola (related: Zymoseptoria triticii)'>Mycosphaerella graminicola (related: Zymoseptoria triticii)</option><option value='Myzus persicae'>Myzus persicae</option><option value='Nectria haematococca'>Nectria haematococca</option><option value='Pantoea stewartii subsp. stewartii'>Pantoea stewartii subsp. stewartii</option><option value='Pectobacterium atrosepticum'>Pectobacterium atrosepticum</option><option value='Pectobacterium carotovorum'>Pectobacterium carotovorum</option><option value='Pectobacterium wasabiae'>Pectobacterium wasabiae</option><option value='Phytophthora cactorum'>Phytophthora cactorum</option><option value='Phytophthora capsici'>Phytophthora capsici</option><option value='Phytophthora infestans'>Phytophthora infestans</option><option value='Phytophthora parasitica'>Phytophthora parasitica</option><option value='Phytophthora sojae'>Phytophthora sojae</option><option value='Pseudomonas aeruginosa'>Pseudomonas aeruginosa</option><option value='Pseudomonas cichorii'>Pseudomonas cichorii</option><option value='Pseudomonas savastanoi pv. savastanoi'>Pseudomonas savastanoi pv. savastanoi</option><option value='Pseudomonas syringae'>Pseudomonas syringae</option><option value='Pseudomonas syringae pv. Syringae'>Pseudomonas syringae pv. Syringae</option><option value='Pseudomonas syringae pv. tabaci'>Pseudomonas syringae pv. tabaci</option><option value='Pseudomonas syringae pv. tomato'>Pseudomonas syringae pv. tomato</option><option value='Pyrenopeziza brassicae'>Pyrenopeziza brassicae</option><option value='Pyrenophora teres'>Pyrenophora teres</option><option value='Pyrenophora tritici-repentis'>Pyrenophora tritici-repentis</option><option value='Pythium aphanidermatum'>Pythium aphanidermatum</option><option value='Ralstonia solanacearum'>Ralstonia solanacearum</option><option value='Rhynchosporium commune'>Rhynchosporium commune</option><option value='Rhynchosporium secalis'>Rhynchosporium secalis</option><option value='Saccharomyces cerevisiae'>Saccharomyces cerevisiae</option><option value='Salmonella enterica'>Salmonella enterica</option><option value='Salmonella enterica serovar Typhimurium'>Salmonella enterica serovar Typhimurium</option><option value='Salmonella enteritidis'>Salmonella enteritidis</option><option value='Sclerotinia sclerotiorum'>Sclerotinia sclerotiorum</option><option value='Septoria lycopersici'>Septoria lycopersici</option><option value='Setosphaeria turcica'>Setosphaeria turcica</option><option value='Shigella flexneri 2a'>Shigella flexneri 2a</option><option value='Stagonospora nodorum (related: Phaeosphaeria nodorum)'>Stagonospora nodorum (related: Phaeosphaeria nodorum)</option><option value='Staphylococcus aureus'>Staphylococcus aureus</option><option value='Streptococcus agalactiae'>Streptococcus agalactiae</option><option value='Streptococcus Pneumoniae'>Streptococcus Pneumoniae</option><option value='Streptococcus pyogenes'>Streptococcus pyogenes</option><option value='Streptococcus sp'>Streptococcus sp</option><option value='Streptococcus suis'>Streptococcus suis</option><option value='Streptomyces scabies'>Streptomyces scabies</option><option value='Streptomyces turgidiscabies'>Streptomyces turgidiscabies</option><option value='Toxoplasma gondii'>Toxoplasma gondii</option><option value='Trichoderma virens'>Trichoderma virens</option><option value='Trichophyton rubrum'>Trichophyton rubrum</option><option value='Trypanosoma brucei'>Trypanosoma brucei</option><option value='Trypanosoma cruzi'>Trypanosoma cruzi</option><option value='Ustilago hordei'>Ustilago hordei</option><option value='Ustilago maydis'>Ustilago maydis</option><option value='Venturia inaequalis'>Venturia inaequalis</option><option value='Verticillium dahliae'>Verticillium dahliae</option><option value='Verticillium fungicola'>Verticillium fungicola</option><option value='Vibrio cholerae'>Vibrio cholerae</option><option value='Xanthomonas axonopodis pv. citri'>Xanthomonas axonopodis pv. citri</option><option value='Xanthomonas axonopodis pv. manihotis'>Xanthomonas axonopodis pv. manihotis</option><option value='Xanthomonas campestris'>Xanthomonas campestris</option><option value='Xanthomonas campestris pv. Campestris'>Xanthomonas campestris pv. Campestris</option><option value='Xanthomonas campestris pv vesicatoria'>Xanthomonas campestris pv vesicatoria</option><option value='Xanthomonas citri subsp. Citri'>Xanthomonas citri subsp. Citri</option><option value='Xanthomonas oryzae'>Xanthomonas oryzae</option><option value='Xanthomonas oryzae pv. oryzae'>Xanthomonas oryzae pv. oryzae</option><option value='Xanthomonas oryzae  pv. Oryzicola'>Xanthomonas oryzae  pv. Oryzicola</option><option value='Xanthomonas translucens pv. graminis'>Xanthomonas translucens pv. graminis</option><option value='Xylella fastidiosa'>Xylella fastidiosa</option><option value='Yersinia pestis'>Yersinia pestis</option><option value='Yersinia pseudotuberculosis'>Yersinia pseudotuberculosis</option>                            </select>  
-                              
-                        </td>               
-                      </tr>
-                      
-                      
-                      <tr>
-                      <td width="10%">
-                        <!--<input type='radio' name='cldi' value='and' checked />and<br><input type='radio' name='cldi' value='or'/>or-->
-                        
-                        <ul class="radio-group">
-			    <li>
-				<input id="choice-g" type="radio" name="clch" value="and" checked/>
-				<label for='choice-g'>
-				    <span><span></span></span>
-				    and
-				</label>
-			    </li>
-			    <li>
-				<input id="choice-h" type="radio" name="clch" value="or"/>
-				<label for='choice-h'>
-				    <span><span></span></span>
-				    or
-				</label>
-			    </li>    
-			</ul> 
-
-			
-                      </td>
-                      
-                      <td width="10%">
-                        Anti-Infective
-                      </td>
-                      
-                      <td width="3%">
-                        for
-                      </td>
-                       
-                       <td width="72%">
-                       
-                       
-			
-		                 <table border=0 bordercolor=green width="100%" cellpadding="0"> 
-		                    <tr>
-		                      <td width="12%" >
-		                        <ul class="radio-group">
-				         <li>
-					  <input id="choice-ai1" type="radio" name="chchl" value="all" checked onClick='deactivateMultiple(this.form.cch)'/>
-
-					  <label for='choice-ai1'>
-					    <span><span></span></span>
-					    All
-					  </label>
-				         </li>
-				        </ul>
-		                      </td>
-		                      
-		                      <td width="10%">
-		                        <ul class="radio-group">
-				         <li>
-					  <input id="choice-ai2" type="radio" name="chchl" value="sel"  onfocus="this.form.cch.disabled=false"/>
-					   
-					  <label for='choice-ai2'>
-					    <span><span></span></span>
-					    or
-					  </label>
-				         </li>
-				        </ul>
-		                      </td>
-		                      <td >
-		                         <select id='cch' name='cchs[]' size='3' multiple disabled>                            
-                              <option value='0'>Allylamines</option><option value='1'>Benzimidazoles</option><option value='2'>Carboxylic acids</option><option value='3'>Dicarboximides</option><option value='4'>Hydroxyanilides</option><option value='5'>Methyoxyacrylates</option><option value='6'>Morpholines</option><option value='7'>N-phenyl carbamates</option><option value='8'>Oxathiin carboxamides</option><option value='9'>Thiophanates</option><option value='10'>Triazoles</option>                            </select>
-		                      </td>
-		                    </tr>
-		                    
-		                     
-		                 
-		                 </table>
-                              
-                        </td>               
-                      </tr>
-                      
-                      
-                      <tr>
-                      <td width="10%">
-                        <!--<input type='radio' name='cldi' value='and' checked />and<br><input type='radio' name='cldi' value='or'/>or-->
-                        
-                        <ul class="radio-group">
-			    <li>
-				<input id="choice-i" type="radio" name="clph" value="and" checked />
-				<label for='choice-i'>
-				    <span><span></span></span>
-				    and
-				</label>
-			    </li>
-			    <li>
-				<input id="choice-j" type="radio" name="clph" value="or"/>
-				<label for='choice-j'>
-				    <span><span></span></span>
-				    or
-				</label>
-			    </li>    
-			</ul> 
-
-			
-                      </td>
-                      
-                      <td width="10%">
-                        Phenotype
-                      </td>
-                      
-                      <td width="3%">
-                        for
-                      </td>
-                       
-                       <td width="72%">
-                        <table border=0 bordercolor=green width="100%" cellpadding="0"> 
-		                    <tr>
-		                      <td width="12%" >
-		                        <ul class="radio-group">
-				         <li>
-					  <input id="choice-pt1" type="radio" name="chphl" checked value='all' checked onClick='deactivateMultiple(this.form.cph)'/>
-					  <label for='choice-pt1'>
-					    <span><span></span></span>
-					    All
-					  </label>
-				         </li>
-				        </ul>
-		                      </td>
-		                      
-		                      <td width="10%">
-		                        <ul class="radio-group">
-				         <li>
-					  <input id="choice-pt2" type="radio" name="chphl" value='sel'  onfocus="this.form.cph.disabled=false"/>
-					  <label for='choice-pt2'>
-					    <span><span></span></span>
-					    or
-					  </label>
-				         </li>
-				        </ul>
-		                      </td>
-		                      <td >
-		                         <select id='cph' name='cphs[]' size='3' multiple disabled>                            
-                              <option value='0'>Loss of pathogenicity</option><option value='1'>Reduced virulence</option><option value='2'>Unaffected pathogenicity</option><option value='3'>Increased virulence (Hypervirulence)</option><option value='4'>Enhanced antagonism</option><option value='5'>Wild-type mutualism</option><option value='6'>Effector (plant avirulence determinant)</option><option value='7'>Resistant to chemical</option><option value='8'>Sensitive to chemical</option><option value='9'>Susceptible to chemical</option><option value='10'>Lethal</option>                            </select>
-		                      </td>
-		                    </tr>
-		                    
-		                     
-		                 
-		                 </table>
-                              
-                        </td>               
-                      </tr>
-                      
-                      
-                      <tr>
-                      <td width="10%">
-                        <!--<input type='radio' name='cldi' value='and' checked />and<br><input type='radio' name='cldi' value='or'/>or-->
-                        
-                        <ul class="radio-group">
-			    <li>
-				<input id="choice-k" type="radio" name='chlev' value='and' checked/>
-				<label for='choice-k'>
-				    <span><span></span></span>
-				    and
-				</label>
-			    </li>
-			    <li>
-				<input id="choice-l" type="radio" name='chlev' value='or' />
-				<label for='choice-l'>
-				    <span><span></span></span>
-				    or
-				</label>
-			    </li>    
-			</ul> 
-
-			
-                      </td>
-                      
-                      <td width="10%">
-                        Experimental evidence
-                      </td>
-                      
-                      <td width="3%">
-                        for
-                      </td>
-                       
-                       <td width="72%">
-                        <table border=0 bordercolor=green width="100%" cellpadding="0"> 
-		                    <tr>
-		                      <td width="12%">
-		                        <ul class="radio-group">
-				         <li>
-					  <input id="choice-ee1" type="radio" name="chevl" checked value='all' checked onClick='deactivateMultiple(this.form.cev)'/>
-					  <label for='choice-ee1'>
-					    <span><span></span></span>
-					    All
-					  </label>
-				         </li>
-				        </ul>
-		                      </td>
-		                      
-		                      <td width="10%">
-		                        <ul class="radio-group">
-				         <li>
-					  <input id="choice-ee2" type="radio" name="chevl" value='sel'  onfocus="this.form.cev.disabled=false"/>
-					  <label for='choice-ee2'>
-					    <span><span></span></span>
-					    or
-					  </label>
-				         </li>
-				        </ul>
-		                      </td>
-		                      <td >
-		                         <select id='cev' name='cevs[]' size='3' multiple disabled>                            
-                              <option value='0'>gene disruption</option><option value='1'>   + gene mutation</option><option value='2'>   + gene mutation: characterised</option><option value='3'>   + gene deletion; complementation</option><option value='4'>   + gene deletion</option><option value='5'>   + complementation</option><option value='6'>   + complementation; other evidence</option><option value='7'>   + altered gene expression: overexpression</option><option value='8'>   + altered gene expression: overexpression; complementation</option><option value='9'>   + complementation; altered gene expression / gene regulation: silencing</option><option value='10'>gene deletion</option><option value='11'>   + altered gene expression: overexpression</option><option value='12'>   + overexpression</option><option value='13'>   + complementation</option><option value='14'>   + complementation; biochemical evidence</option><option value='15'>   + biochemical analysis</option><option value='16'>   + silencing</option><option value='17'>altered gene expression / gene regulation</option><option value='18'>   + downregulation</option><option value='19'>   + overexpression</option><option value='20'>   + silencing</option><option value='21'>   + down- and upregulation</option><option value='22'>   + complementation</option><option value='23'>biochemical analysis</option><option value='24'>   + mutation: characterised</option><option value='25'>   + mutation: characterised; complementation</option><option value='26'>functional test in host</option><option value='27'>   + direct injection</option><option value='28'>   + transient expression</option><option value='29'>mutation</option><option value='30'>   + characterised</option><option value='31'>   + characterised; complementation</option><option value='32'>complementation</option><option value='33'>sequence analysis of sensitive and resistant strains</option><option value='34'>sexual cross, sequencing of resistance conferring allele</option><option value='35'>other evidence</option>                            </select>
-		                      </td>
-		                    </tr>
-		                    
-		                     
-		                 
-		                 </table>  
-                              
-                        </td>               
-                      </tr>
-                      
-                      
-                      
-                      <tr>
-                     <td>
-                      <input type="submit" value="Go" name="sent" onClick="this.form.phi_acc.value='';this.form.detail.value='';this.form.quick.value='';this.form.hchem.value='';" />
-                      </td>
-                      <td>
-                       <input name="Clear" type="button" value="Clear" onClick="clearAll()" />
-                        
-                      </td>
-                    </tr>
-                  </table>
-                </fieldset>
                 </small>
                 				
                  </form>  
-    
-    </td>
-    <td colspan="2">
-       <fieldset id="fieldset1">
-          <legend>
-             <b>Sample SPARQL Queries</b>
-          </legend>
-       <ul class="a">
+      
+
+		  
+	   					
+		   
+		   
+		   </content>
+		   <?php
+			   
+			    $endpoint = 'http://oip.rothamsted.ac.uk/sparql/query';//$_POST['endpoint'];
+			    //$sparql = $_POST['sparql'];
+			    $output = $_POST['output'];
+			    
+			      //Check whether the form has been submitted
+	                  $chdb = $_POST['chdb'];
+	                  
+                           $ft = $_POST['ft']; //the text field!
+                          
+	                  $chor = $_POST['chor'];//order by!
+	                  
+	                  $check_submit = $_POST['check_submit'];
+			    		    
+			    if ($chdb != '' && $ft != '' && $chor != '' ) {        
+					require_once( "includes/sparqllib.php" );					
+					include_once 'includes/xml2array.php';
+				 //if($check_submit == 1){
+                                   //echo "chdb: $chdb <br />";
+                                   //echo "ft: $ft <br />";
+	                           //echo "chor: $chor <br />";
+	                           $sparql_prefixes = 
+	                           "prefix : <http://oip.rothamsted.ac.uk/ontology/> prefix xsd: <http://www.w3.org/2001/XMLSchema#>  prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> prefix apf: <http://jena.hpl.hp.com/ARQ/property#> prefix text: <http://jena.apache.org/text#> ";
+			            //echo "$sparql_prefixes <br />";
+				    $relation = "";
+			            switch ($chdb):
+				     case "all":
+					$relation = "all";
+					break;
+				     case "gene_name":
+					$relation = "gene";
+					break;					
+				     case "host":
+					$relation = "host";
+					break;
+				     case "pubmedID":					
+					$relation = "pubmedID";
+					break;
+				     case "pubmedAcc":					
+					$relation = "pubmedAcc";
+					break;				     
+				     endswitch;
+
+			         // } // end if($check_submit == 1){
+	   			       $sparql = "
+					            select distinct ?item ?label where { 
+					            ?item a :$relation .
+					            ?item text:query ?$ft .
+					            ?item rdfs:label ?label .
+					            } 
+					            order by ?$chor
+					            ";
+					
+					
+	                       $ssparql =  $sparql_prefixes.$sparql;
+	                       print "$ssparql <br />";
+				$data = sparql_get($endpoint,$ssparql);
+				if( isset($data) )
+				{
+				//echo $endpoint."\n";
+			        //echo $sparql."\n";
+					//print "<p>Error: ".sparql_errno().": ".sparql_error()."</p>";
+				//}
+				
+				if($output == 'HTML'){ 
+					print "<table>";
+					print "<tr>";
+					foreach( $data->fields() as $field )
+					{
+						print "<th  BGCOLOR=\"#a0a61b\" align=\"center\"> <FONT COLOR=\"#FFF\"> $field</FONT></th>";
+					}
+					print "</tr>";
+					$i = 1;
+					foreach( $data as $row )
+					{
+						if ($i % 2 != 0) # An odd row
+						    $rowColor = "#fdffcb";
+						else # An even row
+						    $rowColor = "#dee197"; 
+						$i++;
+						print "<tr bgcolor=\"$rowColor\">";
+						//bgcolor="' . $rowColor
+						foreach( $data->fields() as $field )
+						{
+							print "<td>$row[$field]</td>";
+						}
+						print "</tr>";
+					}
+					print "</table>";
+				} else if($output == 'JSON'){ // output JSON
+					
+					$xml = "";
+							$xml .= "<?xml version='1.0' ?>"; 
+							$xml .= "<sparql>";
+							$xml .= "<head>";
+							foreach( $data->fields() as $field )
+							{
+								$xml .= "<variable name=\"$field\"/>";
+							}
+							$xml .= "</head>";
+							$xml .= "<results>";
+							foreach( $data as $row )
+							{
+								$xml .= "<result>";
+								//bgcolor="' . $rowColor
+								foreach( $data->fields() as $field )
+								{
+									$xml .= "<binding name=\"$field\">";
+									$xml .= "<".$row["$field.type"].">"."$row[$field]"."</".$row["$field.type"].">";
+									$xml .= "</binding>";
+								}
+								$xml .= "</result>";
+							}
+							$xml .= "</results>";
+							$xml .= "</sparql>";
+					$arrayData = xmlToArray(simplexml_load_string($xml));
+					
+					$json_string = json_encode($arrayData, JSON_PRETTY_PRINT);
+					$_SESSION['json_string'] = $json_string ;
+					header( 'Location: json.php' );
+					echo $json_string;					
+				  
+				  } else if($output == 'CSV'){ // output JSON
+				
+						$csv = ""; 
+						$total = count( $data->fields() );
+						$i=0;
+						foreach( $data->fields() as $field )
+						{
+							$i++;
+							$csv .= "$field" ;
+							if ($i != $total) $csv .= ",";
+						}
+						//$csv = implode(",", $csv);
+						
+						foreach( $data as $row )
+						{
+							$i=0;
+							$csv .= "<BR />";
+							//bgcolor="' . $rowColor
+							foreach( $data->fields() as $field )
+							{
+								$i++;
+								$csv .= "$row[$field]";
+								if ($i != $total) $csv .= ",";
+							}
+							//$html .= "</tr>";
+						}																	
+						 
+						$_SESSION['csv_string'] = $csv ;
+						header( 'Location: csv.php' );
+						//echo $csv;  
+				  	 }
+				  	 else if($output == 'TSV'){ // output JSON
+				
+						$tsv = ""; 
+						$total = count( $data->fields() );
+						$i=0;
+						foreach( $data->fields() as $field )
+						{
+							$i++;
+							$tsv .= "$field" ;
+							if ($i != $total) $tsv .= "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";					
+						}
+						//$csv .= "\n";
+						//$tsv = implode(",", $tsv);
+						foreach( $data as $row )
+						{
+							$i=0;
+							$tsv .= "<BR />";
+							//bgcolor="' . $rowColor
+							foreach( $data->fields() as $field )
+							{
+								$i++;
+								$tsv .= "$row[$field]";
+								if ($i != $total) $tsv .= "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";	
+							}
+							//$html .= "</tr>";
+						}						
+						$_SESSION['tsv_string'] = $tsv ;
+						header( 'Location: tsv.php' );
+						//echo $tsv;  
+				  	 } else if($output == 'XML'){						  							  
+							  	
+							  	$xml = "";
+								$xml .= "<?xml version=\"1.0\"?>"; 
+								$xml .= "<sparql>";
+								$xml .= "<head>";
+								foreach( $data->fields() as $field )
+								{
+									$xml .= "<variable name=\"$field\"/>";
+								}
+								$xml .= "</head>";
+								$xml .= "<results>";
+								foreach( $data as $row )
+								{
+					
+									$xml .= "<result>";
+									//bgcolor="' . $rowColor
+									foreach( $data->fields() as $field )
+									{
+										$xml .= "<binding name=\"$field\">";
+										$xml .= "<".$row["$field.type"].">"."$row[$field]"."</".$row["$field.type"].">";
+										$xml .= "</binding>";
+									}
+									$xml .= "</result>";
+								}
+								$xml .= "</results>";
+								$xml .= "</sparql>";															
+
+								//session_start();
+								$_SESSION['xml_string'] = $xml ;
+								 header( 'Location: xml.php' );
+								//echo $xml_string;  							
+
+	  	   				}
+	  	   		} // if( isset($data) )
+	  	   		else {
+				  echo '<p><font color="red">Please make sure you provide correct SPARQL Endpoint and Query!</font></p>';
+				  echo $endpoint." ".$sparql;
+			        }
+			        
+			    } // end if ($endpoint != '' && $sparql != '')
+			    
+			    
+			    
+			    
+	   	   
+	   
+			    
+			  
+		?>
+		</article>	
+	</div>
+</div>
+
+<aside class="top-sidebar">
+<article><h2>Sample Queries</h2> <ul class="a">
 			<li>
 			<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		        <script>
-			  function saaa() {			    
-			    thisform = document.getElementById("search");
-	      			//chosen    
-			      
-			      thisform.cge.value='3hnr';
-			      thisform.cdi.value='Cholera';
-			      thisform.cho.value='Almond';
-			      thisform.cpa.value='Alternaria longipes';
-			      //thisform.cch.value='all';
-			      
-			      
-			      //document.getElementById('choice-ee1').checked = false;
-			      document.getElementById('choice-ee2').checked = true;
-			      document.getElementById('cev').disabled=false;
-			      var optionsToSelect = ["+ gene mutation", "+ gene mutation: characterised"];
-				var select = document.getElementById( 'cev' );
-
-				for ( var i = 0, l = select.options.length, o; i < l; i++ )
-				{
-				  o = select.options[i];
-				  if ( optionsToSelect.indexOf( o.text ) != -1 )
-				  {
-				    o.selected = true;
-				  }
-				}
-
-			      //document.getElementById('cev').value = ["+ gene mutation", "+ gene mutation: characterised"];
+			  function saaa() {
+			    var area = document.getElementById("sparql");
+			    area.value = "SELECT * WHERE {?A ?B ?C} LIMIT 20";
+			    document.getElementById("endpointname").value = "http://dbpedia.org/sparql";
 			    }
 			</script>
-			<a onClick="saaa();" style="cursor: pointer; cursor: hand;">Query 1</a>
+			<a onClick="saaa();" style="cursor: pointer; cursor: hand;">DBPedia Test</a>
 			</li>
 			
 			  <li>
@@ -634,145 +470,14 @@
 			<a onClick="a();" style="cursor: pointer; cursor: hand;">Display interaction with organisms and theirs role in that</a>
 			</li>
 			</ul>
-	</fieldset>
-    </td>
-    
-  </tr>
-  
-  
-  <tr height=30px>
-     <td colspan="9">
-	<?php
-	//SPARQL PREFIXES
-	$sparql_prefixes = "PREFIX owl: <http://www.w3.org/2002/07/owl#> "."\n".
-			   "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns# >"."\n".
-			   "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "."\n".
-			   "PREFIX uniprot: <http://purl.uniprot.org/core/> "."\n".
-			   "PREFIX pho: <http://rdf.phibase.org/ontology/phibase-rdf-ontology.owl#> "."\n".
-			   "PREFIX pcore: <http://purl.uniprot.org/core/> "."\n".
-			   "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> "."\n";
-	/* select statements to collect all
-	 * diseases, gene_names, gene_on_hosts, host_names, pathoge_names
-	 */
-	 /*
-	 	select ?all where {
-		  ?all a <<class>> .
-		  ?all rdfs:label ?label
-		}
-
-	 */
-	 $select = "SELECT ";
-	 $chdb = $_POST['chdb'];
-	 if($chdb == "all")
-	   $select = $select." ?P ?O WHERE { <any_uri_here> ?P ?O .}";
-	 else
-	   if($chdb == "name") //  host pubmed phibase
-	      $select = $select." ?name WHERE { <gene_uri_here> uniprot:name ?name . <gene_uri_here> a pho:gene .}";
-	   else
-	     if($chdb == "host")
-	       $select = $select;
-	     else
-	       if($chdb == "pubmed")
-	          $select = $select;
-	       else // last one is phibase
-	          $select = $select;
-	
-	//$select_gene = 
-	
-	
-	$requestdis = "select distinct name from diseases order by name;";
-	$requestgen = "select g.value_disp as name from gds_gene g where g.name = 'synonym' UNION select ge.name as name from gene ge order by name";
-	$requestint = "select distinct phi_base_acc from gene";
-	$requesthost = "select distinct common_name from species, on_host where ncbi_tax_id=on_host.tax_id_fk and common_name~'' order by common_name";
-	$requestpatho = "select distinct syst_name from species, from_pathogen where ncbi_tax_id=from_pathogen.tax_id_fk order by syst_name";
-	//$requestpheno = "select distinct value_disp from gds_int where name = 'phenotype' order by value_disp;";
-	$requestevi = "select distinct evidence_id, evidence_priority, evidence_disp from exp_evidence order by evidence_priority;";
-	//$requestchem = "select distinct chemgroup from chemical inner join ;";
-	$requestchem = "select distinct chemgroup from (select distinct chemgroup, chem_fk from has_chem, chemical where chem_fk=chemical_id) as ak;";
+</article">
+</aside>
 
 
-	  //Check whether the form has been submitted
-	   $chdb = $_POST['chdb'];
-	   echo "chdb: $chdb <br />";
-           $ft = $_POST['ft']; //the text field!
-           echo "ft: $ft <br />";
-	   $chor = $_POST['chor'];
-	   echo "chor: $chor <br />";
-	   	   
-	   //chosen  
-	   $cge = $_POST['cge'];
-           echo "cge: $cge <br />";
-             
-	   $cdi = $_POST['cdi'];
-	   echo "cdi: $cdi <br />";
-           
-	   $cho = $_POST['cho'];
-	   echo "cho: $cho <br />";
-	   
-	   $cpa = $_POST['cpa'];
-	   echo "cpa: $cpa <br />";
-           
-           //$cch = $_POST['cch'];
-           //echo "cch: $cch <br />";
-           
-           //choicelist (and/or)
-	   $cldi = $_POST['cldi'];
-	   echo "cldi: $cldi <br />";
-	   
-	   $clho = $_POST['clho'];
-           echo "clho: $clho <br />";
-           
-	   $clpa = $_POST['clpa'];
-	   echo "clpa: $clpa <br />";
-           	   
-	   $clch = $_POST['clch'];
-	   echo "clch: $clch <br />";
-	   
-	   $clph = $_POST['clph'];
-	   echo "clph: $clph <br />";
-	   
-	   $chlev = $_POST['chlev'];
-	   echo "chlev: $chlev <br />";
-	   
-	   //choice all/or
-	   $chchl = $_POST['chchl'];
-	   echo "chchl: $chchl <br />";
-	   
-	   if($chchl="sel")
-	   foreach ($_POST['cchs'] as $selectedOption)
-    		echo "\t$selectedOption<br />";
-    	
-    	  
-	   
-           $chphl = $_POST['chphl'];
-           echo "chphl: $chphl <br />";	
-           
-           if($chphl="sel")
-	   foreach ($_POST['cphs'] as $selectedOption)
-    		echo "\t$selectedOption<br />";  
-    		 	   	   	   
-           
-           $chevl = $_POST['chevl'];
-           echo "chevl: $chevl <br />";
-	   
-	   if($chevl="sel")
-	   foreach ($_POST['cevs'] as $selectedOption)
-    		echo "\t$selectedOption<br />";
-    			      							 
-	?>
-     </td>
-  </tr>
-  <tr>
-    <td colspan="9"><footer class="mainFooter">
-     <p>PHI-base is a National Capability funded by Biotechnology and Biological Sciences Research Council (BBSRC, UK) and is being developed and maintained by scientists at Rothamsted Research.</p>
-</footer></td>    
-  </tr>
-</table>
 
+<footer class="mainFooter"><p>PHI-base is a National Capability funded by Biotechnology and Biological Sciences Research Council (BBSRC, UK) and is being developed and maintained by scientists at Rothamsted Research.</p></footer>
 	
 </body>
 
 
 </html>
-
-

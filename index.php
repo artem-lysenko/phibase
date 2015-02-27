@@ -5,54 +5,47 @@
 	<title>Welcome to PHI-base</title>
 	<meta http-equiv="charset=utf-8">
 	
-	<link rel="STYLESHEET" href="s.css" type="text/css">
+	<link rel="STYLESHEET" href="style.css" type="text/css">
 	
 	<!--<link rel="STYLESHEET" href="s.css" type="text/css">-->
 	<!-- next line is for mobile device optimisation -->
-	<!-- <meta name="viewport" content="width-device-width, initial-scale=1.0"> -->	
+	<meta name="viewport" content="width-device-width, initial-scale=1.0"> 
 		
 </head>
 
-<body>
+<body class="body">
+<header class="mainHeader">
+	<img src="imgs/topimage3.png">
+	<nav><ul>
+	<li class="active"><a href="index.php">Search</a></li>	
+	<li><a href="composer.php">SPARQL Composer</a></li>
+	<li><a href="#">SPARQL Composer 2</a></li>
+	<li><a href="#">Project Overview</a></li>
+	<li><a href="#">Meet the Team</a></li>
+	<li><a href="#">Contact us</a></li>
 
-<table  width='70%' align='center'  border='1'>
-  	
-  <tr>
-    <td colspan="1"><img src="imgs/logo.svg"/> </td>
-  </tr>
-  <tr height=10px>
-    
-  </tr>
-  <tr>
-    <td id="td1"> <a id="link" href="index.php"> <span id="span2"> Search </span></a> </td>
-    <td id="td1"> <a id="link" href="composer.php"> <span id="span2"> SPARQL  </span></a> </td>
+	</ul></nav>
+</header>
 
-    <td id="td1"> Page Name </td>
-    <td id="td1"> Page Name </td>
-    <td id="td1"> Page Name </td>
-    <td id="td1"> Page Name </td>
-    <td id="td1"> Page Name </td>
-    <td id="td1"> Page Name </td>
-    <td id="td1"> Page Name </td>
-  </tr>
-  <tr height=10px>
-    
-  </tr>
-  
-  <tr>
-    <td colspan="7" align="top">
-        <form action="index.php" method="post"> 
+<div class="mainContent">
+	<div class="content">
+		<article class="topContent">
+		<!--<footer class="post-info">The Problem is in how QSAR is currently done!</footer>-->
+		   <content>			   
+
+          <form action="index.php" method="post"> 
 		<fieldset id="fieldset1">
                   <legend>
-                    <b>SPARQL Search</b>
+                    <b>SPARQL Search .. Please enter a SPARQL Query or click on one of the Sample Queries</b>
                   </legend>
 			<div>
+			   <!--
 			   <label>
 			    <h3>SPARQL Endpoint</h3><input id="endpointname" type="text" value="<?php  echo $endpoint; ?>" name="endpoint"/>
 			   </label>
-				
+			   -->	
 			   <label>
-			      <h3>SPARQL Query</h3>
+			      <!--<h3>SPARQL Query</h3>-->	
 			      <textarea id="sparql" name="sparql">  </textarea>
 			   </label>
 			   
@@ -72,81 +65,16 @@
 			   <input type="submit" value="Execute!" />		
 			</div>						
 		</fieldset>
-      </form> 
-    
-    </td>
-    
-    <td colspan="2">
-    <fieldset id="fieldset1">
-          <legend>
-             <b>Sample SPARQL Queries</b>
-          </legend>
-       <ul class="a">
-			<li>
-			<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-		        <script>
-			  function saaa() {
-			    var area = document.getElementById("sparql");
-			    area.value = "SELECT * WHERE {?A ?B ?C} LIMIT 20";
-			    document.getElementById("endpointname").value = "http://dbpedia.org/sparql";
-			    }
-			</script>
-			<a onClick="saaa();" style="cursor: pointer; cursor: hand;">DBPedia Test</a>
-			</li>
-			
-			  <li>
-			  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-		<script>
-			  function aaa() {
-			  
-			  var area = document.getElementById("sparql");
-			area.value = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pho: <http://rdf.phibase.org/ontology/phibase-rdf-ontology.owl#>\nPREFIX pcore: <http://purl.uniprot.org/core/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?interaction ?org ?same ?roleType ?org_sci_name WHERE {\n ?interaction a pho:interaction .\n ?interaction pho:has_participant ?org .\n ?org a pho:organism .\n ?org pho:has_role [\n\t a ?roleType ;\n\t pho:participant_of ?interaction;\n\t rdfs:label ?roleLabe \n ] .\n ?org owl:sameAs ?same .\n ?same a pcore:Taxon .\n ?same pcore:scientificName ?org_sci_name .\n ?same pcore:commonName ?name .\n}";
-			
-			
+         </form> 
+      
 
-			    }
-			</script>
-			<a onClick="aaa();" style="cursor: pointer; cursor: hand;">Display interaction with organisms and theirs role in that (display organisms scientific and common names in different columns)</a>
-			</li>
-			  
-			  
-			  <li>
-			  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>		   					
-		   <script>
-			  function xaa() {
-			  
-			  var area = document.getElementById("sparql");
-			area.value = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pho: <http://rdf.phibase.org/ontology/phibase-rdf-ontology.owl#>\nPREFIX pcore: <http://purl.uniprot.org/core/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?protein WHERE { ?protein a pho:protein }";
-			
-			   }
-			</script>
-			<a onClick="xaa();" style="cursor: pointer; cursor: hand;">Display proteins in the pathogen Fusarium graminearum that have lethal phenotype when the host is wheat. What Gene Ontology Biological Processes do they have, what KEGG pathways do they map to, and what Pfam domains do they have in common?</a>
-			</li>
-			  
-			  
-			  <li>
-			  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>  					
-			<script>
-			  function a() {
-			  var area = document.getElementById("sparql");
-			area.value = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n PREFIX pho: <http://rdf.phibase.org/ontology/phibase-rdf-ontology.owl#>\n PREFIX pcore: <http://purl.uniprot.org/core/>\n PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n SELECT ?interaction ?org ?roleType ?roleLabel WHERE {\n ?interaction a pho:interaction .\n ?interaction pho:has_participant ?org .\n ?org a pho:organism .\n ?org pho:has_role [\n\t a ?roleType ; \n\t pho:participant_of ?interaction ; \n\t rdfs:label ?roleLabel \n ] \n}";
-			
-
-			    }
-			</script>
-			<a onClick="a();" style="cursor: pointer; cursor: hand;">Display interaction with organisms and theirs role in that</a>
-			</li>
-			</ul>
-	</fieldset>
-    </td>
-    
-  </tr>
-  
-  
-  <tr height=30px>
-	  <td colspan="9">
-	    <?php
-			    $endpoint = $_POST['endpoint'];
+		  
+	   					
+		   
+		   
+		   </content>
+		   <?php
+			    $endpoint = 'http://oip.rothamsted.ac.uk/sparql/query';//$_POST['endpoint'];
 			    $sparql = $_POST['sparql'];
 			    $output = $_POST['output'];
 			    			    
@@ -157,8 +85,8 @@
 				$data = sparql_get($endpoint,$sparql);
 				if( isset($data) )
 				{
-				echo $endpoint."\n";
-			        echo $sparql."\n";
+				//echo $endpoint."\n";
+			        //echo $sparql."\n";
 					//print "<p>Error: ".sparql_errno().": ".sparql_error()."</p>";
 				//}
 				
@@ -355,19 +283,76 @@
 			    
 			  
 		?>
-		</td>
-  </tr>
-  <tr>
-    <td colspan="9"><footer class="mainFooter">
-     <p>PHI-base is a National Capability funded by Biotechnology and Biological Sciences Research Council (BBSRC, UK) and is being developed and maintained by scientists at Rothamsted Research.</p>
-</footer></td>    
-  </tr>
-</table>
+		</article>	
+	</div>
+</div>
 
+<aside class="top-sidebar">
+<article><h2>Sample Queries</h2> <ul class="a">
+                       <!--
+			<li>
+			<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		        <script>
+			  function saaa() {
+			    var area = document.getElementById("sparql");
+			    area.value = "SELECT * WHERE {?A ?B ?C} LIMIT 20";
+			    document.getElementById("endpointname").value = "http://dbpedia.org/sparql";
+			    }
+			</script>
+			<a onClick="saaa();" style="cursor: pointer; cursor: hand;">DBPedia Test</a>
+			</li>
+			-->	
+			  <li>
+			  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script>
+			  function aaa() {
+			  
+			  var area = document.getElementById("sparql");
+			area.value = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pho: <http://rdf.phibase.org/ontology/phibase-rdf-ontology.owl#>\nPREFIX pcore: <http://purl.uniprot.org/core/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?interaction ?org ?same ?roleType ?org_sci_name WHERE {\n ?interaction a pho:interaction .\n ?interaction pho:has_participant ?org .\n ?org a pho:organism .\n ?org pho:has_role [\n\t a ?roleType ;\n\t pho:participant_of ?interaction;\n\t rdfs:label ?roleLabe \n ] .\n ?org owl:sameAs ?same .\n ?same a pcore:Taxon .\n ?same pcore:scientificName ?org_sci_name .\n ?same pcore:commonName ?name .\n}";
+			
+			
+
+			    }
+			</script>
+			<a onClick="aaa();" style="cursor: pointer; cursor: hand;">Display interaction with organisms and theirs role in that (display organisms scientific and common names in different columns)</a>
+			</li>
+			  
+			  
+			  <li>
+			  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>		   					
+		   <script>
+			  function xaa() {
+			  
+			  var area = document.getElementById("sparql");
+			area.value = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pho: <http://rdf.phibase.org/ontology/phibase-rdf-ontology.owl#>\nPREFIX pcore: <http://purl.uniprot.org/core/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?protein WHERE { ?protein pho:protein }";
+			
+			   }
+			</script>
+			<a onClick="xaa();" style="cursor: pointer; cursor: hand;">Display proteins in the pathogen Fusarium graminearum that have lethal phenotype when the host is wheat. What Gene Ontology Biological Processes do they have, what KEGG pathways do they map to, and what Pfam domains do they have in common?</a>
+			</li>
+			  
+			  
+			  <li>
+			  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>  					
+			<script>
+			  function a() {
+			  var area = document.getElementById("sparql");
+			area.value = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n PREFIX pho: <http://rdf.phibase.org/ontology/phibase-rdf-ontology.owl#>\n PREFIX pcore: <http://purl.uniprot.org/core/>\n PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n SELECT ?interaction ?org ?roleType ?roleLabel WHERE {\n ?interaction a pho:interaction .\n ?interaction pho:has_participant ?org .\n ?org a pho:organism .\n ?org pho:has_role [\n\t a ?roleType ; \n\t pho:participant_of ?interaction ; \n\t rdfs:label ?roleLabel \n ] \n}";
+			
+
+			    }
+			</script>
+			<a onClick="a();" style="cursor: pointer; cursor: hand;">Display interaction with organisms and theirs role in that</a>
+			</li>
+			</ul>
+</article">
+</aside>
+
+
+
+<footer class="mainFooter"><p>PHI-base is a National Capability funded by Biotechnology and Biological Sciences Research Council (BBSRC, UK) and is being developed and maintained by scientists at Rothamsted Research.</p></footer>
 	
 </body>
 
 
 </html>
-
-
