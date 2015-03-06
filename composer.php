@@ -92,10 +92,7 @@
 	<nav><ul>
 	<li><a href="index.php">Search</a></li>	
 	<li class="active"><a href="composer.php">SPARQL Composer</a></li>
-	<li><a href="#">SPARQL Composer 2</a></li>
-	<li><a href="#">Project Overview</a></li>
-	<li><a href="#">Meet the Team</a></li>
-	<li><a href="#">Contact us</a></li>
+	
 
 	</ul></nav>
 </header>
@@ -107,7 +104,8 @@
 		   <content>			   
 
            <form action="composer.php" method="post" target="_self" id="search"> 
-		   <input type="hidden" name="check_submit" value="1" />
+		   <input type="hidden" name="quick_search" value="1" />
+		   <input type="hidden" name="advanced_search" value="0">
 			
 		   <small>
 		 <fieldset id="fieldset1">
@@ -119,14 +117,19 @@
                     <tr>
                       <td width="30%">
                         &nbsp;Search                                                
-                          <select name="chdb" class="resizedSelect"> 
-<option selected value='all'>all</option><option value='gene_name'>Gene name</option><option value='host'>Host</option><option value='pubmed'>PubMed ID</option><option value='phibase'>PHI-base Acc</option>                          </select> for                                                                          
+                          <select name="qs_search_for" class="resizedSelect"> 
+                             <option selected value='all'>all</option>
+                             <option value='gene_name'>Gene name</option>
+                             <option value='host'>Host</option>
+                             <option value='pubmedID'>PubMed ID</option>           
+                           </select> 
+                         for
                          </td>
                          <td width="35%">
-                         <input type="text" placeholder="e.g. ACE*, Candida a* or PHI:441" id="ft" name='ft' class="resizedTextbox"  value=''  onKeyPress='this.form.quick.value="yes";' />
+                         <input type="text" placeholder="e.g. ACE*, Candida a* or PHI:441" id="ft" name='qs_search_text' class="resizedTextbox"  value=''  onKeyPress='this.form.quick.value="yes";' />
                         </td>
                          <td width="35%">
-                        &nbsp;order by                      <select name="chor">            <option value='phi_base_acc'>PHI-base accession</option><option selected value='gene_name'>Gene name</option><option value='embl_value_disp'>embl_value_disp</option><option value='ph_value_disp'>Phenotype of mutant</option><option value='patho_name'>Pathogen species</option><option value='dis_name'>Disease name</option><option value='host_name'>Experimental host</option>                        </select>
+                        &nbsp;order by                      <select name="qs_order_by">            <option value='phi_base_acc'>PHI-base accession</option><option selected value='gene_name'>Gene name</option><option value='embl_value_disp'>embl_value_disp</option><option value='ph_value_disp'>Phenotype of mutant</option><option value='patho_name'>Pathogen species</option><option value='dis_name'>Disease name</option><option value='host_name'>Experimental host</option>                        </select>
                         
                         <!-- internal use only! -->
                         <!--this.form.term.focus();"> -->
@@ -158,7 +161,169 @@
                       <input type="submit" value="Go" name="sntf" onClick="this.form.phi_acc.value='';this.form.detail.value='';this.form.hchem.value='';this.form.quick.value='yes';" />
                       </td>
                       <td>
-                       <input name="Clear" type="button" value="Clear" onClick="this.form.chdb.value='all';this.form.chor.value='gene_name';this.form.ft.value='';this.form.quick.value='';"/>
+                       <input name="Clear" type="button" value="Clear" onClick="this.form.qs_search_for.value='all';this.form.qs_order_by.value='gene_name';this.form.qs_search_text.value='';this.form.quick.value='';"/>
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </fieldset>
+                
+                
+                </small>
+                				
+                 </form>  
+      
+
+		  
+	   					
+		   
+		   
+		   </content>
+		   
+		</article>	
+		
+		<article class="topContent">
+
+		   <content>			   
+
+           <form action="composer.php" method="post" target="_self" id="search"> 
+		   <input type="hidden" name="quick_search" value="0" />
+		   <input type="hidden" name="advanced_search" value="1">
+			
+		   <small>
+		 <fieldset id="fieldset1">
+                  <legend>
+                    <b class='search'>
+                      Advanced Search</b>
+                  </legend>
+                  <table  width="100%" border="0"  cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td width="20%">
+                                                                                                                               
+                      </td>
+                      <td width="15%">
+                          &nbsp;Search Gene:                                                                                                      
+                      </td>
+                      <td width="65%">
+                          
+                        <select name="adv_gene_name" class="resizedSelect"> 
+                          <option selected value='all'>all</option>
+			  <option value='1-phosphatidylinositol-4,5-bisphosphate phosphodiesterase delta 1'>1-phosphatidylinositol-4,5-bisphosphate phosphodiesterase delta 1</option>
+			  <option value='3hnr'>3hnr</option>
+			  <option value='7,8-LDS'>7,8-LDS</option>
+			  <option value='AaFUS3'>AaFUS3</option>
+			  <option value='AaGa1'>AaGa1</option>
+			  <option value='AaNoxA'>AaNoxA</option>
+			  <option value='AaNoxB'>AaNoxB</option>
+			  <option value='AaNoxR'>AaNoxR</option>
+			  <option value='AaNPS6'>AaNPS6</option>
+			  <option value='Aapg1'>Aapg1</option>
+			  <option value='aapk1'>aapk1</option>
+			  <option value='AAR1'>AAR1</option>
+			  <option value='AaSLT2'>AaSLT2</option>
+			  <option value='ABC1'>ABC1</option>
+			  <option value='ABC2'>ABC2</option>
+			  <option value='ABC3'>ABC3</option>
+			  <option value='ABC4'>ABC4</option>
+			  <option value='Abd1'>Abd1</option>
+			</select>
+                                                                                                                                                                   
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                      <td align="right" width="20%">
+                             And &nbsp;                                                                                                 
+                      </td>
+                      <td width="15%">
+                          &nbsp;Disease:                                                                                                      
+                      </td>
+                      <td width="65%">
+                          
+                        <select name="adv_disease_name" class="resizedSelect"> 
+                          <option selected value='all'>all</option>
+			  <option value='Alternaria brown spot'>Alternaria brown spot</option>
+			  <option value='Alternaria leaf blotch'>Alternaria leaf blotch</option>
+			  <option value='Anthracnose'>Anthracnose</option>
+			  <option value='Anthracnose disease'>Anthracnose disease</option>
+			  <option value='Anthracnose stalk rot and leaf blight of maize'>Anthracnose stalk rot and leaf blight of maize</option>
+			</select>
+                                                                                                                                                                   
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                      <td align="right" width="20%">
+                             And &nbsp;                                                                                                 
+                      </td>
+                      <td width="15%">
+                          &nbsp;Host:                                                                                                      
+                      </td>
+                      <td width="65%">
+                          
+                        <select name="adv_host_name" class="resizedSelect"> 
+                          <option selected value='all'>all</option>
+			  <option value='Aeschynomene virginica'>Aeschynomene virginica</option>
+			  <option value='Agaricus bisporus'>Agaricus bisporus</option>
+			  <option value='Alfalfa'>Alfalfa</option>
+			  <option value='Almond'>Almond</option>
+			  <option value='American Chestnut tree'>American Chestnut tree</option>
+			  <option value='Amoebae'>Amoebae</option>
+			  <option value='Aphid'>Aphid</option>
+			  <option value='Apple'>Apple</option>
+			</select>
+                                                                                                                                                                   
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                      <td align="right" width="20%">
+                             And &nbsp;                                                                                                 
+                      </td>
+                      <td width="15%">
+                          &nbsp;Pathogen:                                                                                                      
+                      </td>
+                      <td width="65%">
+                          
+                        <select name="adv_pathogen_name" class="resizedSelect"> 
+                          <option selected value='all'>all</option>
+			  <option value='Acinetobacter baumannii'>Acinetobacter baumannii</option>
+			  <option value='Agrobacterium tumefaciens'>Agrobacterium tumefaciens</option>
+			  <option value='Agrobacterium vitis'>Agrobacterium vitis</option>
+			  <option value='Alternaria alternata'>Alternaria alternata</option>
+			  <option value='Alternaria brassicicola'>Alternaria brassicicola</option>
+			  <option value='Alternaria citri'>Alternaria citri</option>
+			</select>
+                                                                                                                                                                   
+                        </td>
+                    </tr>
+                    
+                      
+                      <tr> 
+                         <td>
+                            <label>			   					
+				<div>
+				Output:
+				<SELECT name="output">
+				<option value="HTML">HTML</option>
+				<option value="JSON">JSON</option>
+				<option value="CSV">CSV</option>
+				<option value="TSV">TSV</option>
+				<option value="XML">XML</option>				
+				</SELECT>
+				</div>  
+			    </label>
+			 </td>
+                        <td></td>
+                        <td></td>
+                        
+                      </tr>
+                      <tr>
+                     <td>
+                      <input type="submit" value="Go" name="detailed_search_btn" onClick="" />
+                      </td>
+                      <td>
+                       <input name="Clear" type="button" value="Clear" onClick=""/>
                         
                       </td>
                     </tr>
@@ -178,62 +343,135 @@
 		   </content>
 		   <?php
 			   
-			    $endpoint = 'http://oip.rothamsted.ac.uk/sparql/query';//$_POST['endpoint'];
-			    //$sparql = $_POST['sparql'];
-			    $output = $_POST['output'];
+			     
+			     
+			     //$sparql = $_POST['sparql'];
+			     $qs = $_POST['quick_search'];
+			     $as = $_POST['advanced_search'];
 			    
-			      //Check whether the form has been submitted
-	                  $chdb = $_POST['chdb'];
-	                  
-                           $ft = $_POST['ft']; //the text field!
-                          
-	                  $chor = $_POST['chor'];//order by!
-	                  
-	                  $check_submit = $_POST['check_submit'];
-			    		    
-			    if ($chdb != '' && $ft != '' && $chor != '' ) {        
-					require_once( "includes/sparqllib.php" );					
-					include_once 'includes/xml2array.php';
-				 //if($check_submit == 1){
-                                   //echo "chdb: $chdb <br />";
-                                   //echo "ft: $ft <br />";
-	                           //echo "chor: $chor <br />";
-	                           $sparql_prefixes = 
+			     $qs_search_for = "";	                  
+                             $qs_search_text = ""; //the text field!                          
+	                     $qs_order_by = "";//order by!
+			    
+			     $adv_gene_name   = "";
+			     $adv_disease_name = "";
+                             $adv_host_name = "";
+                             $adv_pathogen_name = "";
+                               
+                               
+                             $sparql_prefixes = 
 	                           "prefix : <http://oip.rothamsted.ac.uk/ontology/> prefix xsd: <http://www.w3.org/2001/XMLSchema#>  prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> prefix apf: <http://jena.hpl.hp.com/ARQ/property#> prefix text: <http://jena.apache.org/text#> ";
-			            //echo "$sparql_prefixes <br />";
-				    $relation = "";
-			            switch ($chdb):
+			            //echo "$sparql_prefixes <br />";				    
+			     $sparql = "";
+				    
+			    if($qs == "1" && $as=="0"){
+			       //echo "QS";
+			       //Check whether the form has been submitted
+	                       $qs_search_for = $_POST['qs_search_for'];	                  
+                               $qs_search_text = $_POST['qs_search_text']; //the text field!                          
+	                       $qs_order_by = $_POST['qs_order_by'];//order by!
+	                       
+	                       switch ($qs_search_for):
 				     case "all":
-					$relation = "all";
+					$sparql = "select * where {?S ?O ?P} limit 20";
 					break;
 				     case "gene_name":
-					$relation = "gene";
-					break;					
-				     case "host":
-					$relation = "host";
-					break;
-				     case "pubmedID":					
-					$relation = "pubmedID";
-					break;
-				     case "pubmedAcc":					
-					$relation = "pubmedAcc";
-					break;				     
+				        //echo "gene_name";
+					$sparql = "select ?item ?label {
+                                                   ?item a :gene .
+                                                  ?item text:query \"$qs_search_text\" .    
+                                                  ?item rdfs:label ?label .
+                                                  }";
+					break;	
+					
+				      case "host":
+					$sparql = "select ?item ?label {
+                                                    ?interaction :has_host ?item .
+                                                    ?item text:query \"$qs_search_text\" .    
+                                                    ?item rdfs:label ?label .
+                                                  }";
+				      break;
+				      
+				      case "pubmedID":
+					$sparql = "select ?item ?label {
+                                                    ?item a :citation .
+                                                    ?item :is_about ?interaction .
+                                                    ?item text:query \"$qs_search_text\" .    
+                                                    ?item rdfs:label ?label .
+                                                  }";
+				      break;	
+				    // case "pubmedAcc":					
+					//$relation = "pubmedAcc";
+					//break;				     
 				     endswitch;
+				     
+				  //$ssparql =  $sparql_prefixes.$sparql;    
+				  execute_sparql_query($sparql_prefixes.$sparql);
+			    } else
+			      if($qs == "0" && $as=="1"){
+			       echo "AS";
+			       $adv_gene_name   = $_POST['adv_gene_name'];
+			       $adv_disease_name = $_POST['adv_disease_name'];
+                               $adv_host_name = $_POST['adv_host_name'];
+                               $adv_pathogen_name = $_POST['adv_pathogen_name'];
+                               
+                               $sparql = "
+                                select ?interaction ?gene ?disease ?host ?pathogen ?phenotype ?evidence where {
+				?interaction :has_gene ?gene .
+				?gene rdfs:value \"$adv_gene_name\" .
+				?interaction :has_disease ?disease .
+				?disease rdfs:value \"$adv_disease_name\" .
+				?interaction :has_host ?host .
+				?host rdfs:value \"$adv_host_name\".
+				?interaction :has_pathogen ?pathogen .
+				?pathogen rdfs:value \"$adv_pathogen_name\" 
+				}";
+				
+				echo $sparql;
+				 //$ssparql =  $sparql_prefixes.$sparql;
+				execute_sparql_query($sparql_prefixes.$sparql);
+				 
+				/*
+				?interaction :has_output ?phenotype .
+				?phenotype rdfs:value \"\" .
+				?interaction :preceded_by ?evidence .
+				?evidence rdfs:value \"\" 
+				}
+                               ";
+                               */
 
+			      //echo $adv_gene_name;
+			      //echo $adv_disease_name;
+			      //echo $adv_host_name;
+			      //echo $adv_pathogen_name;
+			          
+			    }
+			      	                  
+			    		    
+			    //if ($qs_search_for != '' && $qs_search_text != '' && $qs_order_by != '' ) {        
+			    function execute_sparql_query($sparql){
+ 			         $endpoint = 'http://oip.rothamsted.ac.uk/sparql/query';//$_POST['endpoint'];
+ 			         $output = $_POST['output'];
+				 require_once( "includes/sparqllib.php" );					
+				 include_once 'includes/xml2array.php';
+				 
+	                           			            			
 			         // } // end if($check_submit == 1){
+			         /*
 	   			       $sparql = "
 					            select distinct ?item ?label where { 
 					            ?item a :$relation .
-					            ?item text:query ?$ft .
+					            ?item text:query ?$qs_search_text .
 					            ?item rdfs:label ?label .
 					            } 
-					            order by ?$chor
+					            order by ?$qs_order_by
 					            ";
 					
-					
-	                       $ssparql =  $sparql_prefixes.$sparql;
-	                       print "$ssparql <br />";
-				$data = sparql_get($endpoint,$ssparql);
+				*/	
+	                      
+	                       //print "$ssparql kkk <br />";
+	                         
+				$data = sparql_get($endpoint,$sparql);
 				if( isset($data) )
 				{
 				//echo $endpoint."\n";
@@ -412,6 +650,9 @@
 		</article>	
 	</div>
 </div>
+
+
+
 
 <aside class="top-sidebar">
 <article><h2>Sample Queries</h2> <ul class="a">

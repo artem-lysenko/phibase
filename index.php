@@ -19,10 +19,7 @@
 	<nav><ul>
 	<li class="active"><a href="index.php">Search</a></li>	
 	<li><a href="composer.php">SPARQL Composer</a></li>
-	<li><a href="#">SPARQL Composer 2</a></li>
-	<li><a href="#">Project Overview</a></li>
-	<li><a href="#">Meet the Team</a></li>
-	<li><a href="#">Contact us</a></li>
+	
 
 	</ul></nav>
 </header>
@@ -65,12 +62,7 @@
 			   <input type="submit" value="Execute!" />		
 			</div>						
 		</fieldset>
-         </form> 
-      
-
-		  
-	   					
-		   
+         </form>       		  	   						   
 		   
 		   </content>
 		   <?php
