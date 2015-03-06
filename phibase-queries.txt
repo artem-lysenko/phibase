@@ -1,0 +1,51 @@
+prefix : <http://oip.rothamsted.ac.uk/ontology/> 
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>  
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+prefix apf: <http://jena.hpl.hp.com/ARQ/property#> 
+prefix text: <http://jena.apache.org/text#>  
+
+
+/********/
+Queries for detailed search .. 6 items
+/********/
+select ?interaction ?gene ?disease ?host ?pathogen ?phenotype ?evidence where {
+?interaction :has_gene ?gene .
+?gene rdfs:value "" .
+?interaction :has_disease ?disease .
+?disease rdfs:value "" .
+?interaction :has_host ?host .
+?host rdfs:value "".
+?interaction :has_pathogen ?pathogen .
+?pathogen rdfs:value "" .
+?interaction :has_output ?phenotype .
+?phenotype rdfs:value "" .
+?interaction :preceded_by ?evidence .
+?evidence rdfs:value "" 
+}
+
+========================================================
+/* gene **/
+select ?item ?label {
+        ?item a :gene .
+        ?item text:query "AEQ95741" .     # <----- searching term goes here
+        ?item rdfs:label ?label .
+}
+/* host **/
+select ?item ?label {
+        ?interaction :has_host ?item .
+        ?item text:query "5507" .     # <----- searching term goes here
+        ?item rdfs:label ?label .
+}
+
+/* pubmed ID**/
+select ?item ?label {
+        ?item a :citation .
+        ?item :is_about ?interaction .
+        ?item text:query "5507" .     # <----- searching term goes here
+        ?item rdfs:label ?label .
+}
+
+
+================================        
+        
