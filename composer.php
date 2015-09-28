@@ -102,7 +102,7 @@
                       <input type="submit" value="Go" name="sntf" onClick="this.form.phi_acc.value='';this.form.detail.value='';this.form.hchem.value='';this.form.quick.value='yes';" />
                       </td>
                       <td>
-                       <input name="Clear" type="button" value="Clear" onClick="this.form.qs_search_for.value='All';this.form.qs_order_by.value='gene_name';this.form.qs_search_text.value='';this.form.quick.value='';"/>
+                       <input name="Clear" type="button" value="Clear" onClick="this.form.qs_search_for.value='All';this.form.qs_search_text.value='';"/>
                         
                       </td>
                     </tr>
@@ -134,7 +134,7 @@
                       </td>
                       <td width="65%">
                           
-                        <select name="adv_gene_name" class="resizedSelect"> 
+                        <select name="adv_gene_name" id="adv_gene_name" class="resizedSelect"> 
                           <option selected value='All'>All</option>
                           <?php
                            $handle = fopen("gene_names.txt", "r");
@@ -166,7 +166,7 @@
                       </td>
                       <td width="65%">
                           
-                        <select name="adv_disease_name" class="resizedSelect"> 
+                        <select name="adv_disease_name" id="adv_disease_name" class="resizedSelect"> 
                           <option selected value='All'>All</option>
 			  <?php
                            $handle = fopen("disease_names.txt", "r");
@@ -198,7 +198,7 @@
                       </td>
                       <td width="65%">
                           
-                        <select name="adv_host_name" class="resizedSelect"> 
+                        <select name="adv_host_name" id="adv_host_name" class="resizedSelect"> 
                           <option selected value='All'>All</option>
 			  <?php
                            $handle = fopen("host_names.txt", "r");
@@ -230,7 +230,7 @@
                       </td>
                       <td width="65%">
                           
-                        <select name="adv_pathogen_name" class="resizedSelect"> 
+                        <select name="adv_pathogen_name" id="adv_pathogen_name" class="resizedSelect"> 
                           <option selected value='All'>All</option>
 			  <?php
                            $handle = fopen("pathogen_names.txt", "r");
@@ -279,7 +279,7 @@
                       <input type="submit" value="Go" name="detailed_search_btn" onClick="" />
                       </td>
                       <td>
-                       <input name="Clear" type="button" value="Clear" onClick=""/>
+                       <input name="Clear" type="button" value="Clear" onClick="this.form.adv_gene_name.value='All';this.form.adv_disease_name.value='All';this.form.adv_host_name.value='All';this.form.adv_pathogen_name.value='All';"/>
                         
                       </td>
                     </tr>
@@ -325,7 +325,7 @@
 	                            
 	                       switch ($qs_search_for):
 				     case "All":
-					$sparql = "select * where {?S ?P ?O} limit 100 order by \"?$qs_order_by\"";
+					$sparql = "select * where {?S ?P ?O} limit 100";
 					break;
 				     case "gene_name":
 				        //echo "gene_name";
@@ -658,57 +658,29 @@
 			<li>
 			<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		        <script>
-			  function saaa() {
-			    var area = document.getElementById("sparql");
-			    area.value = "SELECT * WHERE {?A ?B ?C} LIMIT 20";
-			    document.getElementById("endpointname").value = "http://dbpedia.org/sparql";
-			    }
+			  function saaa() {			    
+			    document.getElementById("adv_gene_name").value = "AAK74738";
+			    //document.getElementById("adv_disease_name").value = "rice blast";
+			    document.getElementById("adv_host_name").value = "Mouse";
+			    //document.getElementById("adv_pathogen_name").value = "Alternaria alternata";
+			  }
 			</script>
-			<a onClick="saaa();" style="cursor: pointer; cursor: hand;">DBPedia Test</a>
+			<a onClick="saaa();" style="cursor: pointer; cursor: hand;">Display information when the gene is AAK74738 and host is Mouse</a>
 			</li>
 			
 			  <li>
 			  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script>
-			  function aaa() {
-			  
-			  var area = document.getElementById("sparql");
-			area.value = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pho: <http://rdf.phibase.org/ontology/phibase-rdf-ontology.owl#>\nPREFIX pcore: <http://purl.uniprot.org/core/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?interaction ?org ?same ?roleType ?org_sci_name WHERE {\n ?interaction a pho:interaction .\n ?interaction pho:has_participant ?org .\n ?org a pho:organism .\n ?org pho:has_role [\n\t a ?roleType ;\n\t pho:participant_of ?interaction;\n\t rdfs:label ?roleLabe \n ] .\n ?org owl:sameAs ?same .\n ?same a pcore:Taxon .\n ?same pcore:scientificName ?org_sci_name .\n ?same pcore:commonName ?name .\n}";
-			
-			
-
+			  function aaa() {			  			  
+				//document.getElementById("adv_gene_name").value = "AAK74738";
+			    document.getElementById("adv_disease_name").value = "meningitis";
+			    //document.getElementById("adv_host_name").value = "Mouse";
+			    document.getElementById("adv_pathogen_name").value = "Streptococcus Pneumoniae";
 			    }
 			</script>
-			<a onClick="aaa();" style="cursor: pointer; cursor: hand;">Display interaction with organisms and theirs role in that (display organisms scientific and common names in different columns)</a>
+			<a onClick="aaa();" style="cursor: pointer; cursor: hand;">Display information when the disease is meningitis and pathogen is <i>Streptococcus Pneumoniae</i></a>
 			</li>
-			  
-			  
-			  <li>
-			  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>		   					
-		   <script>
-			  function xaa() {
-			  
-			  var area = document.getElementById("sparql");
-			area.value = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pho: <http://rdf.phibase.org/ontology/phibase-rdf-ontology.owl#>\nPREFIX pcore: <http://purl.uniprot.org/core/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?protein WHERE { ?protein pho:protein }";
-			
-			   }
-			</script>
-			<a onClick="xaa();" style="cursor: pointer; cursor: hand;">Display proteins in the pathogen Fusarium graminearum that have lethal phenotype when the host is wheat. What Gene Ontology Biological Processes do they have, what KEGG pathways do they map to, and what Pfam domains do they have in common?</a>
-			</li>
-			  
-			  
-			  <li>
-			  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>  					
-			<script>
-			  function a() {
-			  var area = document.getElementById("sparql");
-			area.value = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n PREFIX pho: <http://rdf.phibase.org/ontology/phibase-rdf-ontology.owl#>\n PREFIX pcore: <http://purl.uniprot.org/core/>\n PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n SELECT ?interaction ?org ?roleType ?roleLabel WHERE {\n ?interaction a pho:interaction .\n ?interaction pho:has_participant ?org .\n ?org a pho:organism .\n ?org pho:has_role [\n\t a ?roleType ; \n\t pho:participant_of ?interaction ; \n\t rdfs:label ?roleLabel \n ] \n}";
-			
-
-			    }
-			</script>
-			<a onClick="a();" style="cursor: pointer; cursor: hand;">Display interaction with organisms and theirs role in that</a>
-			</li>
+			  			  			  			  			  
 			</ul>
         </div>
     </div>
