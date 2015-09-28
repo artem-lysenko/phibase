@@ -60,8 +60,17 @@
                          <input type="text" placeholder="e.g. ACE*, Candida a* or PHI:441" id="ft" name='qs_search_text' class="resizedTextbox"  value=''  onKeyPress='this.form.quick.value="yes";' />
                         </td>
                          <td width="35%">
-                        &nbsp;order by                      <select name="qs_order_by">            <option value='phi_base_acc'>PHI-base accession</option><option selected value='gene_name'>Gene name</option><option value='embl_value_disp'>embl_value_disp</option><option value='ph_value_disp'>Phenotype of mutant</option><option value='patho_name'>Pathogen species</option><option value='dis_name'>Disease name</option><option value='host_name'>Experimental host</option>                        </select>
-                        
+                         <!--    
+                          &nbsp;order by             
+                            <select name="qs_order_by">   
+                              <option value='phi_base_acc'>PHI-base accession</option>
+                              <option selected value='gene_name'>Gene name</option>
+                              <option value='embl_value_disp'>embl_value_disp</option>
+                              <option value='ph_value_disp'>Phenotype of mutant</option>
+                              <option value='patho_name'>Pathogen species</option>
+                              <option value='dis_name'>Disease name</option><option value='host_name'>Experimental host</option>                        
+                            </select>
+                        -->
                         <!-- internal use only! -->
                         <!--this.form.term.focus();"> -->
                         
@@ -312,6 +321,8 @@
                                $qs_search_text = $_POST['qs_search_text']; //the text field!                          
 	                       $qs_order_by = $_POST['qs_order_by'];//order by!
 	                       
+	                       
+	                            
 	                       switch ($qs_search_for):
 				     case "All":
 					$sparql = "select * where {?S ?P ?O} limit 100 order by \"?$qs_order_by\"";
@@ -323,7 +334,7 @@
                                                   ?item text:query \"$qs_search_text\" .    
                                                   ?item rdfs:label ?label .
                                                   }
-                                                  order by \"?$qs_order_by\"
+                                                  
                                                   ";
 					break;	
 					
@@ -333,7 +344,7 @@
                                                     ?item text:query \"$qs_search_text\" .    
                                                     ?item rdfs:label ?label .
                                                   }
-                                                  order by \"?$qs_order_by\"
+                                                 
                                                   ";
 				      break;
 				      
@@ -344,7 +355,7 @@
                                                     ?item text:query \"$qs_search_text\" .    
                                                     ?item rdfs:label ?label .
                                                   }
-                                                  order by \"?$qs_order_by\"
+                                                  
                                                   ";
 				      break;	
 				    // case "pubmedAcc":					
