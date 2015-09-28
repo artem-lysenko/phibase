@@ -1,39 +1,43 @@
 <?php ob_start(); session_start(); header('Cache-Control: max-age=900'); ?>
-<!DOCTYPE HTML>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-	<title>Welcome to PHI-base</title>
-	<meta http-equiv="charset=utf-8">
-	
-	<link rel="STYLESHEET" href="style.css" type="text/css">
-	
-	<!--<link rel="STYLESHEET" href="s.css" type="text/css">-->
-	<!-- next line is for mobile device optimisation -->
-	<meta name="viewport" content="width-device-width, initial-scale=1.0"> 
-		
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome to PHI-base</title>
+<link rel="STYLESHEET" href="tc.css" type="text/css">
+
 </head>
+<body>
 
-<body class="body">
-<header class="mainHeader">
+  
+
+ <div id="maincontainer">
+    <header class="mainHeader">
 	<img src="imgs/topimage3.png">
-	<nav><ul>
-	<li class="active"><a href="index.php">Search</a></li>	
-	<li><a href="composer.php">SPARQL Composer</a></li>
+	<nav>
+	 <ul>
+	   <li class="active"><a href="index.php">Search</a></li>	
+	   <li ><a href="composer.php">SPARQL Composer</a></li>
 	
 
-	</ul></nav>
-</header>
+	 </ul>
+	</nav>
+   </header>
+     <!--   
+     <div id="topsection">
+        <div class="innertube"><h1>CSS Fixed Layout #2.2- (Fixed-Fixed)</h1>
+        </div>
+     </div>
+     -->
 
-<div class="mainContent">
-	<div class="content">
-		<article class="topContent">
-		<!--<footer class="post-info">The Problem is in how QSAR is currently done!</footer>-->
-		   <content>			   
-
-          <form action="index.php" method="post"> 
+   <div id="contentwrapper">
+      <div id="contentcolumn">
+         <div class="innertube"><!--<b>Content Column: <em>Fixed</em></b>-->
+           <form action="index.php" method="post"> 
 		<fieldset id="fieldset1">
                   <legend>
-                    <b>SPARQL Search .. Please enter a SPARQL Query or click on one of the Sample Queries</b>
+                    <b>Please enter a SPARQL Query or click on one of the Sample Queries</b>
                   </legend>
 			<div>
 			   <!--
@@ -43,7 +47,7 @@
 			   -->	
 			   <label>
 			      <!--<h3>SPARQL Query</h3>-->	
-			      <textarea id="sparql" name="sparql">  </textarea>
+			      <textarea id="sparql" name="sparql">SELECT * WHERE {?S ?P ?O} LIMIT 50</textarea>
 			   </label>
 			   
 			   <label>			   					
@@ -51,6 +55,7 @@
 				Output:
 				<SELECT name="output">
 				<option value="HTML">HTML</option>
+				<option value=“HTMLX”>HTMLX</option>
 				<option value="JSON">JSON</option>
 				<option value="CSV">CSV</option>
 				<option value="TSV">TSV</option>
@@ -62,10 +67,9 @@
 			   <input type="submit" value="Execute!" />		
 			</div>						
 		</fieldset>
-         </form>       		  	   						   
-		   
-		   </content>
-		   <?php
+         </form>   
+         
+         <?php
 			    $endpoint = 'http://oip.rothamsted.ac.uk/sparql/query';//$_POST['endpoint'];
 			    $sparql = $_POST['sparql'];
 			    $output = $_POST['output'];
@@ -83,11 +87,12 @@
 				//}
 				
 				if($output == 'HTML'){ 
-					print "<table>";
-					print "<tr>";
+					$html = ""; 
+					$html .= "<table>";
+					$html .= "<tr>";
 					foreach( $data->fields() as $field )
 					{
-						print "<th  BGCOLOR=\"#a0a61b\" align=\"center\"> <FONT COLOR=\"#FFF\"> $field</FONT></th>";
+						$html.= "<th  BGCOLOR=\"#a0a61b\" align=\"center\"> <FONT COLOR=\"#FFF\"> $field</FONT></th>";
 					}
 					print "</tr>";
 					$i = 1;
@@ -98,47 +103,42 @@
 						else # An even row
 						    $rowColor = "#dee197"; 
 						$i++;
-						print "<tr bgcolor=\"$rowColor\">";
+						$html.= "<tr bgcolor=\"$rowColor\">";
 						//bgcolor="' . $rowColor
 						foreach( $data->fields() as $field )
 						{
-							print "<td>$row[$field]</td>";
+							$html.= "<td>$row[$field]</td>";
 						}
-						print "</tr>";
+						$html.= "</tr>";
 					}
-					print "</table>";
-				} else if($output == 'JSON'){ // output JSON
-					/*
-					$html = ""; 
-					$html .= "<table>";
-					$html .= "<tr>";
-					foreach( $data->fields() as $field )
-					{
-						$html .= "<th> $field </th>";
-					}
-					$html .= "</tr>";
-				
-					foreach( $data as $row )
-					{
-					
-						$html .= "<tr>";
-						//bgcolor="' . $rowColor
-						foreach( $data->fields() as $field )
-						{
-							$html .= "<td>$row[$field]</td>";
-						}
-						$html .= "</tr>";
-					}
-					$html .= "</table>";
-				
-					//include_once 'HTMLTable2JSON.php';
-					//$helper = new HTMLTable2JSON();
-					
-					$helper = new HTMLTable2JSON();
-					$json = $helper->tableToJSON('', false, null, null, null, null, null, true, null, null, $html);
+					$html.= "</table>";
+					$_SESSION['html_string'] = $html ;
+					header( 'Location: html.php' );
+				} else 
+ 										
+                                        if( $output == “HTMLX” ){ 
+					$htmlx = "<center>"; 
+					$htmlx .= "<table border=\"0\">";
 
-					echo $json;
-					*/
+					foreach( $data as $row )
+					{												
+						foreach( $data->fields() as $field )
+						{       $htmlx .= "<tr>";
+							$htmlx .= "<td BGCOLOR=\"#a0a61b\" align=\"center\"> <FONT COLOR=\"#FFF\">$field: </FONT></td>";
+							$htmlx .= "<td BGCOLOR=\"#dee197\">$row[$field]</td>";
+							$htmlx.= "</tr>";
+						}
+						$htmlx .= "<tr>";
+						$htmlx .= "<td></td><td></td>";
+						$htmlx.= "</tr>";
+					}
+					$htmlx.= "</table></center>";
+					$_SESSION['html_string'] = $htmlx ;
+					header( 'Location: html1.php' );
+				}
+				
+				else 
+				if($output == 'JSON'){ // output JSON					
 					$xml = "";
 							$xml .= "<?xml version='1.0' ?>"; 
 							$xml .= "<sparql>";
@@ -259,7 +259,7 @@
 								$xml .= "</sparql>";															
 
 								//session_start();
-								$_SESSION['xml_string'] = $xml ;
+								 $_SESSION['xml_string'] = $xml ;
 								 header( 'Location: xml.php' );
 								//echo $xml_string;  							
 
@@ -275,12 +275,14 @@
 			    
 			  
 		?>
-		</article>	
-	</div>
-</div>
+		    	
+         </div>
+      </div>
+    </div>
 
-<aside class="top-sidebar">
-<article><h2>Sample Queries</h2> <ul class="a">
+    <div id="rightcolumn">
+        <div class="innertube">
+          <h2>Sample Queries</h2> <ul class="a">
                        <!--
 			<li>
 			<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -293,58 +295,50 @@
 			</script>
 			<a onClick="saaa();" style="cursor: pointer; cursor: hand;">DBPedia Test</a>
 			</li>
-			-->	
-			  <li>
-			  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-		<script>
-			  function aaa() {
-			  
+			-->
+			
+			<li>
+			  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>  					
+			  <script>
+			  function a2() {
 			  var area = document.getElementById("sparql");
-			area.value = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pho: <http://rdf.phibase.org/ontology/phibase-rdf-ontology.owl#>\nPREFIX pcore: <http://purl.uniprot.org/core/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?interaction ?org ?same ?roleType ?org_sci_name WHERE {\n ?interaction a pho:interaction .\n ?interaction pho:has_participant ?org .\n ?org a pho:organism .\n ?org pho:has_role [\n\t a ?roleType ;\n\t pho:participant_of ?interaction;\n\t rdfs:label ?roleLabe \n ] .\n ?org owl:sameAs ?same .\n ?same a pcore:Taxon .\n ?same pcore:scientificName ?org_sci_name .\n ?same pcore:commonName ?name .\n}";
-			
-			
-
+			area.value = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pho: <http://oip.rothamsted.ac.uk/ontology/>\nPREFIX pcore: <http://purl.uniprot.org/core/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?interaction ?pathogen ?pathogen_name ?protein ?output ?output_name ?host_name WHERE {\n ?interaction a pho:interaction .\n ?interaction pho:has_pathogen ?pathogen .\n ?pathogen rdfs:label ?pathogen_name .\n FILTER regex(?pathogen_name,\"Gibberella zeae\") .\n ?interaction pho:has_host ?host .\n ?host rdfs:label ?host_name .\n FILTER regex(?host_name,\"wheat\",\"i\") .\n ?interaction pho:has_protein ?protein .\n ?interaction pho:has_output ?output . \n ?output rdfs:label ?output_name .\n}";			
 			    }
 			</script>
-			<a onClick="aaa();" style="cursor: pointer; cursor: hand;">Display interaction with organisms and theirs role in that (display organisms scientific and common names in different columns)</a>
+			<a onClick="a2();" style="cursor: pointer; cursor: hand;">Display proteins in the pathogen <i>Gibberella zeae</i> when the host is wheat.</a>
 			</li>
-			  
-			  
-			  <li>
-			  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>		   					
-		   <script>
-			  function xaa() {
-			  
+				
+			<li>
+			  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>  					
+			  <script>
+			  function a1() {
 			  var area = document.getElementById("sparql");
-			area.value = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pho: <http://rdf.phibase.org/ontology/phibase-rdf-ontology.owl#>\nPREFIX pcore: <http://purl.uniprot.org/core/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?protein WHERE { ?protein pho:protein }";
-			
-			   }
+			area.value = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pho: <http://oip.rothamsted.ac.uk/ontology/>\nPREFIX pcore: <http://purl.uniprot.org/core/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?interaction ?pathogen ?pathogen_name ?host ?host_name WHERE {\n ?interaction a pho:interaction .\n ?interaction pho:has_pathogen ?pathogen .\n ?interaction pho:has_host ?host .\n ?host rdfs:label ?host_name .\n ?pathogen rdfs:label ?pathogen_name\n}";			
+			    }
 			</script>
-			<a onClick="xaa();" style="cursor: pointer; cursor: hand;">Display proteins in the pathogen Fusarium graminearum that have lethal phenotype when the host is wheat. What Gene Ontology Biological Processes do they have, what KEGG pathways do they map to, and what Pfam domains do they have in common?</a>
+			<a onClick="a1();" style="cursor: pointer; cursor: hand;">Display interaction with organisms and their role in that (display organisms scientific and common names in different columns)</a>
 			</li>
-			  
-			  
+						  
 			  <li>
 			  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>  					
-			<script>
+			  <script>
 			  function a() {
 			  var area = document.getElementById("sparql");
-			area.value = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n PREFIX pho: <http://rdf.phibase.org/ontology/phibase-rdf-ontology.owl#>\n PREFIX pcore: <http://purl.uniprot.org/core/>\n PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n SELECT ?interaction ?org ?roleType ?roleLabel WHERE {\n ?interaction a pho:interaction .\n ?interaction pho:has_participant ?org .\n ?org a pho:organism .\n ?org pho:has_role [\n\t a ?roleType ; \n\t pho:participant_of ?interaction ; \n\t rdfs:label ?roleLabel \n ] \n}";
+			area.value = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pho: <http://oip.rothamsted.ac.uk/ontology/>\nPREFIX pcore: <http://purl.uniprot.org/core/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?uniprot ?seeAlso ?comment WHERE {\n ?interaction a pho:interaction .\n ?interaction pho:has_output ?phenotype .\n ?interaction pho:has_host <http://oip.rothmasted.ac.uk/resources/organism/4530> .\n <http://oip.rothmasted.ac.uk/resources/organism/4530> rdfs:label ?hlabel .\n ?phenotype rdfs:label ?phlabel .\n ?interaction pho:has_protein ?protein .\n filter regex(?phlabel, \"loss*\") .\n ?protein owl:sameAs ?uniprot .\n service <http://beta.sparql.uniprot.org/sparql/> {\n   ?uniprot rdfs:seeAlso ?seeAlso .\n   filter regex(str(?seeAlso), \"/Pfam\", \"i\") .\n   ?seeAlso rdfs:comment ?comment .\n }\n}";
 			
 
 			    }
 			</script>
-			<a onClick="a();" style="cursor: pointer; cursor: hand;">Display interaction with organisms and theirs role in that</a>
+			<a onClick="a();" style="cursor: pointer; cursor: hand;">Display Pfam domains of proteins involved in the interaction with host rice and phenotype loss of pathogenicity</a>
 			</li>
 			</ul>
-</article">
-</aside>
+        </div>
+    </div>
 
+    <div id="footer"><p>PHI-base is a National Capability funded by Biotechnology and Biological Sciences Research Council (BBSRC, UK) and is being developed and maintained by scientists at Rothamsted Research.</p></div>
 
+ </div><!-- close main container -->
 
-<footer class="mainFooter"><p>PHI-base is a National Capability funded by Biotechnology and Biological Sciences Research Council (BBSRC, UK) and is being developed and maintained by scientists at Rothamsted Research.</p></footer>
-	
 </body>
-
-
 </html>
+

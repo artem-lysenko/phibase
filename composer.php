@@ -1,108 +1,39 @@
 <?php ob_start(); session_start(); header('Cache-Control: max-age=900'); ?>
-<!DOCTYPE HTML>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-	<title>Welcome to PHI-base</title>
-	<meta http-equiv="charset=utf-8">
-	
-	<link rel="STYLESHEET" href="style.css" type="text/css">
-	
-	<!--<link rel="STYLESHEET" href="s.css" type="text/css">-->
-	<!-- next line is for mobile device optimisation -->
-	<meta name="viewport" content="width=550, initial-scale=1, maximum-scale=1">
-		
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome to PHI-base</title>
+<link rel="STYLESHEET" href="tc.css" type="text/css">
+
 </head>
+<body>
 
-<body class="body">
-<script type="text/javascript">
+  
 
-
-	    function clearMultiple(list)
-	    {
-	      for(i=0;i<list.length;i++) {
-	      
-		list[i].selected=false;
-		
-	      }
-	    }
-
-	    function deactivateMultiple(list)
-	    {
-	      clearMultiple(list.options)
-	      list.disabled=true;
-	    }
-
-	    function clearAll()
-	    {
-	    
-	      thisform = document.getElementById("search");
-
-	      //chosen    
-	      thisform.cdi.value='all';
-	      thisform.cge.value='all';
-	      thisform.cho.value='all';
-	      thisform.cpa.value='all';
-	      thisform.cch.value='all';
-	      
-	      //choicelist
-	      thisform.cldi[0].checked=true;
-	      thisform.clpa[0].checked=true;
-	      thisform.clho[0].checked=true;
-	      thisform.clph[0].checked=true;
-	      thisform.clch[0].checked=true;
-	      
-	      //choice
-	      thisform.chphl[0].checked=true;
-	      thisform.chchl[0].checked=true;
-	      thisform.chlev[0].checked=true;
-	      thisform.chevl[0].checked=true;
-	      deactivateMultiple(document.getElementById("cph"));
-	      deactivateMultiple(document.getElementById("cev"));
-	      deactivateMultiple(document.getElementById("cch"));
-	    
-	    }
-
-
-
-	function getsupport (ch )
-	{
-	  thisform = document.getElementById("search");
-	  thisform.hchem.value='yes';
-	  thisform.chemacc.value=ch;
-	  //name='chem_".$allChems[$c]['chemical_id']."'
-	  //document.supportform.supporttype.value = selectedtype ;
-	  thisform.submit() ;
-	}
-
-	function getphi (ph )
-	{
-		thisform = document.getElementById("search");
-
-		thisform.detail.value='yes';
-		thisform.phi_acc.value=ph;//  
-		thisform.hchem.value='';
-		thisform.name="sent_"+ph;
-		thisform.submit() ;
-	}
-	
-	</script>
-	
-<header class="mainHeader">
+ <div id="maincontainer">
+    <header class="mainHeader">
 	<img src="imgs/topimage3.png">
-	<nav><ul>
-	<li><a href="index.php">Search</a></li>	
-	<li class="active"><a href="composer.php">SPARQL Composer</a></li>
+	<nav>
+	 <ul>
+	   <li><a href="index.php">Search</a></li>	
+	   <li class="active"><a href="composer.php">SPARQL Composer</a></li>
 	
 
-	</ul></nav>
-</header>
+	 </ul>
+	</nav>
+   </header>
+     <!--   
+     <div id="topsection">
+        <div class="innertube"><h1>CSS Fixed Layout #2.2- (Fixed-Fixed)</h1>
+        </div>
+     </div>
+     -->
 
-<div class="mainContent">
-	<div class="content">
-		<article class="topContent">
-
-		   <content>			   
-
+   <div id="contentwrapper">
+      <div id="contentcolumn">
+         <div class="innertube"> <!--<b>Content Column: <em>Fixed</em></b>-->
            <form action="composer.php" method="post" target="_self" id="search"> 
 		   <input type="hidden" name="quick_search" value="1" />
 		   <input type="hidden" name="advanced_search" value="0">
@@ -118,7 +49,7 @@
                       <td width="30%">
                         &nbsp;Search                                                
                           <select name="qs_search_for" class="resizedSelect"> 
-                             <option selected value='all'>all</option>
+                             <option selected value='All'>All</option>
                              <option value='gene_name'>Gene name</option>
                              <option value='host'>Host</option>
                              <option value='pubmedID'>PubMed ID</option>           
@@ -144,6 +75,7 @@
 				Output:
 				<SELECT name="output">
 				<option value="HTML">HTML</option>
+				<option value=“HTMLX”>HTMLX</option>
 				<option value="JSON">JSON</option>
 				<option value="CSV">CSV</option>
 				<option value="TSV">TSV</option>
@@ -161,7 +93,7 @@
                       <input type="submit" value="Go" name="sntf" onClick="this.form.phi_acc.value='';this.form.detail.value='';this.form.hchem.value='';this.form.quick.value='yes';" />
                       </td>
                       <td>
-                       <input name="Clear" type="button" value="Clear" onClick="this.form.qs_search_for.value='all';this.form.qs_order_by.value='gene_name';this.form.qs_search_text.value='';this.form.quick.value='';"/>
+                       <input name="Clear" type="button" value="Clear" onClick="this.form.qs_search_for.value='All';this.form.qs_order_by.value='gene_name';this.form.qs_search_text.value='';this.form.quick.value='';"/>
                         
                       </td>
                     </tr>
@@ -172,21 +104,8 @@
                 </small>
                 				
                  </form>  
-      
-
-		  
-	   					
-		   
-		   
-		   </content>
-		   
-		</article>	
-		
-		<article class="topContent">
-
-		   <content>			   
-
-           <form action="composer.php" method="post" target="_self" id="search"> 
+                 
+                  <form action="composer.php" method="post" target="_self" id="search"> 
 		   <input type="hidden" name="quick_search" value="0" />
 		   <input type="hidden" name="advanced_search" value="1">
 			
@@ -207,25 +126,23 @@
                       <td width="65%">
                           
                         <select name="adv_gene_name" class="resizedSelect"> 
-                          <option selected value='all'>all</option>
-			  <option value='1-phosphatidylinositol-4,5-bisphosphate phosphodiesterase delta 1'>1-phosphatidylinositol-4,5-bisphosphate phosphodiesterase delta 1</option>
-			  <option value='3hnr'>3hnr</option>
-			  <option value='7,8-LDS'>7,8-LDS</option>
-			  <option value='AaFUS3'>AaFUS3</option>
-			  <option value='AaGa1'>AaGa1</option>
-			  <option value='AaNoxA'>AaNoxA</option>
-			  <option value='AaNoxB'>AaNoxB</option>
-			  <option value='AaNoxR'>AaNoxR</option>
-			  <option value='AaNPS6'>AaNPS6</option>
-			  <option value='Aapg1'>Aapg1</option>
-			  <option value='aapk1'>aapk1</option>
-			  <option value='AAR1'>AAR1</option>
-			  <option value='AaSLT2'>AaSLT2</option>
-			  <option value='ABC1'>ABC1</option>
-			  <option value='ABC2'>ABC2</option>
-			  <option value='ABC3'>ABC3</option>
-			  <option value='ABC4'>ABC4</option>
-			  <option value='Abd1'>Abd1</option>
+                          <option selected value='All'>All</option>
+                          <?php
+                           $handle = fopen("gene_names.txt", "r");
+			   if ($handle) {
+			      while (($line = fgets($handle)) !== false) {
+				// process the line read.
+				echo "<option value='".trim($line)."'>".trim($line)."</option>";
+			      }
+
+			      fclose($handle);
+			      } else {
+			        // error opening the file.
+			      } 
+                          
+                          ?>
+			  
+			  <!--<option value='Abd1'>Abd1</option>-->
 			</select>
                                                                                                                                                                    
                         </td>
@@ -241,12 +158,23 @@
                       <td width="65%">
                           
                         <select name="adv_disease_name" class="resizedSelect"> 
-                          <option selected value='all'>all</option>
-			  <option value='Alternaria brown spot'>Alternaria brown spot</option>
-			  <option value='Alternaria leaf blotch'>Alternaria leaf blotch</option>
-			  <option value='Anthracnose'>Anthracnose</option>
-			  <option value='Anthracnose disease'>Anthracnose disease</option>
-			  <option value='Anthracnose stalk rot and leaf blight of maize'>Anthracnose stalk rot and leaf blight of maize</option>
+                          <option selected value='All'>All</option>
+			  <?php
+                           $handle = fopen("disease_names.txt", "r");
+			   if ($handle) {
+			      while (($line = fgets($handle)) !== false) {
+				// process the line read.
+				echo "<option value='".trim($line)."'>".trim($line)."</option>";
+			      }
+
+			      fclose($handle);
+			      } else {
+			        // error opening the file.
+			      } 
+                          
+                          ?>
+			  
+			  <!--<option value='Abd1'>Abd1</option>-->
 			</select>
                                                                                                                                                                    
                         </td>
@@ -262,15 +190,23 @@
                       <td width="65%">
                           
                         <select name="adv_host_name" class="resizedSelect"> 
-                          <option selected value='all'>all</option>
-			  <option value='Aeschynomene virginica'>Aeschynomene virginica</option>
-			  <option value='Agaricus bisporus'>Agaricus bisporus</option>
-			  <option value='Alfalfa'>Alfalfa</option>
-			  <option value='Almond'>Almond</option>
-			  <option value='American Chestnut tree'>American Chestnut tree</option>
-			  <option value='Amoebae'>Amoebae</option>
-			  <option value='Aphid'>Aphid</option>
-			  <option value='Apple'>Apple</option>
+                          <option selected value='All'>All</option>
+			  <?php
+                           $handle = fopen("host_names.txt", "r");
+			   if ($handle) {
+			      while (($line = fgets($handle)) !== false) {
+				// process the line read.
+				echo "<option value='".trim($line)."'>".trim($line)."</option>";
+			      }
+
+			      fclose($handle);
+			      } else {
+			        // error opening the file.
+			      } 
+                          
+                          ?>
+			  
+			  <!--<option value='Abd1'>Abd1</option>-->
 			</select>
                                                                                                                                                                    
                         </td>
@@ -286,13 +222,23 @@
                       <td width="65%">
                           
                         <select name="adv_pathogen_name" class="resizedSelect"> 
-                          <option selected value='all'>all</option>
-			  <option value='Acinetobacter baumannii'>Acinetobacter baumannii</option>
-			  <option value='Agrobacterium tumefaciens'>Agrobacterium tumefaciens</option>
-			  <option value='Agrobacterium vitis'>Agrobacterium vitis</option>
-			  <option value='Alternaria alternata'>Alternaria alternata</option>
-			  <option value='Alternaria brassicicola'>Alternaria brassicicola</option>
-			  <option value='Alternaria citri'>Alternaria citri</option>
+                          <option selected value='All'>All</option>
+			  <?php
+                           $handle = fopen("pathogen_names.txt", "r");
+			   if ($handle) {
+			      while (($line = fgets($handle)) !== false) {
+				// process the line read.
+				echo "<option value='".trim($line)."'>".trim($line)."</option>";
+			      }
+
+			      fclose($handle);
+			      } else {
+			        // error opening the file.
+			      } 
+                          
+                          ?>
+			  
+			  <!--<option value='Abd1'>Abd1</option>-->
 			</select>
                                                                                                                                                                    
                         </td>
@@ -306,6 +252,7 @@
 				Output:
 				<SELECT name="output">
 				<option value="HTML">HTML</option>
+				<option value=“HTMLX”>HTMLX</option>
 				<option value="JSON">JSON</option>
 				<option value="CSV">CSV</option>
 				<option value="TSV">TSV</option>
@@ -334,14 +281,8 @@
                 </small>
                 				
                  </form>  
-      
-
-		  
-	   					
-		   
-		   
-		   </content>
-		   <?php
+                 
+                 <?php
 			   
 			     
 			     
@@ -372,7 +313,7 @@
 	                       $qs_order_by = $_POST['qs_order_by'];//order by!
 	                       
 	                       switch ($qs_search_for):
-				     case "all":
+				     case "All":
 					$sparql = "select * where {?S ?O ?P} limit 20";
 					break;
 				     case "gene_name":
@@ -409,25 +350,41 @@
 				  execute_sparql_query($sparql_prefixes.$sparql);
 			    } else
 			      if($qs == "0" && $as=="1"){
-			       echo "AS";
+			       //echo "AS";
 			       $adv_gene_name   = $_POST['adv_gene_name'];
 			       $adv_disease_name = $_POST['adv_disease_name'];
                                $adv_host_name = $_POST['adv_host_name'];
                                $adv_pathogen_name = $_POST['adv_pathogen_name'];
                                
+                               $gene_query = "?gene rdfs:label \"$adv_gene_name\" .";
+                               if($adv_gene_name=="All")
+                                  $gene_query = "?gene rdfs:label ?some_gene .";
+                               
+                               $disease_query = "?disease rdfs:label \"$adv_disease_name\" .";
+                               if($adv_disease_name=="All")
+                                  $disease_query = "?disease rdfs:label ?some_disease ."; 
+                               
+                               $host_query = "?host rdfs:label \"$adv_host_name\" .";
+                               if($adv_host_name=="All")
+                                  $host_query = "?host rdfs:label ?some_host ."; 
+                                  
+                               $pathogen_query = "?pathogen rdfs:label \"$adv_pathogen_name\" .";
+                               if($adv_pathogen_name=="All")
+                                  $pathogen_query = "?pathogen rdfs:label ?some_pathogen .";      
+                               
                                $sparql = "
-                                select ?interaction ?gene ?disease ?host ?pathogen ?phenotype ?evidence where {
-				?interaction :has_gene ?gene .
-				?gene rdfs:value \"$adv_gene_name\" .
-				?interaction :has_disease ?disease .
-				?disease rdfs:value \"$adv_disease_name\" .
-				?interaction :has_host ?host .
-				?host rdfs:value \"$adv_host_name\".
-				?interaction :has_pathogen ?pathogen .
-				?pathogen rdfs:value \"$adv_pathogen_name\" 
-				}";
+                                select ?interaction ?gene ?disease ?host ?pathogen where {
+				?interaction :has_gene ?gene .".
+				$gene_query.
+				"?interaction :has_disease ?disease .".
+				$disease_query .
+				"?interaction :has_host ?host .".
+				$host_query .
+				"?interaction :has_pathogen ?pathogen .".
+				$pathogen_query. 
+				"}";
 				
-				echo $sparql;
+				//echo $sparql;
 				 //$ssparql =  $sparql_prefixes.$sparql;
 				execute_sparql_query($sparql_prefixes.$sparql);
 				 
@@ -480,11 +437,12 @@
 				//}
 				
 				if($output == 'HTML'){ 
-					print "<table>";
-					print "<tr>";
+					$html = ""; 
+					$html .= "<table>";
+					$html .= "<tr>";
 					foreach( $data->fields() as $field )
 					{
-						print "<th  BGCOLOR=\"#a0a61b\" align=\"center\"> <FONT COLOR=\"#FFF\"> $field</FONT></th>";
+						$html.= "<th  BGCOLOR=\"#a0a61b\" align=\"center\"> <FONT COLOR=\"#FFF\"> $field</FONT></th>";
 					}
 					print "</tr>";
 					$i = 1;
@@ -495,16 +453,42 @@
 						else # An even row
 						    $rowColor = "#dee197"; 
 						$i++;
-						print "<tr bgcolor=\"$rowColor\">";
+						$html.= "<tr bgcolor=\"$rowColor\">";
 						//bgcolor="' . $rowColor
 						foreach( $data->fields() as $field )
 						{
-							print "<td>$row[$field]</td>";
+							$html.= "<td>$row[$field]</td>";
 						}
-						print "</tr>";
+						$html.= "</tr>";
 					}
-					print "</table>";
-				} else if($output == 'JSON'){ // output JSON
+					$html.= "</table>";
+					$_SESSION['html_string'] = $html ;
+					header( 'Location: html.php' );
+				} else 
+ 										
+                                        if( $output == “HTMLX” ){ 
+					$htmlx = "<center>"; 
+					$htmlx .= "<table border=\"0\">";
+
+					foreach( $data as $row )
+					{												
+						foreach( $data->fields() as $field )
+						{       $htmlx .= "<tr>";
+							$htmlx .= "<td BGCOLOR=\"#a0a61b\" align=\"center\"> <FONT COLOR=\"#FFF\">$field: </FONT></td>";
+							$htmlx .= "<td BGCOLOR=\"#dee197\">$row[$field]</td>";
+							$htmlx.= "</tr>";
+						}
+						$htmlx .= "<tr>";
+						$htmlx .= "<td></td><td></td>";
+						$htmlx.= "</tr>";
+					}
+					$htmlx.= "</table></center>";
+					$_SESSION['html_string'] = $htmlx ;
+					header( 'Location: html1.php' );
+				}
+				
+				
+				else if($output == 'JSON'){ // output JSON
 					
 					$xml = "";
 							$xml .= "<?xml version='1.0' ?>"; 
@@ -647,15 +631,13 @@
 			    
 			  
 		?>
-		</article>	
-	</div>
-</div>
+         </div>
+      </div>
+    </div>
 
-
-
-
-<aside class="top-sidebar">
-<article><h2>Sample Queries</h2> <ul class="a">
+    <div id="rightcolumn">
+        <div class="innertube">
+           <h2>Sample Queries</h2> <ul class="a">
 			<li>
 			<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		        <script>
@@ -711,14 +693,13 @@
 			<a onClick="a();" style="cursor: pointer; cursor: hand;">Display interaction with organisms and theirs role in that</a>
 			</li>
 			</ul>
-</article">
-</aside>
+        </div>
+    </div>
 
+    <div id="footer"><p>PHI-base is a National Capability funded by Biotechnology and Biological Sciences Research Council (BBSRC, UK) and is being developed and maintained by scientists at Rothamsted Research.</p></div>
 
+ </div>
 
-<footer class="mainFooter"><p>PHI-base is a National Capability funded by Biotechnology and Biological Sciences Research Council (BBSRC, UK) and is being developed and maintained by scientists at Rothamsted Research.</p></footer>
-	
 </body>
-
-
 </html>
+

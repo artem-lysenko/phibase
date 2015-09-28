@@ -1,114 +1,49 @@
-disease names
-http://oip.rothamsted.ac.uk/resources/disease/genid/db18a151793a1893aa05e7a48be23c2a33d14e17
-http://oip.rothamsted.ac.uk/resources/disease/genid/626c7fa1f3c8ebe9c73784720940c895f4c68aeb
-http://oip.rothamsted.ac.uk/resources/disease/genid/41738f521c45271845eb78f00d1d31ad3f25c555
-http://oip.rothamsted.ac.uk/resources/disease/genid/91639a9c1a0f30e45f6baa226e689286bb491491
-http://oip.rothamsted.ac.uk/resources/disease/genid/2ca99e96812a481e7d23959b865d4d26820b49eb
-http://oip.rothamsted.ac.uk/resources/disease/genid/7f818fa0bd6e1b8ad89eadd6f55721311c7ddc65
-http://oip.rothamsted.ac.uk/resources/disease/genid/ccaf74b724751522bc15bf99c118e834d5252f43
-http://oip.rothamsted.ac.uk/resources/disease/genid/5496c985b60b9b46e47591733097620d96160a5a
-http://oip.rothamsted.ac.uk/resources/disease/genid/f396ebe377cd8e7360598a0c2445551b51b9637e
-http://oip.rothamsted.ac.uk/resources/disease/genid/e5314b38e54089bfbcef10fb4521f040a9f526cc
-http://oip.rothamsted.ac.uk/resources/disease/genid/25d0cd00e9cef74f05723710f6c6272ea8efe829
-http://oip.rothamsted.ac.uk/resources/disease/genid/b7cd36b9e8fcefc64c92e553e53e0280a6679e3a
-http://oip.rothamsted.ac.uk/resources/disease/genid/acf25a8439dddd1f770a78c0881c0e7bf975369b
-http://oip.rothamsted.ac.uk/resources/disease/genid/495bcb182641aa09f249c21cfa64bac5a945afe9
-http://oip.rothamsted.ac.uk/resources/disease/genid/d86cadd40cfc4372d2105a51cc8702add2ed1e46
-http://oip.rothamsted.ac.uk/resources/disease/genid/72aa4b890622788342cf7901989e8af6d44e8eff
-http://oip.rothamsted.ac.uk/resources/disease/genid/a704f07e05b704fd207d9b391c966eb2579ff275
-http://oip.rothamsted.ac.uk/resources/disease/genid/db455a790090b1bfcf0ed818fb80e4c450c3979e
-http://oip.rothamsted.ac.uk/resources/disease/genid/13f2e58516268b533ec0fc968eff0c85e28213c6
-http://oip.rothamsted.ac.uk/resources/disease/genid/fc5ac900cdb5e99b6537875866d1c4d563d50e5f
-http://oip.rothamsted.ac.uk/resources/disease/genid/d8da62cb854b8d2a400319cdfd8977d97c06d36a
-http://oip.rothamsted.ac.uk/resources/disease/genid/9eeffbcdf5555bcf8e1d9a80fd22f0fe3b8272fd
-http://oip.rothamsted.ac.uk/resources/disease/genid/ceab9fbf2fdaa9307fdda6d733ef3cfea6d75f94
-http://oip.rothamsted.ac.uk/resources/disease/genid/1214029f7023da1aba53038439b34eca1ae28d48
-http://oip.rothamsted.ac.uk/resources/disease/genid/8ab20203bbe4bfcffefca576275d16d5f74fa955
-http://oip.rothamsted.ac.uk/resources/disease/genid/da0f41e261829878c1f892e992e122400a58a9bb
-http://oip.rothamsted.ac.uk/resources/disease/genid/82a2680aaffcea134be0e830126b8667304fd2f7
-http://oip.rothamsted.ac.uk/resources/disease/genid/bbbe462a7b0cd9d2c5ba5d1e5a41f1d9a954281d
-http://oip.rothamsted.ac.uk/resources/disease/genid/79684acda782d7577b1ec9026b5e7e2a3b7ea7eb
-http://oip.rothamsted.ac.uk/resources/disease/genid/124817fa7bdab2c33f808972ff86ada7dd496bfc
-http://oip.rothamsted.ac.uk/resources/disease/genid/87c9c695bbb5a7a153c3977b212b610869327b71
-http://oip.rothamsted.ac.uk/resources/disease/genid/47ee4c214c437a10a0ee42895604d7ed6de11e9b
-http://oip.rothamsted.ac.uk/resources/disease/genid/0d4d38dd72b600db920b8c546d3ab0fc4d13d5a4
-http://oip.rothamsted.ac.uk/resources/disease/genid/e2188b5daed64c3ffea94ebdef03e027e7ca3540
-http://oip.rothamsted.ac.uk/resources/disease/genid/59b29f4b830aedb94c5ade6cb38e0d42fec3690b
-http://oip.rothamsted.ac.uk/resources/disease/genid/722b0a8cd5599fe337459ad7649b7a4d654f2ced
-http://oip.rothamsted.ac.uk/resources/disease/genid/6674bb005d894ce0d09dac7a0e1b2456487eb2a8
-http://oip.rothamsted.ac.uk/resources/disease/genid/983fe3d6f5b12971f8a9ea180f78ef10276e2a65
-http://oip.rothamsted.ac.uk/resources/disease/genid/7167eb22b885740b210b010daff6558da5d65fb4
-http://oip.rothamsted.ac.uk/resources/disease/genid/c59b2849dee18bc05244569cecedfabc9cd23a33
-http://oip.rothamsted.ac.uk/resources/disease/genid/3dd7cb089ef7f224f19071ee3a5410daddbe9464
-http://oip.rothamsted.ac.uk/resources/disease/genid/8bb1153bd107a08ea28ca64923214a16427204bc
-http://oip.rothamsted.ac.uk/resources/disease/genid/9041a03a684377592975a0999f51c723d2fe6015
-http://oip.rothamsted.ac.uk/resources/disease/genid/c5df28faf20873eff00594d339ea1a42792f6649
-http://oip.rothamsted.ac.uk/resources/disease/genid/7033f9053417f98f3e7a7eb2de671ed4cdd6f3f7
-http://oip.rothamsted.ac.uk/resources/disease/genid/68dd45c36d4061677dd463ec6ba39bfcd9fa3d26
-http://oip.rothamsted.ac.uk/resources/disease/genid/ea9a5b5b0a57473728a9e3cf71a80adaf289d1ab
-http://oip.rothamsted.ac.uk/resources/disease/genid/cecc7cfba986fdf103859d08936bab3d83ee26c8
-http://oip.rothamsted.ac.uk/resources/disease/genid/29db96ec6fc5473db9012097d5f5c1f504a6a4ca
-http://oip.rothamsted.ac.uk/resources/disease/genid/859d4fceb85c7ad94f4276b433d522debbbb7652
-http://oip.rothamsted.ac.uk/resources/disease/genid/d994c651ed30c00f819efa760b55185c7da32dd6
-http://oip.rothamsted.ac.uk/resources/disease/genid/d5655e81efe6b3c5428430148ef956a7fdb827bb
-http://oip.rothamsted.ac.uk/resources/disease/genid/a2b1cab71d007d7189aba0ed449ed5bff352a8ec
-http://oip.rothamsted.ac.uk/resources/disease/genid/7a1ece42b0b1d0dd16f428958960bacb02c79c9b
-http://oip.rothamsted.ac.uk/resources/disease/genid/cf951afff1b4404237bb65b6c7b42500d2e4f12a
-http://oip.rothamsted.ac.uk/resources/disease/genid/82afd6f5a50b923e30203cffb52022d3a4deab2e
-http://oip.rothamsted.ac.uk/resources/disease/genid/0201e9db2c13c13c2eb68cd11530c61fae9f962b
-http://oip.rothamsted.ac.uk/resources/disease/genid/f53ffe9ccbdf705c164fc54ee1d3ad1812110c3b
-http://oip.rothamsted.ac.uk/resources/disease/genid/9172c54364660c8b2a731adad8886131509b5f0c
-http://oip.rothamsted.ac.uk/resources/disease/genid/2076427ca80a4b9632297aed50a9c1f02b9b2fcb
-http://oip.rothamsted.ac.uk/resources/disease/genid/ed0e9860795505098cd3a54519e350fb20efa751
-http://oip.rothamsted.ac.uk/resources/disease/genid/281abbd7fe8f738a2ddf0f9c40d6a703e6f36ba5
-http://oip.rothamsted.ac.uk/resources/disease/genid/f7f41fe20d1a2713451cb2bca049058c5374ee6b
-http://oip.rothamsted.ac.uk/resources/disease/genid/b38b70384ac5b4bb666ebdaa146382117f92db86
-http://oip.rothamsted.ac.uk/resources/disease/genid/47f3cace7ce0f2a1d3a704aedc2c193b5577120d
-http://oip.rothamsted.ac.uk/resources/disease/genid/2da6c1f0d8c071834464319fb5c4a6beec146ffd
-http://oip.rothamsted.ac.uk/resources/disease/genid/252f0eb14880b6196159d7cfda265cb2f67e4f5c
-http://oip.rothamsted.ac.uk/resources/disease/genid/675705eb734c24b9ef169351d5fbf7094dbb71ba
-http://oip.rothamsted.ac.uk/resources/disease/genid/457ab182582d1522d973287619bf45103db05e58
-http://oip.rothamsted.ac.uk/resources/disease/genid/c9c1b79b99083a92ae0bb9cfeb0c026807543388
-http://oip.rothamsted.ac.uk/resources/disease/genid/954466d3bd385801c63599a3cb4d09bdcb431c93
-http://oip.rothamsted.ac.uk/resources/disease/genid/8651bd755b72f60b797bc492a474389dcc9371a2
-http://oip.rothamsted.ac.uk/resources/disease/genid/d3a049309146b6d2d995b01963d8097859e98d42
-http://oip.rothamsted.ac.uk/resources/disease/genid/a57b77643e8aaf379aee2feb03c4ba2a5a269fd9
-http://oip.rothamsted.ac.uk/resources/disease/genid/a3157bd498c6a2513373af126b031f80c5a95bd3
-http://oip.rothamsted.ac.uk/resources/disease/genid/d237cc4dad7b027b08cc312ad1a7bca8b925d037
-http://oip.rothamsted.ac.uk/resources/disease/genid/24a47182c9270fc290e3b67c48106a8435828170
-http://oip.rothamsted.ac.uk/resources/disease/genid/19e84eaf86d1040a2716dc0f9d276adc8287e8e1
-http://oip.rothamsted.ac.uk/resources/disease/genid/bf82bd0370f605aed2c80b13c3cfde9f1b263f48
-http://oip.rothamsted.ac.uk/resources/disease/genid/21e2afa3773a4f4a1fd7cecb3d273003059c89fb
-http://oip.rothamsted.ac.uk/resources/disease/genid/e741b774c97a85952cddd63e7a6a4a67d0837fe1
-http://oip.rothamsted.ac.uk/resources/disease/genid/941e2f0c0ce3c6d26123a030afefab4f265194cb
-http://oip.rothamsted.ac.uk/resources/disease/genid/b05ad72b8546d29dce17d50bd1f69640cb5d68f8
-http://oip.rothamsted.ac.uk/resources/disease/genid/4855b15ed72d6f46ef79e068c5f123a195d4c994
-http://oip.rothamsted.ac.uk/resources/disease/genid/637c7816806c4a9461725ab2970da8fdca0460a4
-http://oip.rothamsted.ac.uk/resources/disease/genid/4903532daf6aeacb5b8c42365bfa02760233a338
-http://oip.rothamsted.ac.uk/resources/disease/genid/dc20ddb9cc8d96ae8ed029ce04f1148f7acf9dac
-http://oip.rothamsted.ac.uk/resources/disease/genid/aef3ca89cd18f9265c1b5fcd6000bcac99739032
-http://oip.rothamsted.ac.uk/resources/disease/genid/95aa4d36b5f41b8b744bf191d439a5d1c7f28c08
-http://oip.rothamsted.ac.uk/resources/disease/genid/8f0e77e4c85c5adee21858b39aeaac8fd109fe0d
-http://oip.rothamsted.ac.uk/resources/disease/genid/91323415cf86cd792db3a7aa8fe6041677303514
-http://oip.rothamsted.ac.uk/resources/disease/genid/982374e567a830cc468289eef682dfdd851bac15
-http://oip.rothamsted.ac.uk/resources/disease/genid/e12e061a25e84e4df4b95f4a65d6b48be8195cd5
-http://oip.rothamsted.ac.uk/resources/disease/genid/9372bdd0934d350ed0eb20806e902e7e7f324eba
-http://oip.rothamsted.ac.uk/resources/disease/genid/9548be38f989903a144c6740e5fecbefc10154f6
-http://oip.rothamsted.ac.uk/resources/disease/genid/1bc7b72e6239d090231dd15a6efc4af24b38d27a
-http://oip.rothamsted.ac.uk/resources/disease/genid/54add13e22768feb756b4a5a9e72360b395bc091
-http://oip.rothamsted.ac.uk/resources/disease/genid/572fc77ad86519bd4dce552468593bd5e94e7cab
-http://oip.rothamsted.ac.uk/resources/disease/genid/f08d81a22b7eeaa4a3e32bb6680a31fa931325de
-http://oip.rothamsted.ac.uk/resources/disease/genid/2d36510f867de0095a25329e19caea304fd7f525
-http://oip.rothamsted.ac.uk/resources/disease/genid/f928003b06f8897239e7f06d0b63ce0483ba7f0b
-http://oip.rothamsted.ac.uk/resources/disease/genid/00e83fb51e6a4070f85bafa404d82b28a6aea3a3
-http://oip.rothamsted.ac.uk/resources/disease/genid/73decfaf05b708598acf80384aff1be70c57f41a
-http://oip.rothamsted.ac.uk/resources/disease/genid/28b0b90f66caee588873014555a031f7a983ea5c
-http://oip.rothamsted.ac.uk/resources/disease/genid/3a21d58a9a60aa7c1022ff18dec6ab75793234e8
-http://oip.rothamsted.ac.uk/resources/disease/genid/f28b0bff228a3cb24779bba8c696fe1ea8bca3df
-http://oip.rothamsted.ac.uk/resources/disease/genid/d3aee494b7e1f178efdb5b535bd77a63522a31e5
-http://oip.rothamsted.ac.uk/resources/disease/genid/bd91f9ad2d97b68dceb12fdb10f81cb6e074de00
-http://oip.rothamsted.ac.uk/resources/disease/genid/1ea312c47546bdaff3cf718f4513613135ac11e9
-http://oip.rothamsted.ac.uk/resources/disease/genid/cacef942ccb3dbe59023e1d3cd716e248f857332
-http://oip.rothamsted.ac.uk/resources/disease/genid/4d9f470db89928c90930b605eb7b0daee91e55bc
-http://oip.rothamsted.ac.uk/resources/disease/genid/c72e3b6a6520fc8f0233d3a93ce5f5f04c7d93f2
-http://oip.rothamsted.ac.uk/resources/disease/genid/2c60be056ccfb8f8dcaa39d4f28c5e9dbc965afb
+meningitis
+septicaemia
+otitis media
+pneumonia
+bacterial leaf blight
+disseminated candidiasis
+food poisoning
+rice blast
+vascular wilt
+tularemia
+fusarium head blight
+tuberculosis
+panicle blight
+bacterial leaf streak
+fusarium ear blight
+nosocomial infections
+maize stalk rot
+fire blight
+corn smut
+gray mold
+blackleg disease of the plant stem
+rotting of tubers
+maize smut disease
+southern corn leaf blight
+candidiasis
+invasive pulmonary aspergillosis
+soybean stem and root rot
+diarrhea
+cellulitis and swollen head syndrome
+colibacillosis
+chagas disease
+respiratory diseases
+skin infections
+crown gall of grapes
+grey mold rot
+bacterial specks
+black spot of pear
+gastrointestinal diseases and local and systemic infections
+cholera
+downy mildew
+bacterial speck of tomato
+grey mould fungus
+leaf spot disease
+leaf blight
+brown spot
+citrus canker
+aspergillosis
+common scab of potato
+black spot disease
