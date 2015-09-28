@@ -314,7 +314,7 @@
 	                       
 	                       switch ($qs_search_for):
 				     case "All":
-					$sparql = "select * where {?S ?O ?P} limit 20";
+					$sparql = "select * where {?S ?P ?O} limit 100 order by \"?$qs_order_by\"";
 					break;
 				     case "gene_name":
 				        //echo "gene_name";
@@ -322,7 +322,9 @@
                                                    ?item a :gene .
                                                   ?item text:query \"$qs_search_text\" .    
                                                   ?item rdfs:label ?label .
-                                                  }";
+                                                  }
+                                                  order by \"?$qs_order_by\"
+                                                  ";
 					break;	
 					
 				      case "host":
@@ -330,7 +332,9 @@
                                                     ?interaction :has_host ?item .
                                                     ?item text:query \"$qs_search_text\" .    
                                                     ?item rdfs:label ?label .
-                                                  }";
+                                                  }
+                                                  order by \"?$qs_order_by\"
+                                                  ";
 				      break;
 				      
 				      case "pubmedID":
@@ -339,7 +343,9 @@
                                                     ?item :is_about ?interaction .
                                                     ?item text:query \"$qs_search_text\" .    
                                                     ?item rdfs:label ?label .
-                                                  }";
+                                                  }
+                                                  order by \"?$qs_order_by\"
+                                                  ";
 				      break;	
 				    // case "pubmedAcc":					
 					//$relation = "pubmedAcc";
