@@ -7,3 +7,6 @@
 - endpoint.txt has a preset endpoint name (only 1st line will be read)
 - fill_sparql.js has js code to handle clicking on labels and automatically filling the sparql area (Click on the text at the bottom of the form!)
 - auto filling still has alignment/spacing issues, I'll fix these later!
+
+More information about this project is avaialbe at http://oip.rothamsted.ac.uk/wiki/Main_Page 
+
